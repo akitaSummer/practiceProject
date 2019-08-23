@@ -1,3 +1,4 @@
+// 字典
 function Dictionary() {
     this.datatore = new Array()
     this.add = add
