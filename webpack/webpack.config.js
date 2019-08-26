@@ -25,4 +25,7 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        contentBase: 'dist/js', // 默认路径是根目录下的index.html
+    },
 }
