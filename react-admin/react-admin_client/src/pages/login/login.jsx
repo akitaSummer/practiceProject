@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button } from 'antd'
+
+import { reqLogin } from '../../api'
 
 import './login.less'
 
@@ -23,9 +25,18 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log('Received values of form', values)
+        const {username, password} = values
+        // 请求登录
+        // try {
+        //   const response = await reqLogin(username, password)
+        //   console.log('请求成功', response)
+        // } catch(error) {
+        //   console.log('请求出错了')
+        // }
+        const response = await reqLogin(username, password)
+        console.log('请求成功', response)
       } else {
         console.log('校验失败!')
       }
