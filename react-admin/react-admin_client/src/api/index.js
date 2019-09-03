@@ -8,6 +8,12 @@ import ajax from './ajax'
 export const reqLogin = (username, password) => ajax('/login', {username, password}, 'POST')
 // 添加用户
 export const reqAddUser = (user) => ajax('/manage/user/add', user, 'POST')
+// 获取分类列表
+export const reqCategorys = (parentId) => ajax('/manage/category/list', {parentId})
+// 添加分类
+export const reqAddCategory = (categoryName, parentId) => ajax('/manage/category/add', {categoryName, parentId}, 'POST')
+// 更新分类
+export const reqUpdateCategorys = (categoryId, categoryName) => ajax('/manage/category/update', {categoryId, categoryName})
 
 
 // json 请求的接口请求函数
