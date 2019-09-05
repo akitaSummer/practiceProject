@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
-import {Card, Select, Input, Button, Icon, Table, Form} from 'antd'
+import {
+  Card,
+  Select,
+  Input,
+  Button,
+  Icon,
+  Table,
+  Form
+} from 'antd'
 
 import LinkButton from '../../components/link-button'
+import {reqProducts} from "../../api"
+import {PAGE_SIZE} from '../../utils/constants'
 
 const Item = Form.Item
 const Option = Select.Option
@@ -9,9 +19,12 @@ const Option = Select.Option
 export default class ProductHome extends Component {
 
   state = {
+    total: 0, // 商品的总数量
     product: [], // 商品的数组
+    loading: false, // 是否正在加载中
   }
 
+  // 初始化table的列的数组
   initColumns = () => {
     this.columns = [
       {
@@ -55,13 +68,31 @@ export default class ProductHome extends Component {
     ]
   }
 
+  // 获取指定页码的列表数据显示
+  getProducts = async (pageNum) => {
+    this.setState({loading: true}) // 显示loading
+    const result = await reqProducts(pageNum, PAGE_SIZE)
+    this.setState({loading: false}) // 隐藏loading
+    if (result.status === 0) {
+      const {total, list} = result.data
+      this.setState({
+        total,
+        products: list
+      })
+    }
+  }
+
   componentWillMount() {
     this.initColumns()
   }
 
+  componentDidMount() {
+    this.getProducts(1)
+  }
+
   render () {
 
-    const {product} = this.state
+    const {total, product, loading} = this.state
     const {columns} = this
 
     const title = (
@@ -85,7 +116,19 @@ export default class ProductHome extends Component {
     return (
       <div>
         <Card title={title} extra={extra}>
-          <Table bordered dataSource={product} columns={columns} rowKey='_id'></Table>
+          <Table
+            bordered
+            loading={loading}
+            dataSource={product}
+            columns={columns}
+            rowKey='_id'
+            pagination={{
+              total,
+              defaultPageSize: PAGE_SIZE,
+              showQuickJumper: true,
+              onChange: this.getProducts
+            }}
+          ></Table>
         </Card>
       </div>
     )

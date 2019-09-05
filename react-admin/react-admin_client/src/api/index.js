@@ -14,7 +14,8 @@ export const reqCategorys = (parentId) => ajax('/manage/category/list', {parentI
 export const reqAddCategory = (categoryName, parentId) => ajax('/manage/category/add', {categoryName, parentId}, 'POST')
 // 更新分类
 export const reqUpdateCategorys = (categoryId, categoryName) => ajax('/manage/category/update', {categoryId, categoryName})
-
+// 获取商品分页列表
+export const reqProducts = (pageNum, pageSize) => ajax('/manage/product/list', {pageNum, pageSize})
 
 // json 请求的接口请求函数
 /*
