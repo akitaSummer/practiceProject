@@ -20,6 +20,8 @@ export const reqProducts = (pageNum, pageSize) => ajax('/manage/product/list', {
 export const reqSearchProducts = ({pageNum, pageSize, searchName, searchType}) => ajax('/manage/product/search', {pageNum, pageSize, [searchType]: searchName})
 // 获取一个分类
 export const reqCategory = ({categoryId}) => ajax('/manage/category/ingo', {categoryId})
+// 更新商品的状态(上架/下架)
+export const reqUpdateStatus = ({productId, status}) => ajax('/manage/product/updateStatus', {productId, status}, 'POST')
 
 // json 请求的接口请求函数
 /*
