@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Card, Form, Input, Cascader, Upload, Button, Icon } from 'antd'
 
 import LinkButton from '../../components'
+import { reqCategorys } from '../../api'
 
 const { Item } = Form
 const { TextArea } = Input
@@ -9,14 +10,62 @@ const { TextArea } = Input
 // Product的添加和更新的子路由
 class ProductAddUpdate extends Component {
 
-  state = {}
+  state = {
+    options: []
+  }
+
+  initOptions = (categorys) => {
+    // 根据categorys生成options数组
+    const options = categorys.map(c => ({
+      value: c._id,
+      label: c.name,
+      isLeaf: false, // 不是叶子
+    }))
+    // 更新options状态
+    this.setState({
+      options,
+    })
+  }
+
+  // 获取一级/二级分类列表
+  getCategorys = async (parentId) => {
+    const result = await reqCategorys(parentId) // {status: 0, data:categorys }
+    if (result.status === 0) {
+      const categorys = result.data
+      // 如果是一级分类列表
+      if (parentId === '0') {
+        this.initOptions(categorys)
+      } else {
+        // 二级列表
+        return categorys // 返回二级列表
+      }
+    }
+  }
 
   // 用于加载下一级列表的回调函数
-  loadData = selectedOptions => {
+  loadData = async selectedOptions => {
     // 得到选择的对象
     const targetOption = selectedOptions[0]
     // loading效果
     targetOption.loading = true
+    // 根据选中的分类获取二级分类列表
+    const subCategorys = await this.getCategorys(targetOption.value)
+    // 隐藏loading
+    targetOption.loading = false
+    if (subCategorys && subCategorys.length > 0) {
+      const childOptions = subCategorys.map(c => ({
+        value: c._id,
+        label: c.name,
+        isLeaf: true
+      }))
+      // 关联到当前option上
+      targetOption.children = childOptions
+    } else {
+      targetOption.isLeaf = true
+    }
+    this.setState({
+      options: [...this.state.options]
+    })
   }
 
   // 验证价格的自定义函数
@@ -35,6 +84,10 @@ class ProductAddUpdate extends Component {
         alert('发送ajax请求')
       }
     })
+  }
+
+  componentDidMount() {
+    this.getCategorys()
   }
 
   render () {
