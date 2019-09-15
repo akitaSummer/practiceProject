@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Form, Input, Cascader, Upload, Button, Icon } from 'antd'
 
+import PictureWall from './pictures-wall'
 import LinkButton from '../../components'
 import { reqCategorys } from '../../api'
 
@@ -14,13 +15,31 @@ class ProductAddUpdate extends Component {
     options: []
   }
 
-  initOptions = (categorys) => {
+  initOptions = async (categorys) => {
     // 根据categorys生成options数组
     const options = categorys.map(c => ({
       value: c._id,
       label: c.name,
       isLeaf: false, // 不是叶子
     }))
+
+    // 如果是一个二级分类商品的更新
+    const {isUpdate, product} = this
+    const {pCategoryId, categoryId} = product
+    if (isUpdate && pCategoryId !== 0) {
+      // 获取对应的二级分类列表
+      const subCategorys = await this.getCategorys(pCategoryId)
+      // 生成二级下拉列表的options
+      const childOptions = subCategorys.map(c => ({
+        value: c._id,
+        label: c.name,
+        isLeaf: true
+      }))
+      // 关联到对应的一级option上
+      const targetOption = options.find(option => option.value === pCategoryId)
+      targetOption.children = childOptions
+    }
+
     // 更新options状态
     this.setState({
       options,
@@ -86,11 +105,30 @@ class ProductAddUpdate extends Component {
     })
   }
 
+  componentWillMount() {
+    // 取出携带的state
+    const product = this.props.location.state // 如果是添加则没值, 否则有值
+    // 保存是否是更新的标识
+    this.isUpdate = !!product
+    // 保存商品, 如果没有则为空对象
+    this.product = product || {}
+  }
+
   componentDidMount() {
     this.getCategorys()
   }
 
   render () {
+    const {isUpdate, product} = this
+    const {pCategoryId, categoryId} = product
+    // 用来接收级联分类ID的数组
+    const categoryIds = []
+    if (isUpdate) {
+      categoryIds.push(pCategoryId)
+      if (pCategoryId !== '0') {
+        categoryIds.push(categoryId)
+      }
+    }
     // 指定Item布局的配置对象
     const formItemLayout = {
       labelCol: {span: 2}, // 左侧label的宽度
@@ -98,9 +136,10 @@ class ProductAddUpdate extends Component {
     }
     const title = (
       <span>
-        <LinkButton>
+        <LinkButton onClick={() => this.props.history.goBack()}>
           <Icon type='arrow-left' style={{fontSize: 20}}></Icon>
         </LinkButton>
+        <span>{isUpdate ? '修改商品' : '添加商品'}</span>
       </span>
     )
 
@@ -113,7 +152,7 @@ class ProductAddUpdate extends Component {
             <Item label='商品名称'>
               {
                 getFieldDecorator('name', {
-                  initialValue: '',
+                  initialValue: product.name,
                   rules: [
                     {required: true, message: '必须输入商品名称'}
                   ]
@@ -123,7 +162,7 @@ class ProductAddUpdate extends Component {
             <Item label='商品描述'>
               {
                 getFieldDecorator('desc', {
-                  initialValue: '',
+                  initialValue: product.desc,
                   rules: [
                     {required: true, message: '必须输入商品描述'}
                   ]
@@ -133,7 +172,7 @@ class ProductAddUpdate extends Component {
             <Item label='商品价格'>
               {
                 getFieldDecorator('price', {
-                  initialValue: '',
+                  initialValue: product.price,
                   rules: [
                     {required: true, message: '必须输入商品名称'},
                     {validator: this.validatePrice}
@@ -142,13 +181,21 @@ class ProductAddUpdate extends Component {
               }
             </Item>
             <Item label='商品分类'>
-              <Cascader
-                options={this.state.options}
-                loadData={this.loadData}
-              />
+              {
+                getFieldDecorator('categoryIds', {
+                  initialValue: categoryIds,
+                  rules: [
+                    {required: true, message: '必须指定商品分类'}
+                  ]
+                })(<Cascader
+                  placeholder='请指定商品分类'
+                  options={this.state.options}
+                  loadData={this.loadData}
+                />)
+              }
             </Item>
             <Item label='商品图片'>
-              <div></div>
+              <PictureWall/>
             </Item>
             <Item label='商品详情'>
               <div></div>
