@@ -22,7 +22,8 @@ export const reqSearchProducts = ({pageNum, pageSize, searchName, searchType}) =
 export const reqCategory = ({categoryId}) => ajax('/manage/category/ingo', {categoryId})
 // 更新商品的状态(上架/下架)
 export const reqUpdateStatus = ({productId, status}) => ajax('/manage/product/updateStatus', {productId, status}, 'POST')
-
+// 图片删除接口
+export const reqDeleteImg = (name) => ajax('/manage/img/delete', {name}, 'POST')
 // json 请求的接口请求函数
 /*
 jsonp解决ajax跨域的原理

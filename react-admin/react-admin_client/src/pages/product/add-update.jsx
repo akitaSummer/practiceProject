@@ -15,6 +15,12 @@ class ProductAddUpdate extends Component {
     options: []
   }
 
+  constructor(props) {
+    super(props)
+    // 创建用来保存ref标识的标签对象的容器
+    this.pw = React.createRef()
+  }
+
   initOptions = async (categorys) => {
     // 根据categorys生成options数组
     const options = categorys.map(c => ({
@@ -100,6 +106,7 @@ class ProductAddUpdate extends Component {
     // 进行表单验证, 如果通过了, 发送请求
     this.props.form.validateFields((error, values) => {
       if (!error) {
+        this.pw.current.getImgs()
         alert('发送ajax请求')
       }
     })
@@ -120,7 +127,7 @@ class ProductAddUpdate extends Component {
 
   render () {
     const {isUpdate, product} = this
-    const {pCategoryId, categoryId} = product
+    const {pCategoryId, categoryId, imgs} = product
     // 用来接收级联分类ID的数组
     const categoryIds = []
     if (isUpdate) {
@@ -195,7 +202,7 @@ class ProductAddUpdate extends Component {
               }
             </Item>
             <Item label='商品图片'>
-              <PictureWall/>
+              <PictureWall ref={this.pw} imgs={imgs}/>
             </Item>
             <Item label='商品详情'>
               <div></div>
@@ -211,3 +218,6 @@ class ProductAddUpdate extends Component {
 }
 
 export default Form.create()(ProductAddUpdate)
+
+// 子组件调用父组件的方法: 将父组件的方法以函数属性的形式传递给子组件, 子组件就可以调用
+// 父组件调用子组件的方法: 在父组件中, 通过ref得到子组件标签对象
