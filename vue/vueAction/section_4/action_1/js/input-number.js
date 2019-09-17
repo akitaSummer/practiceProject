@@ -1,9 +1,10 @@
 Vue.component('input-number', {
     template: `
         <div class='input-number'>
-            <input type='text' :value='currentValue' @change='handleChange'/>
+            <input type='text' :value='currentValue' @keydown='handleKey' @change='handleChange'/>
             <button @click='handleDown' :disabled='currentValue <= min'>-</button>
             <button @click='handleUp' :disabled='currentValue >= max'>+</button>
+            <input type='text' v-model.number='number' :style='{width: 20 + "px"}' />
         </div>
     `,
     props: {
@@ -22,7 +23,8 @@ Vue.component('input-number', {
     },
     data() {
         return {
-            currentValue: this.value
+            currentValue: this.value,
+            number: 0,
         }
     },
     watch: {
@@ -59,13 +61,21 @@ Vue.component('input-number', {
             }
         },
         handleDown() {
-            if (this.currentValue <= this.min) return
-            this.currentValue--
+            this.currentValue -= this.number
+            if (this.currentValue <= this.min) this.currentValue = this.min
         },
         handleUp() {
-            console.log(1)
-            if (this.currentValue >= this.max) return
-            this.currentValue++
+            this.currentValue += this.number
+            if (this.currentValue >= this.max) this.currentValue = this.max
+        },
+        handleKey(event) {
+            if (event.keyCode === 38) {
+                event.preventDefault()
+                this.handleUp()
+            } else if (event.keyCode === 40) {
+                event.preventDefault()
+                this.handleDown()
+            }
         }
     },
     mounted() {
