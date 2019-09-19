@@ -32,7 +32,7 @@ Vue.component('tabs', {
             return [
                 'tabs-tab',
                 {
-                    'tabs-tab-active': item.name === this.currentValue
+                    'tabs-tab-active': item.name == this.currentValue
                 }
             ]
         },
@@ -40,6 +40,7 @@ Vue.component('tabs', {
             const nav = this.navList[index]
             const name = nav.name
             this.currentValue = name
+            this.updateStatus()
             this.$emit('input', name)
             this.$emit('on-click', name)
         },
@@ -59,25 +60,26 @@ Vue.component('tabs', {
                     pane.name = index
                 }
                 if (index === 0) {
-                    if (this.currentValue) {
+                    if (!this.currentValue) {
                         this.currentValue = pane.name || index
                     }
                 }
             })
+            console.log(this.currentValue)
             this.updateStatus()
         },
         updateStatus() {
             this.getTabs().forEach((tab) => {
-                return tab.show = tab.name === this.currentValue
+                return tab.show = tab.name == this.currentValue
             })
         }
     },
-    watch: {
-        value(val) {
-            this.currentValue = val
-        },
-        currentValue() {
-            this.updateStatus()
-        }
-    }
+    // watch: {
+    //     value(val) {
+    //         this.currentValue = val
+    //     },
+    //     currentValue() {
+    //         this.updateStatus()
+    //     }
+    // }
 })
