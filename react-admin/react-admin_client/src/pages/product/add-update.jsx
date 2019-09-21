@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Card, Form, Input, Cascader, Upload, Button, Icon } from 'antd'
+import { Card, Form, Input, Cascader, Upload, Button, Icon, message } from 'antd'
 
 import PictureWall from './pictures-wall'
 import RichTextEditor from './rich-text-editor'
 import LinkButton from '../../components'
-import { reqCategorys } from '../../api'
+import { reqCategorys, reqAddOrUpdateProduct } from '../../api'
 
 const { Item } = Form
 const { TextArea } = Input
@@ -106,10 +106,33 @@ class ProductAddUpdate extends Component {
 
   submit = () => {
     // 进行表单验证, 如果通过了, 发送请求
-    this.props.form.validateFields((error, values) => {
+    this.props.form.validateFields( async (error, values) => {
       if (!error) {
-        this.pw.current.getImgs()
-        this.editor.current.getDetail()
+        // 收集数据封装成product对象
+        const {name, desc, price, categoryIds} = values
+        let pCategoryId, categoryId
+        if (categoryIds.length === 1) {
+          pCategoryId = 0
+          categoryId = categoryIds[0]
+        } else {
+          pCategoryId = categoryIds[0]
+          categoryId = categoryIds[1]
+        }
+        const imgs = this.pw.current.getImgs()
+        const detail = this.editor.current.getDetail()
+        const product = {name, desc, price, categoryId, pCategoryId, imgs, detail}
+        if (this.isUpdate) {
+          product._id = this.product._id
+        }
+        // 调用接口请求函数去添加/更新
+        const result = await reqAddOrUpdateProduct(product)
+        // 根据结果提示
+        if (result.status === 0) {
+          message.success(`${this.isUpdate ? '更新' : '新建'}商品成功!`)
+          this.props.history.goBack()
+        } else {
+          message.error(`${this.isUpdate ? '更新' : '新建'}商品失败!`)
+        }
         alert('发送ajax请求')
       }
     })

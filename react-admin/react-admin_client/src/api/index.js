@@ -24,6 +24,11 @@ export const reqCategory = ({categoryId}) => ajax('/manage/category/ingo', {cate
 export const reqUpdateStatus = ({productId, status}) => ajax('/manage/product/updateStatus', {productId, status}, 'POST')
 // 图片删除接口
 export const reqDeleteImg = (name) => ajax('/manage/img/delete', {name}, 'POST')
+// 添加/添加商品
+export const reqAddOrUpdateProduct = (product) => ajax(`/manage/product/${product._id ? 'update' : 'add'}`, product, 'POST')
+// 修改商品
+// export const reqUpdateProduct = (product) => ajax('/manage/product/update', product, 'POST')
+//
 // json 请求的接口请求函数
 /*
 jsonp解决ajax跨域的原理
