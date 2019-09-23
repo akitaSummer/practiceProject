@@ -28,7 +28,11 @@ export const reqDeleteImg = (name) => ajax('/manage/img/delete', {name}, 'POST')
 export const reqAddOrUpdateProduct = (product) => ajax(`/manage/product/${product._id ? 'update' : 'add'}`, product, 'POST')
 // 修改商品
 // export const reqUpdateProduct = (product) => ajax('/manage/product/update', product, 'POST')
-//
+// 获取所有角色列表
+export const reqRoles = () => ajax('/manage/role/list')
+// 添加角色
+export const reqAddRole = (roleName) => ajax('/manage/role/add', {roleName}, 'POST')
+
 // json 请求的接口请求函数
 /*
 jsonp解决ajax跨域的原理
