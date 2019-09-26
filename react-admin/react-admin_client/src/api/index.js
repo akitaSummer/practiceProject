@@ -8,6 +8,8 @@ import ajax from './ajax'
 export const reqLogin = (username, password) => ajax('/login', {username, password}, 'POST')
 // 添加用户
 export const reqAddUser = (user) => ajax('/manage/user/add', user, 'POST')
+// 更新角色
+export const reqUpdateRole = (role) => ajax('/manage/role/update', role, 'POST')
 // 获取分类列表
 export const reqCategorys = (parentId) => ajax('/manage/category/list', {parentId})
 // 添加分类
