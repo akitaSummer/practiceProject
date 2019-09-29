@@ -10,12 +10,22 @@
 </head>
 
 <body>
-    <div id="app">
-        <input type="checkbox" name='hobby' value='read' v-model='hobby' />读书
-        <input type="checkbox" name='hobby' value='backball' v-model='hobby' />打篮球
-        <input type="checkbox" name='hobby' value='football' v-model='hobby' />踢足球
+    <div id="app" v-cloak>
+        <div class="main">
+            <Com :questions='questions' :index='index'></Com>
+            <div class="bottom">
+                <mybutton color="blue" :able='!able' v-onclick:next="index" :key='index'>{{index
+                    < questions.length - 1 ? '下一步' : '提交'}}</mybutton>
+                        <mybutton color="white" v-show="index > 0" v-onclick:last="index" :key='index'>上一步</mybutton>
+                        <mybutton color="white" v-onclick:reset="index" :key='index'>重置</mybutton>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="./js/changeindex.js"></script>
+    <script src="./js/button.js"></script>
+    <script src="./js/component.js"></script>
     <script src="./js/index.js"></script>
 </body>
 
