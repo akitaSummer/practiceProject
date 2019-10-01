@@ -6,6 +6,7 @@ import AddForm from './add-form'
 import AuthForm from './auth-form'
 import memoryUtils from "../../utils/memoryUtils"
 import { formateDate } from '../../utils/dateUtils'
+import storageUtils from "../../utils/storageUtils";
 
 // 商品分类路由
 export default class Role extends Component {
@@ -37,10 +38,18 @@ export default class Role extends Component {
       this.setState({
         isShowAuth: false
       })
-      message.success('更新状态成功')
-      this.setState({
-        roles: [...this.state.roles]
-      })
+      // 如果更新的是自己角色的权限, 强制退出
+      if (role._id === memoryUtils.user.role_id) {
+        message.success('当前用户角色权限修改了, 重新登录')
+        memoryUtils.user = {}
+        storageUtils.removeUser()
+        this.props.history.replace('/login')
+      } else {
+        message.success('更新状态成功')
+        this.setState({
+          roles: [...this.state.roles]
+        })
+      }
     }
   }
 
@@ -156,7 +165,7 @@ export default class Role extends Component {
           pagination={{
             defaultPageSize: PAGE_SIZE
           }}
-          rowSelection={{type: 'radio', selectedRowKeys: [role._id]}}
+          rowSelection={{type: 'radio', selectedRowKeys: [role._id], onSelect: (role) => {this.setState({role})}}}
           onRow={this.onRow}
         />
         <Modal
