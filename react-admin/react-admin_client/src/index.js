@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './app'
+import store from './redux/store'
 
-import memoryUtils from './utils/memoryUtils'
-import storageUtils from './utils/storageUtils'
-import App from './App'
-
-memoryUtils.user = storageUtils.getUser()
-
-ReactDOM.render(<App/>, document.getElementById('root'))
+ReactDOM.render(<App store={store}/>, document.getElementById('root'))
+store.subscribe(() => {
+  ReactDOM.render(<App store={store}/>, document.getElementById('root'))
+}
+)
