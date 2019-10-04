@@ -1,10 +1,8 @@
 import {INCREMENT, DECREMENT} from './action-type'
 
-export const action = {
-  increment(data) {
-    return {type: INCREMENT, data}
-  },
-  decrement(data) {
-    return {type: DECREMENT, data}
-  }
+export const incrementRedux = (data) => {
+  return {type: INCREMENT, data}
+}
+export const decrementRedux = (data) => {
+  return {type: DECREMENT, data}
 }
