@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 // UI组件
 // 主要做显示与用户交互
 // 代码中没有任何redux相关的代码
-export default function App({count, incrementRedux, decrementRedux}) {
+export default function App({count, incrementRedux, decrementRedux, incrementAsyncRedux}) {
   App.propTypes = {
     count: PropTypes.number.isRequired,
     incrementRedux: PropTypes.func.isRequired,
-    decrementRedux: PropTypes.func.isRequired
+    decrementRedux: PropTypes.func.isRequired,
+    incrementAsyncRedux: PropTypes.func.isRequired,
   }
   const refVal = useRef()
 
@@ -21,15 +22,13 @@ export default function App({count, incrementRedux, decrementRedux}) {
   }
 
   const incrementOdd = () => {
-    if (this.count % 2 === 1) {
+    if (count % 2 === 1) {
       incrementRedux(refVal.current.value * 1)
     }
   }
 
   const incrementAsync = () => {
-    setTimeout(() => {
-      incrementRedux(refVal.current.value * 1)
-    }, 1000)
+    incrementAsyncRedux(refVal.current.value * 1)
   }
 
   return (
