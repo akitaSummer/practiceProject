@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import {connect} from 'react-redux'
 
 import Counter from '../components/Conuter'
-import {incrementRedux, decrementRedux} from '../redux/actions'
+import {incrementRedux, decrementRedux, incrementAsyncRedux} from '../redux/actions'
 
 // 容器组件: 通过connect包装UI组件产生
 
@@ -30,6 +30,6 @@ import {incrementRedux, decrementRedux} from '../redux/actions'
 // )(Counter)
 
 export default connect(
-  (state) => ({count: state}),
-  {incrementRedux, decrementRedux}
+  (state) => ({count: state.count}),
+  {incrementRedux, decrementRedux, incrementAsyncRedux}
 )(Counter)
