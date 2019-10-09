@@ -7,7 +7,6 @@ import { setHeadTitle } from '../../redux/actions'
 import logo from '../../assets/images/logo.png'
 import menuList from '../../config/menuConfig'
 import './index.less'
-import memoryUtils from "../../utils/memoryUtils";
 
 const { SubMenu } = Menu;
 
@@ -17,8 +16,8 @@ class LeftNav extends Component {
   // 判断当前登录用户对item是否有权限
   hasAuth(item) {
     const {key, isPublic} = item.key
-    const menus = memoryUtils.user.role.menus
-    const username = memoryUtils.user.username
+    const menus = this.props.user.role.menus
+    const username = this.props.user.username
     // 如果当前用户是admin
     // 如果item是公开的
     // 当前用户有此item权限
@@ -155,6 +154,6 @@ class LeftNav extends Component {
 
 // withRouter高阶组件: 向非路由组件传递三个属性: history/location/match
 export default connect(
-  state => ({}),
+  state => ({user: state.user}),
   {setHeadTitle}
 )(withRouter(LeftNav))

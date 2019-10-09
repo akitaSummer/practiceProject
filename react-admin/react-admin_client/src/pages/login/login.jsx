@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, message } from 'antd'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import { reqLogin } from '../../api'
 import memoryUtils from '../../utils/memoryUtils'
-import storageUtils from '../../utils/storageUtils'
+import { login } from '../../redux/actions'
 
 import './login.less'
 
@@ -31,22 +31,8 @@ class Login extends Component {
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
         const {username, password} = values
-        // 请求登录
-        // try {
-        //   const response = await reqLogin(username, password)
-        //   console.log('请求成功', response)
-        // } catch(error) {
-        //   console.log('请求出错了')
-        // }
-        const result = await reqLogin(username, password)
-        if (result.status === 0) {
-          message.success('登录成功')
-          memoryUtils.user = result.data
-          storageUtils.saveUser(result.data)
-          this.props.history.replace('/home')
-        } else {
-          message.error(result.msg)
-        }
+        // 调用分发异步action的函数
+        this.props.login(username, password)
       } else {
         console.log('校验失败!')
       }
@@ -56,10 +42,12 @@ class Login extends Component {
   render () {
 
     // 如果已经登录, 自动跳转
-    const user = memoryUtils.user
+    const user = this.props.user
     if (user && user._id) {
-      return <Redirect to='/'/>
+      return <Redirect to='/home'/>
     }
+
+    const errorMsg = this.props.user.errorMsg
 
     const { getFieldDecorator } = this.props.form
     return (
@@ -68,6 +56,7 @@ class Login extends Component {
           <h1>React项目: 后台管理系统</h1>
         </header>
         <section className='login-content'>
+          <div className={user.errorMsg ? 'error-msg show' : 'error-msg'}>{errorMsg}</div>
           <h2>用户登录</h2>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <Form.Item>
@@ -116,4 +105,7 @@ class Login extends Component {
 }
 
 const WrapLogin = Form.create()(Login)
-export default WrapLogin
+export default connect(
+  state => ({user: state.user}),
+  {login}
+)(WrapLogin)

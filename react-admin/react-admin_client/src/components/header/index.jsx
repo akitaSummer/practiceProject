@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 
 import LinkButton from '../link-button'
 import { formateDate } from "../../utils/dateUtils"
-import memoryUtils from '../../utils/memoryUtils'
-import storageUtils from '../../utils/storageUtils'
+import { logout } from '../../redux/actions'
 import menuList from '../../config/menuConfig'
 import { reqWeather } from "../../api"
 
@@ -53,9 +52,7 @@ class Header extends Component {
     Modal.confirm({
       title: '确认退出吗',
       onOk: () => {
-        storageUtils.removeUser()
-        memoryUtils.user = {}
-        this.props.history.replace('/login')
+        this.props.logout()
       }
     })
   }
@@ -76,7 +73,7 @@ class Header extends Component {
   render () {
 
     const {currentTime, dayPictureUrl, weather} = this.state
-    const {username} = memoryUtils.user
+    const {username} = this.props.user
     const title = this.props.headTitle
 
     return (
@@ -99,6 +96,6 @@ class Header extends Component {
 }
 
 export default connect(
-  state => ({headTitle: state.headTitle}),
-  {}
+  state => ({headTitle: state.headTitle, user: state.user}),
+  {logout}
 )(withRouter(Header))
