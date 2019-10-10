@@ -13,6 +13,7 @@ import {
 import LinkButton from '../../components/link-button'
 import { reqProducts, reqSearchProducts, reqUpdateStatus } from "../../api"
 import { PAGE_SIZE } from '../../utils/constants'
+import memoryUtils from "../../utils/memoryUtils";
 
 const Item = Form.Item
 const Option = Select.Option
@@ -67,13 +68,23 @@ export default class ProductHome extends Component {
           return (
             <span>
               {/*将product对象传递给目标路由组件*/}
-              <LinkButton onClick={() => this.props.history.push('/product/detail', {product})}>详情</LinkButton>
-              <LinkButton onClick={() => this.props.history.push('/product/addupdate', product)}>修改</LinkButton>
+              <LinkButton onClick={() => this.showDetail(product)}>详情</LinkButton>
+              <LinkButton onClick={() => this.showUpdate(product)}>修改</LinkButton>
             </span>
           )
         }
       },
     ]
+  }
+
+  showDetail = (product) => {
+    memoryUtils.product = product
+    this.props.history.push('/product/detail')
+  }
+
+  showUpdate = (product) => {
+    memoryUtils.product = product
+    this.props.history.push('/product/addupdate')
   }
 
   // 获取指定页码的列表数据显示
