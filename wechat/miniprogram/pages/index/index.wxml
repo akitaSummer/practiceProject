@@ -1,0 +1,8 @@
+<!--pages/index/index.wxml-->
+<view class='indexContainer'>
+  <image class='avatar' src=""></image>
+  <text class="userName">hello {{msg}}</text>
+  <view class='goStudy' bindtap="handleParent">
+    <text bindtap="handleChild">开启小程序之旅</text>
+  </view>
+</view>
