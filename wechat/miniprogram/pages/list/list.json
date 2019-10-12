@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "周刊主页",
+  "usingComponents": {
+    "list-template": "/pages/template/list-template"
+  }
+}

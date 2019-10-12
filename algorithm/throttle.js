@@ -1,7 +1,6 @@
 // 节流
 function throttle(func, delay = 60) {
     let lock = false
-    debugger
     return (...args) => {
         if (lock) {
             return
