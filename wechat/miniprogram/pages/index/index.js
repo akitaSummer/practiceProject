@@ -5,22 +5,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    msg: 'akita Summer'
+    msg: 'akita Summer',
+    userInfo: {},
+    isShow: true,
   },
 
-  handleParent() {
-    console.log('父元素')
+  handleClick() {
+    // 点击跳转到list页面
+    wx.redirectTo({
+      url: '/pages/list/list',
+    })
   },
 
-  handleChild() {
-    console.log('子元素')
+  handleGetUserInfo(data) {
+    if (data.detail.rawData) {
+      // 用户点击的是允许
+      this.getUserInfo()
+    }
+  },
+  getUserInfo() {
+    wx.getSetting({
+      success: (data) => {
+        if (data.authSetting['scope.userInfo']) {
+          // 用户已授权
+          this.setData({
+            isShow: false
+          })
+        } else {
+          // 用户未授权
+          this.setData({
+            isShow: true
+          })
+        }
+      }
+    })
+    wx.getUserInfo({
+      success: (data) => {
+        // 更新data中的形参
+        this.setData({
+          userInfo: data.userInfo
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getUserInfo()
   },
 
   /**

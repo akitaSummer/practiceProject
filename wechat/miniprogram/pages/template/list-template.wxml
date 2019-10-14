@@ -1,0 +1,17 @@
+<!--pages/template/list-template.wxml-->
+  <view class='tmpContainer'>
+    <view class='avatar_date'>
+      <image class='avatar_date_image' src="{{data.avatar}}"></image>
+      <text class='avatar_date_text'>{{data.date}}</text>
+    </view>
+    <text class='company'>{{data.title}}</text>
+    <image class='contentImg' src="{{data.detail_img}}"></image>
+    <text class='content'>{{data.detail_content}}</text>
+    <view class='collection_love'>
+      <image src="/images/icon/star.png"></image>
+      <text>{{data.love_count}}</text>
+      <image src="/images/icon/view.png"></image>
+      <text>{{data.attention_count}}</text>
+    </view>
+  </view>
+
