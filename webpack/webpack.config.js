@@ -27,9 +27,6 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        contentBase: 'dist/js', // 默认路径是根目录下的index.html
-    },
     plugins: [
         new HtmlWebpackPlugin({ template: './index.html' }),
         new CleanWebpackPlugin(),
