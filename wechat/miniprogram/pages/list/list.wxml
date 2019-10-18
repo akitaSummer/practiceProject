@@ -1,21 +1,21 @@
 <!--pages/list/list.wxml-->
 <view>
   <swiper indicator-dots="true" indicator-color="yellowgreen"
-  indicator-active-color="pink">
+  indicator-active-color="pink" catchtap="carouselToDetail">
     <swiper-item>
-      <image src="/images/detail/carousel/01.jpg"></image>
+      <image src="/images/detail/carousel/01.jpg" data-index='1'></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/detail/carousel/02.jpg"></image>
+      <image src="/images/detail/carousel/02.jpg" data-index='0'></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/detail/carousel/03.jpg"></image>
+      <image src="/images/detail/carousel/03.jpg" data-index='2'></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/detail/carousel/04.jpg"></image>
+      <image src="/images/detail/carousel/04.jpg" data-index='3'></image>
     </swiper-item>
   </swiper>
-  <view wx:for='{{listArr}}' wx:key='{{index}}'>
+  <view wx:for='{{listArr}}' wx:key='{{index}}' data-index="{{index}}" catchtap="toDetail">
     <list-template data='{{item}}'></list-template>
   </view>
 </view>
