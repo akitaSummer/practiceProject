@@ -9,6 +9,23 @@ Page({
     listArr: []
   },
 
+  // 点击跳转到detail详情页
+  toDetail(event) {
+    // 获取点击跳转对应的下标
+    let index = event.currentTarget.dataset.index
+    wx.navigateTo({
+      url: `/pages/detail/detail?index=${index}`,
+    })
+  },
+
+  // 点击轮播图的时候跳转
+  carouselToDetail(event) {
+    let index = event.target.dataset.index
+    wx.navigateTo({
+      url: `/pages/detail/detail?index=${index}`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
