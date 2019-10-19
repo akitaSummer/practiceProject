@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "电影频道",
+  "usingComponents": {
+    "list-template": "/pages/template/list-template"
+  }
+}

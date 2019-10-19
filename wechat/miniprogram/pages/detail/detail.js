@@ -71,6 +71,16 @@ Page({
     }
   },
 
+  // 处理点击分享功能
+  handleShare() {
+    wx.showActionSheet({
+      itemList: [
+        '分享到朋友圈',
+        '分享到微博'
+      ],
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
