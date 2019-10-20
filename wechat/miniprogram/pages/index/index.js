@@ -12,7 +12,7 @@ Page({
 
   handleClick() {
     // 点击跳转到list页面
-    wx.redirectTo({
+    wx.switchTab({
       url: '/pages/list/list',
     })
   },
