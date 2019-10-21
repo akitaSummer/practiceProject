@@ -35,7 +35,15 @@ module.exports = {
                     use: 'css-loader',
                     fallback: 'style-loader'
                 })
-            }
+            },
+            {
+                test: /\.(git|jpg|png|woff|svg|eot|ttf)/,
+                loader: 'url-loader?limit=1024'
+            },
+            {
+                test: /\.ejs$/,
+                loader: 'ejs-loader',
+            },
         ]
     },
     plugins: [
