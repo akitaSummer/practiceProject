@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import App from './app.vue'
+import store from './store/store'
 
 // 设置vue的提示关闭
 Vue.config.productionTip = false
 
 // 声明当前组件的类型
 App.mpType = 'app' // 应用
+
+// 将store对象放置Vue原型上
+Vue.prototype.$store = store
 
 // 生成应用的实例
 const app = new Vue(App)
