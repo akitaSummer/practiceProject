@@ -39,9 +39,10 @@
   }
 </script>
 
-<style scoped>
+<style>
   page {
-    background: #8ed145;
+    background: #8ED145;
+    height: 100%;
   }
   .indexContainer {
     display: flex;
