@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(item, index) in moviesArr" :key="index" class="moviesContainer">
+    <div @tap="toMoviesDetail(index)" v-for="(item, index) in moviesArr" :key="index" class="moviesContainer">
       <img class="movies_img" :src="item.images.large" alt="">
       <div class="movies_info">
         <p class="movies_name">{{ime.original_title}}</p>
@@ -25,7 +25,15 @@
       // axios在小程序中不能使用，XMLHttpRequest报错
       const response = await this.$fly.get(MOVIE_URL)
       const moviesArr = response.data.subjects
+      this.$store.dispatch('getMoviesArr', moivesArr)
       this.moviesArr = moviesArr
+    },
+    methods: {
+      toMoviesDetail(index) {
+        wx.navigateTo({
+          url: '/pages/moviesDetail/main?index=' + index
+        })
+      }
     }
   }
 </script>

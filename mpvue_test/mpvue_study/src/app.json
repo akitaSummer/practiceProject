@@ -3,7 +3,8 @@
     "pages/index/main",
     "pages/detail/main",
     "pages/movies/main",
-    "pages/list/main"
+    "pages/list/main",
+    "pages/moviesDetail/main"
   ],
   "window": {
     "navigationBarBackgroundColor": "#489B81",
