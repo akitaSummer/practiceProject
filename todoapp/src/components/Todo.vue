@@ -26,12 +26,12 @@
         </ul>
         <h4 class="todo_subtitle" v-if="tomorrowTasks.length">Tomorrow</h4>
         <ul>
-          <li v-for="task in todayTasks" :key="task.id">
+          <li v-for="task in tomorrowTasks" :key="task.id">
             <task :task="task"></task>
           </li>
         </ul><h4 class="todo_subtitle" v-if="outdatedTasks.length">Outdated</h4>
         <ul>
-          <li v-for="task in todayTasks" :key="task.id">
+          <li v-for="task in outdatedTasks" :key="task.id">
             <task :task="task"></task>
           </li>
         </ul>
@@ -65,7 +65,10 @@
       progress() {
         const totalCount = this.todo.tasks.filter(task => !task.deleted).length
         const doneCount = this.todo.tasks.filter(task => !task.deleted && task.done).length
-        return `${Math.round(doneCount/totalCount * 100)}%`
+        let progress = Math.round(doneCount/totalCount * 100)
+        progress = isNaN(progress) ? 100 : progress
+
+        return `${progress}%`
       },
       progressColor() {
         const colorBottom = `color-stop(30%, ${this.todo.colors[0]})`
@@ -109,7 +112,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .todo {
   flex: 1;
   margin:0 8px;

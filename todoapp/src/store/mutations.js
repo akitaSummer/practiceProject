@@ -17,13 +17,18 @@ export default {
       state.currentIndex --
     }
   },
-  changeCurrentIndex(state) {
-    setInterval(() => {
-      if (state.currentIndex < state.todos.length - 1) {
-        state.currentIndex ++
-      }else if (state.currentIndex == state.todos.length-1) {
-        state.currentIndex  = 0
-      }
-    }, 3000)
+  deleteTask(state, {task}) {
+    task.deleted = true
+  },
+  toggleEditing(state) {
+    if(state.editing && state.editing.text) {
+      state.selected.todo.tasks.unshift({
+        title: state.editing.text,
+        date: new Date(),
+        done: false,
+        deleted: false
+      })
+    }
+    state.editing = state.editing ? null : {text: ''}
   }
 }

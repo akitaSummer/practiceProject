@@ -20,10 +20,27 @@
       ...mapState(['todos', 'currentIndex', 'selected'])
     },
     methods: {
-      ...mapMutations(['selectTodo', 'nextTodo', 'prevTodo', 'changeCurrentIndex'])
+      ...mapMutations(['selectTodo', 'nextTodo', 'prevTodo'])
     },
-    created() {
-      this.changeCurrentIndex()
+    mounted() {
+      let touch = {}
+      this.$el.addEventListener('touchstart', event => {
+        touch.startX = event.touches[0].clientX
+        touch.endX = 0
+      })
+      this.$el.addEventListener('touchmove', event => {
+        touch.endX = event.touches[0].clientX
+      })
+      this.$el.addEventListener('touchend', () => {
+        if(!touch.endX || Math.abs(touch.endX - touch.startX) < 10) {
+          return
+        }
+        if (touch.endX < touch.startX) {
+          this.nextTodo()
+        } else {
+          this.prevTodo()
+        }
+      })
     }
   }
 </script>
