@@ -42,6 +42,7 @@ Page({
     wx.getUserInfo({
       success: (data) => {
         // 更新data中的形参
+        console.log(1)
         this.setData({
           userInfo: data.userInfo
         })

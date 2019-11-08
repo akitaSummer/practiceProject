@@ -49,7 +49,6 @@ module.exports = {
             template: path.resolve(__dirname, '../index.html')
         }),
         new VueLoaderPlugin(),
-        require('autoprefixer'),
         new AutoDllPlugin({
             inject: true, // 自动将打包好的第三方库插入HTML
             debug: true,
