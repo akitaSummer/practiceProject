@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .test {
+            height: 1px;
+            width: 100%;
+            background-color: black;
+        }
+        
+        @media only screen and (-webkit-device-pixel-ratio: 2) {
+            .test {
+                transform: scaleX(0.5);
+            }
+        }
+        
+        @media only screen and (-webkit-device-pixel-ratio: 3) {
+            .test {
+                transform: scaleX(0.33333333333);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test"></div>
+</body>
+
+</html>
