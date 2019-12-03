@@ -1,34 +1,52 @@
 module.exports = app => {
   const express = require('express')
-  const router = express.Router()
+  const router = express.Router({
+    mergeParams: true // 合并url参数，让路由可以访问到
+  })
   const Category = require('../../models/Category')
 
-  router.post('/categories', async (req, res) => {
-    const model = await Category.create(req.body)
+  router.post('/', async (req, res) => {
+    const model = await req.Model.create(req.body)
     res.send(model)
   })
 
-  router.post('/categories/:id', async (req, res) => {
-    const model = await Category.findByIdAndUpdate(req.params.id, req.body)
+  router.post('/:id', async (req, res) => {
+    const model = await req.Model.findByIdAndUpdate(req.params.id, req.body)
     res.send(model)
   })
 
-  router.delete('/categories/:id', async (req, res) => {
-    await Category.findByIdAndDelete(req.params.id, req.body)
+  router.delete('/:id', async (req, res) => {
+    await req.Model.findByIdAndDelete(req.params.id, req.body)
     res.send({
       success: true
     })
   })
 
-  router.get('/categories', async (req, res) => {
-    const items = await Category.find().limit(10)
+  router.get('/', async (req, res) => {
+    let queryOptions = {}
+    if (req.Model.modelName === 'Category') { // 单独处理分类路径下父类型
+      queryOptions.populate = 'parent'
+    }
+    const items = await req.Model.find().setOptions(queryOptions).limit(10)
     res.send(items)
   })
 
-  router.get('/categories/:id', async (req, res) => {
-    const model = await Category.findById(req.params.id)
+  router.get('/:id', async (req, res) => {
+    const model = await req.Model.findById(req.params.id)
     res.send(model)
   })
 
-  app.use('/admin/api', router)
+  app.use('/admin/api/rest/:resource', async(req, res, next) => { // 中间件, 在router前调用
+    const modelName = require('inflection').classify(req.params.resource)
+    req.Model = require(`../../models/${modelName}`)
+    next()
+  }, router)
+
+  const multer = require('multer')
+  const upload = multer({dest: __dirname + '../../uploads'})
+  app.post('/admin/api/upload', upload.single('file'), async (req, res) => {
+    const file = req.file
+    file.url = `http://localhost:3000/uploads/${file.filename}`
+    res.send(file)
+  })
 }

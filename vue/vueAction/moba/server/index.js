@@ -4,6 +4,8 @@ const app = express()
 
 app.use(require('cors')())
 app.use(express.json())
+// 设置静态文件夹
+app.use('uploads', express.static(__dirname + '/uploads'))
 
 require('./plugins/db')(app)
 require('./routes/admin')(app)
