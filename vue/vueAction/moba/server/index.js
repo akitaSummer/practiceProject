@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+app.set('secret', 'asfjasdjklfaslf')
+
 app.use(require('cors')())
 app.use(express.json())
 // 设置静态文件夹

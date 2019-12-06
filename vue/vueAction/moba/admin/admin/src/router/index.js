@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from '../views/Main'
+import Login from '../views/Login'
 import CategoryEdit from '../views/CategoryEdit'
 import CategoryList from '../views/CategoryList'
 import ItemEdit from '../views/ItemEdit'
@@ -12,6 +13,8 @@ import ArticlesEdit from '../views/ArticlesEdit'
 import ArticlesList from '../views/ArticlesList'
 import AdsEdit from '../views/AdsEdit'
 import AdsList from '../views/AdsList'
+import AdminUsersEdit from '../views/AdminUsersEdit'
+import AdminUsersList from '../views/AdminUsersList'
 
 Vue.use(VueRouter)
 
@@ -34,10 +37,18 @@ Vue.use(VueRouter)
         { path: '/articles/create', component: ArticlesEdit },
         { path: '/articles/list', component: ArticlesList },
         { path: '/articles/edit/:id', component: ArticlesEdit, props: true },
-        { path: '/ads/create', component: adsEdit },
-        { path: '/ads/list', component: adsList },
-        { path: '/ads/edit/:id', component: adsEdit, props: true },
+        { path: '/ads/create', component: AdsEdit },
+        { path: '/ads/list', component: AdsList },
+        { path: '/ads/edit/:id', component: AdsEdit, props: true },
+        { path: '/admin_users/create', component: AdminUsersEdit },
+        { path: '/admin_users/list', component: AdminUsersList },
+        { path: '/admin_users/edit/:id', component: AdminUsersEdit, props: true },
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })
