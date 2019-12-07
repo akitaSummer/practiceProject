@@ -11,7 +11,7 @@
         <el-upload
           method="post"
           class="avatar-uploader"
-          :action="$http.defaults.baseURL + '/upload'"
+          :action="uploadUrl"
           :headers="getAuthHeaders()"
           :show-file-list="true"
           :on-success="afterUpload">

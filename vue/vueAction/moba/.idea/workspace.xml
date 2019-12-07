@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/admin/src/views/AdminUsersEdit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/admin/src/views/AdminUsersList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/admin/src/views/Login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/AdminUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/resource.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/admin/src/ajax/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/ajax/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/admin/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin/src/views/ItemEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/views/ItemEdit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/admin/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -91,6 +90,7 @@
       <workItem from="1575352820428" duration="1332000" />
       <workItem from="1575446459508" duration="3125000" />
       <workItem from="1575604249753" duration="3793000" />
+      <workItem from="1575682027273" duration="5347000" />
     </task>
     <servers />
   </component>

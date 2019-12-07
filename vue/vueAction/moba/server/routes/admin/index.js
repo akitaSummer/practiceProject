@@ -1,9 +1,14 @@
 module.exports = app => {
   const express = require('express')
+  const jwt = require('jsonwebtoken')
+  const AdminUser = require('../../models/AdminUser')
+  const assert = require('http-assert')
   const router = express.Router({
     mergeParams: true // 合并url参数，让路由可以访问到
   })
   const Category = require('../../models/Category')
+
+  const authMiddleware = require('../../middleware/auth')
 
   router.post('/', async (req, res) => {
     const model = await req.Model.create(req.body)
@@ -36,15 +41,13 @@ module.exports = app => {
     res.send(model)
   })
 
-  app.use('/admin/api/rest/:resource', async(req, res, next) => { // 中间件, 在router前调用
-    const modelName = require('inflection').classify(req.params.resource)
-    req.Model = require(`../../models/${modelName}`)
-    next()
-  }, router)
+  const resourceMiddleware = require('../../middleware/resource')
+
+  app.use('/admin/api/rest/:resource', authMiddleware(), resourceMiddleware(), router)
 
   const multer = require('multer')
   const upload = multer({dest: __dirname + '../../uploads'})
-  app.post('/admin/api/upload', upload.single('file'), async (req, res) => {
+  app.post('/admin/api/upload', authMiddleware(), upload.single('file'), async (req, res) => {
     const file = req.file
     file.url = `http://localhost:3000/uploads/${file.filename}`
     res.send(file)
@@ -52,25 +55,22 @@ module.exports = app => {
 
   app.post('/admin/api/login', async (req, res)=> {
     const { username, password } = req.body
-    const AdminUser = require('../../models/AdminUser')
     const user = await AdminUser.findOne({ username }).select('+password')
-    if (!user) {
-      return res.status(422).send({
-        message: '用户不存在'
-      })
-    }
+    assert(user, 422, '用户不存在')
     const isValid = require('bcrypt').compareSync(password, user.password)
-    if (!isValid) {
-      return res.status(422).send({
-        message: '密码错误'
-      })
-    }
-    const jwt = require('jsonwebtoken')
+    assert(isValid, 422, '密码错误')
     const token = jwt.sign({
       id: user._id,
       _id: user._id,
       username: user.username
     }, app.get('secret'))
     res.send({token})
+  })
+
+  // 错误处理
+  app.use(async (err, req, res, next) => {
+    res.status(err.statusCode || 500).send({
+      message: err.message
+    })
   })
 }
