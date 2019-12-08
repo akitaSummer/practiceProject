@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  font-size: 13px;
+}
+
+body {
+  marigin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+  background: #f1f1f1;
+}
+
+a {
+  color: #999;
+}
+
+// colors
+$colors: (
+  "primary": #db9e3f,
+  "white": #fff,
+  "white-1": #fcfcfc,
+  "white-2": #fff,
+  "black": #000,
+  "dark": #222,
+  "gray": #999,
+  "light": #f9f9f9,
+  'light-1': #d4d9de,
+  "dark-1": #343440,
+  'grey-1': #666,
+  'blue': #4394E4,
+  "blue-1": #1f3695,
+  "danger": #791a15,
+);
+
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+
+  .bg-#{$colorKey} {
+    background: $color;
+  }
+}
+
+// text align
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
+
+// font-size
+$base-font-size: 1rem;
+$font-sizes: (
+  xs: 0.7692, // 10px
+  sm: 0.9231, // 12px
+  md: 1, // 13px
+  lg: 1.076, // 14px
+  xl: 1.2308, // 16px
+);
+
+@each $sizeKey, $size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size * $base-font-size;
+  }
+}
+
+// flex
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around
+);
+
+#each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+#each $key, $value in $flex-jc {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// spacing
+// .mt-1 => margin top .pb-2 => padding bottom
+$spacing-types: (
+  m: marign,
+  p: padding
+);
+
+$spacing-directions: (
+  t: top,
+  l: left,
+  r: right,
+  b: bottom
+);
+
+$spacing-base-size: 1rem;
+
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3,
+);
+
+@each $typeKey, $type in $spacing-types {
+  @each $directionKey, $direction in $spacing-directions {
+    @each $sizeKey, $size in $spacing-sizes {
+      // .mt-1 { margin-top: 0.25rem }
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $spacing-base-size;
+      }
+    }
+  }
+
+  @each $sizeKey, $size in $spacing-sizes {
+    // .m-1 { margin-top: 0.25rem }
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spacing-base-size;
+    }
+  }
+
+  @each $sizeKey, $size in $spacing-sizes {
+    // .mx-1 { margin-top: 0.25rem }
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left: $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+  }
+}
