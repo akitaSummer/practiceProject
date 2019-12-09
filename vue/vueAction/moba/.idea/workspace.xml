@@ -2,143 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/demo_index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/iconfont/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/0e30b2057019e037f27f5783c8e46c38.1564198165.acc5c293ed9166fccb3f41982cd0f979.184x124_37128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/105.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/106.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/107.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/108.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/109.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/110.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/111.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/112.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/113.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/114.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/115.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/116.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/117.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/118.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/119.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/11a63a1b9d0d51cf684380ab5c15c983.1564191593.332dd3c012a766b003858fd329abc3c8.184x124_35624.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/120.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/121.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/123.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/124.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/125.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/126.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/127.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/128.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/129.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/130.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/131.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/132.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/133.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/134.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/135.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/137.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/139.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/140.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/141.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/142.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/144.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/146.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/149.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/150.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/152.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/153.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/1538459038600.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/154.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/156.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/157.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/162.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/163.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/166.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/167.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/168.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/169.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/170.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/171.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/173.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/174.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/175.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/176.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/177.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/178.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/179.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/180.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/182.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/183.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/184.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/186.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/187.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/189.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/190.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/191.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/192.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/193.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/194.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/195.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/196.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/197.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/198.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/199.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/1e8c9019a900d4e4add55eed0faa45cc.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/312.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/3206134f02318928c50835db0b806669.1564124210.2476dd3ea2e05f9890c51462cf6821db.184x124_38263.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/501.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/502.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/503.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/504.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/505.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/506.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/507.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/508.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/509.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/510.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/511.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/513.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/515.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/522.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/529.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/596b5904ee09579ed7fb808369647a43.1564125767.233cac2c123cbbe0b2b5264914263836.960x600_384351.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/5b53390c0564464bf157cd687debe39d.1563868262.40da90b800e23f3b898b512e59a9b8c7.184x124_59783.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/60837bd1f8a6bd32722c54f9b4dd7dec.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/65ed95d4fefc59d7fbf4bbcffca1dfcd.1564035967.95bf615209846c9c5d53a3bf9c6eb878.184x124_44368.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/6da9003b743b65f4c0ccd295cc484e57.1564384585.0feacf442fde929af980a2c96c529f38.230x140_17118.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/6da9003b743b65f4c0ccd295cc484e57.1564470375.2112759aba5cd18f26980003ea82e448.230x140_27667.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/734159b3d24f1e5f8785409e0741fbe7.1561084885.9c5129410f1e3dba698c40764a3a39fa.184x124_42148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/77e4129c72a25be2ca87bdf83f8f611d.1564096860.c1c788da3ce44e4fa7a0624236a16846.184x124_15463.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/9b86f489ca9ff2483da37488584e1f64.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/a81dba90f3c1c99db858712aad6975a6.1564296191.2b98b3d034604180b68736edbbc4fa37.230x140_19104.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/a8f73a12cdddf0f835c47d97c73a52de.1563872182.7054426e8fd24c7bc744ddb607f514d7.230x140_15842.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/a8f73a12cdddf0f835c47d97c73a52de.1564046935.263b7d7b7c433153fe4913923f5a44c3.230x140_11947.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/a8f73a12cdddf0f835c47d97c73a52de.1564410319.b43f744bc63f371bd1c810f4544d255d.230x140_14531.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/c4ca4238a0b923820dcc509a6f75849b.1563848207.23764a6335ec7f2b7eb74ba569a28946.184x124_17499.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/cfcd208495d565ef66e7dff9f98764da.1563872268.124557b8aa6e0ca0f15c4743845ba032.184x124_60631.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/cfcd208495d565ef66e7dff9f98764da.1564373954.7097899b367de77ca7b4458a3a9b6a4a.230x140_91435.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/df34abf7605df88924fc77fce8378a7c.1564226522.6c1dc96f7a92c013bf5698f4764b804d.184x124_39734.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/e9eeb9c616a7ff6d63fbca26abac24c2.1564392355.54c275bf830c79526e8e72f6635e7d53.230x140_21055.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/fa08ad3eb7c37ef1fc28f9d60fc3119b.1564195767.fbebcfb55cb4c2d5b20fb4fd1c9c80f5.184x124_36745.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/index.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/image/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/scss/ style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/assets/scss/initset.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/static/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/static/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/web/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/web/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/web/src/views/Main.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/assets/scss/ style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/assets/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -222,6 +93,7 @@
       <workItem from="1575604249753" duration="3793000" />
       <workItem from="1575682027273" duration="5347000" />
       <workItem from="1575781867913" duration="3170000" />
+      <workItem from="1575856491524" duration="4878000" />
     </task>
     <servers />
   </component>
@@ -241,5 +113,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="483" y="55" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575783341315" />
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1575861824104">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1575861824104" />
   </component>
 </project>
