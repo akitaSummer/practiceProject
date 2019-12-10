@@ -19,6 +19,19 @@
         {{Object.keys(this.sprite).length === 10 ? '收起' : '展开'}}
       </div>
     </div>
+    <!--end of nav icons-->
+    <m-list-card icon="" title="" :categories="newsCats">
+      <template #items="{category}">
+        <div class="py-2" v-for="(news, i) in category.newsList" :key="i">
+          <span>[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
+        </div>
+      </template>
+    </m-list-card>
+    <m-card icon="menu1" title="精彩视频"></m-card>
+    <m-card icon="menu1" title="新闻资讯"></m-card>
   </div>
 </template>
 
@@ -35,14 +48,56 @@
           pagination: {
             el: ".pagination-home"
           }
-        }
+        },
+        newsCats: [
+          {
+            name: '热门',
+            newsList: [
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+            ]
+          },
+          {
+            name: '新闻',
+            newsList: [
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+              {
+                categoryName: '公告',
+                title: 'asdklfjasd;',
+                date: '06/01'
+              },
+            ]
+          }
+        ]
       }
     }
   }
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/variables'
+  @import '../assets/scss/variables';
   .pagination-home {
     .swiper-pagination-bullet {
       opacity: 1;
