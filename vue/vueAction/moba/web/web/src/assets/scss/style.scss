@@ -281,3 +281,11 @@ $spacing-sizes: (
     background-position: 0.138% 56.532%;
   }
 }
+
+// text-overflow
+text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

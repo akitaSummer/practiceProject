@@ -41,15 +41,34 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="main">
-            <div class="main-inner">
-                111
-            </div>
-        </div>
-        <div class="left"></div>
-        <div class="right"></div>
+    <div id="root" data-v="3">
+        <p data-v="1">p1</p>
+        <span dataa-v="2">
+            span1
+            <span data-v="4">span2</span>
+        </span>
+        <p data-v="99">p2</p>
     </div>
 </body>
+<script>
+    window.onload = function() {
+        const root = document.querySelector('#root')
+        const arr = []
+        let num = 0
+
+        function test(root) {
+            const nodesList = Array.from(root.children) || []
+            arr.push(root.tagName)
+            num = num < root.getAttribute('data-v') ? root.getAttribute('data-v') : num
+            console.log(arr.toString(), num)
+            while (nodesList.length > 0) {
+                test(nodesList[0])
+                nodesList.shift()
+            }
+            arr.pop()
+        }
+        test(root)
+    }
+</script>
 
 </html>

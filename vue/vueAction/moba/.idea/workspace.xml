@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/routes/web/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/components/Card/Card.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/src/components/Card/ListCard/ListCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../algorithm/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../algorithm/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/css/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../interview/css/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/admin/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/views/Main.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/plugins/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/plugins/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/web/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/web/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/web/src/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/assets/scss/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/web/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/components/Card/ListCard/ListCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/components/Card/ListCard/ListCard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/web/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/web/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/web/src/views/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/views/Main.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +96,7 @@
       <workItem from="1575781867913" duration="3170000" />
       <workItem from="1575856491524" duration="4878000" />
       <workItem from="1575950318354" duration="5057000" />
+      <workItem from="1576042345906" duration="1810000" />
     </task>
     <servers />
   </component>

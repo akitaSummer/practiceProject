@@ -1,36 +1,42 @@
-function computed(str) {
-    const num = str.split('\n')
-    const T = Number.parseInt(num[0])
-    const result = []
-    let count = 1
-    for (let i = 1; i <= T; i++) {
-        result[i - 1] = 0
-        for (let j = count + 1; j < count + Number.parseInt(num[count]) + 1; j++) {
-            console.log(count)
-            let num1 = num[j].split(' ')
-            result[i - 1] += (num1[2] - num1[0] + 1) * (num1[3] - num1[1] + 1)
-            console.log(result)
-        }
-        count += Number.parseInt(num[count]) + 1
+function createTask(ms) {
+    return () => {
+        console.log('start', ms);
+        return new Promise(r => setTimeout(() => {
+            console.log('end', ms);
+            r(ms);
+        }, ms));
     }
-    let string = ''
-    for (let i = 0; i < result.length; i++) {
-        if (i < result.length - 1) {
-            string += result[i] + '\n'
-        } else {
-            string += result[i]
-        }
-    }
-    return string
 }
+const tasks = Array(3).fill(null).map((_, i) => createTask(i * 1000));
 
-console.log(computed(`3
-2
-1 1 2 3
-2 2 3 3
-2
-1 1 3 3
-1 1 3 3
-2
-1 3 2 3
-1 3 2 3`))
+async function limitRunTask(arr, num) {
+    const all = []
+    const result = []
+    while (arr.length > 0) {
+        const children = arr.splice(0, num)
+        all.push(children)
+    }
+
+    const res = await new Promise(resolve2 => {
+        async function limitPromise(all) {
+            if (all.length <= 0) {
+                const res = await Promise.all(result)
+                resolve2(res)
+                return
+            } else {
+                new Promise(async resolve => {
+                    const tasks = all.shift()
+                    const res = await Promise.all(tasks.map(task => task()))
+                    result.push(res)
+                    resolve()
+                }).then(() => limitPromise(all))
+            }
+        }
+        limitPromise(all)
+    })
+
+    return res
+
+
+}
+limitRunTask(tasks, 1).then(console.log)
