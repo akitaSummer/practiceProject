@@ -25,6 +25,8 @@ const schema = new mongoose.Schema({
     name: { type: String },
     description: { type: String },
     tips: { type: String },
+    cost: { type: String },
+    delay: { type: String }
   }],
   items1: [{
     type: mongoose.SchemaTypes.ObjectId,
@@ -37,6 +39,7 @@ const schema = new mongoose.Schema({
   usageTips: { type: String },
   battleTips: { type: String },
   teamTips: { type: String },
+  banner: { type: String },
   partners: [{
     hero: {
       type: mongoose.SchemaTypes.ObjectId,
@@ -46,4 +49,4 @@ const schema = new mongoose.Schema({
   }]
 })
 
-module.exports = mongoose.model('Hero', schema)
+module.exports = mongoose.model('Hero', schema, 'heroes')
