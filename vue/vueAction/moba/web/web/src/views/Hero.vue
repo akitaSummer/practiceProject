@@ -6,10 +6,30 @@
         <span class="text-white">王者荣耀</span>
         <span class="text-dark-1 fs-xxs">攻略站</span>
       </div>
-      <button type="button" class="btn bg-primary">立即下载</button>
+      <router-link to="/" tag="div">更多英雄&gt;</router-link>
     </div>
-    <router-link to="/" tag="div">更多英雄&gt;</router-link>
-    <h1>{{ model.name }}</h1>
+    <div class="top" :style="{'background': `url(${model.banner})`}">
+      <div class="info text-white p-3 h-100 d-flex flex-column jc-end">
+        <div class="fs-sm">{{model.title}}</div>
+        <h2 class="pm-2">{{model.name}}</h2>
+        <div class="fs-sm">{{model.categories.map(v => v.name).join('/')}}</div>
+        <div class="d-flex jc-between pt-2">
+          <div class="scores d-flex ai-center" v-if="model.scores">
+            <span>难度</span>
+            <span class="badge bg-primary">{{mdel.scores.difficult}}</span>
+            <span>技能</span>
+            <span class="badge bg-blue-1">{{mdel.scores.skills}}</span>
+            <span>攻击</span>
+            <span class="badge bg-denger">{{mdel.scores.attack}}</span>
+            <span>生存</span>
+            <span class="badge bg-dark">{{mdel.scores.survive}}</span>
+          </div>
+          <router-link to="/" tag="span" class="text-grey fs-sm">
+            皮肤: 2&gt;
+          </router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,6 +56,28 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  .page-hero {
+    .top {
+      height: 50vw;
+      background-size: 100% auto;
+      background: #fff no-repeat top center;
+    }
+    .info {
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+      .scores {
+        .badge {
+          margin: 0 0.25rem;
+          display: inline-block;
+          width: 1rem;
+          height: 1rem;
+          line-height: 0.9rem;
+          text-align: center;
+          border-radius: 50%;
+          font-size: 0.6rem;
+          border: 1px solid rgba(255, 255, 255, 0.2)
+        }
+      }
+    }
+  }
 </style>
