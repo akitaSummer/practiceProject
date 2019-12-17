@@ -1,5 +1,5 @@
 const _new = function() {
-    const Constructor = Array.shift.arguments[0]
+    const Constructor = Array.shift.call(arguments)
 
     const F = function() {}
     F.prototype = Constructor.prototype

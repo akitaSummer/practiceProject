@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/i.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../interview/coding/i.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/new.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../interview/coding/new.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/web/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/web/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/assets/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/web/src/components/Card/Card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/components/Card/Card.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/web/src/views/Hero.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/views/Hero.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +97,9 @@
       <workItem from="1576042345906" duration="1810000" />
       <workItem from="1576127981917" duration="3063000" />
       <workItem from="1576216941479" duration="7891000" />
-      <workItem from="1576387281996" duration="3958000" />
+      <workItem from="1576387281996" duration="3962000" />
+      <workItem from="1576474547067" duration="4373000" />
+      <workItem from="1576562920973" duration="1800000" />
     </task>
     <servers />
   </component>

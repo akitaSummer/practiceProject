@@ -24,12 +24,3 @@ new Promise(function(resolve) {
 });
 
 console.log('script end');
-
-// script start
-// async1 start
-// async2
-// async1 end
-// promise1
-// script end
-// promise2
-// setTimeout

@@ -30,6 +30,90 @@
         </div>
       </div>
     </div>
+    <!--end of top-->
+    <div>
+      <div class="bg-white px-3">
+        <div class="nav d-flex pb-2 jc-around border-bottom pt-3">
+          <div class="nav-item">
+            <div class="nav-link">英雄初识</div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-link">进阶攻略</div>
+          </div>
+        </div>
+      </div>
+      <swiper>
+        <swiper-slide>
+          <div>
+            <div class="p-3 bg-white border-bottom">
+              <div class="d-flex">
+                <router-link tag="button" to="/" class="btn btn-lg flex-1">
+                  <i class="iconfont icon-menu1"></i>
+                  英雄视频介绍
+                </router-link>
+                <router-link tag="button" to="/" class="btn ml-2 btn-lg flex-1">
+                  <i class="iconfont icon-menu1"></i>
+                  英雄视频介绍
+                </router-link>
+              </div>
+              <!--skills-->
+              <div class="skills bg-white mt-4">
+                <div class="d-flex jc-around">
+                  <img class="icon" :class="{active: currentSkillIndex === i}" :src="item.icon" v-for="(item, i) in model.skills" :key="item.name" width="60" height="60" @click="currentSkillIndex = i">
+                </div>
+                <div v-if="currentSkill">
+                  <div class="d-flex pt-4 pb-3">
+                    <h3 class="m-0">{{currentSkill.name}}</h3>
+                    <span class="text-grey-1 ml-4">
+                      (冷却值：{{ currentSkill.delay }}
+                      消耗：{{ currentSkill.cost }})
+                    </span>
+                  </div>
+                  <p>{{ currentSkill.description }}</p>
+                  <div class="border-bottom"></div>
+                  <p>小提示：{{currentSkill.tips}}</p>
+                </div>
+              </div>
+            </div>
+            <m-card icon="menu1" title="出装推荐" class="hero-items">
+              <div class="fs-xl">顺风出装</div>
+              <div class="d-flex jc-around text-center mt-3">
+                <div v-for="item in model.items1" :key="item.name">
+                  <img :src="item.icon" class="icon">
+                  <div class="fs-xs">{{item.name}}</div>
+                </div>
+              </div>
+              <div class="border-bottom mt-3"></div>
+              <div class="fs-xl mt-3">逆风出装</div>
+              <div class="d-flex jc-around text-center mt-3">
+                <div v-for="item in model.items2" :key="item.name">
+                  <img :src="item.icon" class="icon">
+                  <div class="fs-xs">{{item.name}}</div>
+                </div>
+              </div>
+            </m-card>
+            <m-card icon="menu1" title="使用技巧">
+              <p class="m-0">{{model.usageTips}}</p>
+            </m-card>
+            <m-card icon="menu1" title="对抗技巧">
+              <p class="m-0">{{model.battleTips}}</p>
+            </m-card>
+            <m-card icon="menu1" title="团战思路">
+              <p class="m-0">{{model.teamTips}}</p>
+            </m-card>
+            <m-card icon="menu1" title="英雄关系">
+              <div class="fs-xl">最佳搭档</div>
+              <div v-for="item in model.partners" :key="item.name" class="d-flex pt-4" height="50">
+                <img :src="item.heros.avatar" alt="">
+                <p class="flex-1 m-0 ml-3">{{item.description}}</p>
+              </div>
+              <div class="border-bottom mt-3"></div>
+            </m-card>
+          </div>
+        </swiper-slide>
+        <swiper-slide></swiper-slide>
+      </swiper>
+    </div>
   </div>
 </template>
 
@@ -41,7 +125,13 @@
     },
     data() {
       return {
-        model: null
+        model: null,
+        currentSkillIndex: 0,
+      }
+    },
+    computed: {
+      currentSkill() {
+        return this.model.skills[this.currentSkillIndex]
       }
     },
     methods: {
@@ -57,6 +147,7 @@
 </script>
 
 <style lang="scss">
+  @import '../assets/scss/variables';
   .page-hero {
     .top {
       height: 50vw;
@@ -77,6 +168,24 @@
           font-size: 0.6rem;
           border: 1px solid rgba(255, 255, 255, 0.2)
         }
+      }
+    }
+    .skills {
+      img.icon {
+        width: 70px;
+        height: 70px;
+        border: 3px solid map-get($colors, 'white');
+        &.active {
+          border: map-get($colors, 'primary');
+        }
+        border-radius: 50%;
+      }
+    }
+    .hero-items {
+      img.icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
       }
     }
   }
