@@ -7,47 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        #demo {
+            min-height: 200px;
+            padding: 0 300px;
+        }
+        
+        .content,
         .left,
-        .main,
         .right {
             float: left;
+            position: relative;
+        }
+        
+        .content {
+            width: 100%;
+            background-color: blue;
         }
         
         .left {
+            min-height: 200px;
             width: 300px;
-            min-height: 200px;
-            background: thistle;
+            background-color: red;
             margin-left: -100%;
-        }
-        
-        .main {
-            background: #ff4344;
-            min-height: 200px;
-            right: 0;
-            width: 100%;
-        }
-        
-        .main-inner {
-            margin: 0 300px;
+            left: -300px;
         }
         
         .right {
-            width: 300px;
-            background: violet;
-            margin-left: -300px;
             min-height: 200px;
+            width: 300px;
+            background-color: red;
+            margin-left: -300px;
+            right: -300px;
         }
     </style>
 </head>
 
 <body>
-    <div id="root" data-v="3">
-        <p data-v="1">p1</p>
-        <span dataa-v="2">
-            span1
-            <span data-v="4">span2</span>
-        </span>
-        <p data-v="99">p2</p>
+    <div id="demo">
+        <div class="content">
+            <div class="inline-content">111111</div>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
     </div>
 </body>
 <script>
