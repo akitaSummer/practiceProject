@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Sister from './Sister'
+import Boss from './Boss'
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                     <li>6</li>
                 </ul>
                 <Sister></Sister>
+                <Boss></Boss>
             </div>
         )
     }
