@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo,
+        .content {
+            width: 400px;
+            height: 50px;
+            border: 1px solid skyblue;
+        }
+        
+        .del {
+            float: right;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        .wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="text" class='demo'>
+        <div class='search'>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        const arr = [{
+            content: '我是猫',
+            hide: false,
+            searchResult: ''
+        }, {
+            content: '我是狗',
+            hide: false,
+            searchResult: ''
+        }]
+        const search = document.querySelector('.search')
+        const input = document.querySelector('.demo')
+
+        input.onkeyup = function(event) {
+            if (event.keyCode === 13) {
+                add(input.value)
+                input.value = ''
+                arr.map(item => {
+                    item.searchResult = ''
+                    item.hide = false
+                })
+            } else {
+                arr.map(item => {
+                    if (item.content.search(input.value) === -1) {
+                        item.hide = true
+                    } else {
+                        let searchResult = item.content.split(input.value)
+                        item.searchResult = searchResult.join(`<span style="color: red;">${input.value}</span>`)
+                        if (input.value === '') {
+                            item.searchResult = ''
+                        }
+                        item.hide = false
+                    }
+                })
+            }
+            show()
+        }
+
+        search.onclick = function(event) {
+            if (event.target.className === 'del') {
+                const index = event.target.getAttribute('index')
+                arr.splice(index, 1)
+                show()
+            }
+        }
+
+        function add(str) {
+            arr.push({
+                content: str,
+                hide: false,
+                searchResult: ''
+            })
+        }
+
+        function show() {
+            let result = ''
+            arr.map((item, i) => {
+                if (!item.hide) {
+                    result += item.searchResult ? `<div class="content">${item.searchResult}<span class="del" index='${i}'>X</span></div>` : `<div class="content">${item.content}<span class="del" index='${i}'>X</span></div>`
+                }
+            })
+            search.innerHTML = result
+        }
+        show()
+    }
+</script>
+
+</html>
