@@ -7,45 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #demo {
-            min-height: 200px;
-            padding: 0 300px;
+        .demo {
+            height: 500px;
         }
         
         .content,
         .left,
         .right {
             float: left;
-            position: relative;
         }
         
         .content {
+            background: red;
+            height: 500px;
             width: 100%;
-            background-color: blue;
         }
         
         .left {
-            min-height: 200px;
             width: 300px;
-            background-color: red;
+            height: 500px;
+            background: skyblue;
             margin-left: -100%;
-            left: -300px;
         }
         
         .right {
-            min-height: 200px;
             width: 300px;
-            background-color: red;
+            height: 500px;
+            background: skyblue;
             margin-left: -300px;
-            right: -300px;
+        }
+        
+        .main {
+            margin: 0 300px;
+            background: red;
         }
     </style>
 </head>
 
 <body>
-    <div id="demo">
+    <div class="demo">
         <div class="content">
-            <div class="inline-content">111111</div>
+            <div class="main">111111</div>
         </div>
         <div class="left"></div>
         <div class="right"></div>
