@@ -1,4 +1,4 @@
-import { CHANGE_INPUT, ADD, DEL, GET_LIST } from './action-type'
+import { GET_MY_LIST, CHANGE_INPUT, ADD, DEL, GET_LIST } from './action-type'
 import axios from 'axios'
 
 export const action = (value) => {
@@ -37,5 +37,11 @@ export const getTodoList = () => {
                 const action = getList(data)
                 dispatch(action)
             })
+    }
+}
+
+export const getMyListAction = () => {
+    return {
+        type: GET_MY_LIST
     }
 }

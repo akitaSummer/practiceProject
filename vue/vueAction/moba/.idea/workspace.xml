@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/TodoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/TodoList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/action-type.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/action-type.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react/reduxDemo/redux01/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,6 +103,7 @@
       <workItem from="1576905354619" duration="590000" />
       <workItem from="1577254146073" duration="1193000" />
       <workItem from="1577343041928" duration="599000" />
+      <workItem from="1577437210637" duration="1198000" />
     </task>
     <servers />
   </component>

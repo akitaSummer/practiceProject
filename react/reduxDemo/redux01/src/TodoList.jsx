@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './store'
-import { action, add, del, getTodoList } from './store/action'
+import { action, add, del, getMyListAction } from './store/action'
 import TodoListUI from './TodoListUI'
 
 
@@ -31,7 +31,9 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        const action = getTodoList()
+        // const action = getTodoList()
+        // store.dispatch(action)
+        const action = getMyListAction()
         store.dispatch(action)
     }
 
