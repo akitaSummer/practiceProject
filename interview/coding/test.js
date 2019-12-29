@@ -68,7 +68,7 @@ function mergeSort(arr) {
     const arrCopy = [...arr]
     const left = arrCopy.slice(0, Math.floor(arrCopy.length / 2))
     const right = arrCopy.slice(Math.floor(arrCopy.length / 2))
-    return mergeSort(mergeSort(left), mergeSort(right))
+    return merge(mergeSort(left), mergeSort(right))
 }
 
 function merge(left, right) {
