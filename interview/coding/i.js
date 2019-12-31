@@ -135,3 +135,12 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([1, 342, 56, 2, 64, 32, 14, 687, 543, 23, 645, 93, 43]))
+
+function ajax(url) {
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {}
+    }
+    xhr.open('GET', url)
+    xhr.send()
+}
