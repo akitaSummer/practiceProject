@@ -144,3 +144,75 @@ function ajax(url) {
     xhr.open('GET', url)
     xhr.send()
 }
+
+function Sup(name) {
+    this.name = this.name
+}
+
+Sup.prototype.sayName = function() {
+    console.log(this.name)
+}
+
+function creat(sub, parent) {
+    const sup = Object.create(parent.prototype)
+    sub.prototype = sup
+    sub.prototype.constructor = sub
+}
+
+function Sub(name) {
+    Sup.apply(this, name)
+}
+creat(Sub, Sup)
+
+Function.prototype.myCall = function(obj, ...args) {
+    if (typeof this !== 'function') {
+        throw new TypeError('Error')
+    }
+
+    obj = obj || window
+
+    const { fn } = obj
+
+    obj.fn = this
+    const arr = [...args]
+    const result = obj.fn(...arr)
+    obj.fn = fn
+    return result
+}
+
+Function.prototype.myApply = function(obj, args) {
+    if (typeof this !== 'function') {
+        throw new TypeError('Error')
+    }
+    obj = obj || window
+    const { fn } = obj
+    obj.fn = this
+    let result
+    if (Array.isArray(args)) {
+        result = obj.fn(...args)
+    } else {
+        result = obj.fn()
+    }
+    obj.fn = fn
+    return result
+}
+
+Function.prototype.myBind = function(obj, ...args1) {
+    const that = this
+    const args = [...args1]
+    return function(...args2) {
+        return that.apply(obj, args.concat(Array.from(args2)))
+    }
+}
+
+function test(arg1, arg2) {
+    console.log(arg1, arg2);
+    console.log(this.a, this.b);
+}
+
+test.myBind({
+        a: "a",
+        b: "b"
+    }, 1,
+    2
+)()
