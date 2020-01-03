@@ -216,3 +216,50 @@ test.myBind({
     }, 1,
     2
 )()
+
+function deepClone(obj) {
+    const objClone = Array.isArray(obj) ? [] : {}
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key] !== null && typeof obj[key] === 'object') {
+                objClone[key] = deepClone(obj[key])
+            } else {
+                objClone[key] = obj[key]
+            }
+        }
+    }
+    return objClone
+}
+
+let a = {
+    age: 1,
+    jobs: {
+        first: "FE"
+    },
+    schools: [{
+            name: "shenda"
+        },
+        {
+            name: "shiyan"
+        }
+    ],
+    arr: [
+        [{
+            value: "1"
+        }],
+        [{
+            value: "2"
+        }]
+    ]
+}
+
+let b = deepClone(a)
+
+a.jobs.first = "native";
+a.schools[0].name = "SZU";
+a.arr[0][0].value = "100";
+
+console.log(a.jobs.first, b.jobs.first);
+console.log(a.schools[0], b.schools[0]);
+console.log(a.arr[0][0].value, b.arr[0][0].value);
+console.log(Array.isArray(a.arr[0]));
