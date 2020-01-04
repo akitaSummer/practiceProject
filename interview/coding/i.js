@@ -263,3 +263,61 @@ console.log(a.jobs.first, b.jobs.first);
 console.log(a.schools[0], b.schools[0]);
 console.log(a.arr[0][0].value, b.arr[0][0].value);
 console.log(Array.isArray(a.arr[0]));
+
+function MyPromise(func) {
+    this.state = 'PANDING'
+
+    this.value
+
+    this.resolveCallback = []
+    this.rejectCallback = []
+
+    const resolve = (value) => {
+        if (this.state === 'PANDING') {
+            this.state = 'RESOLVED'
+            this.value = value
+            this.onResolve.map(item => {
+                item(this.value)
+            })
+        }
+    }
+
+    const reject = (value) => {
+        if (this.state === 'PANDING') {
+            this.state = 'REJECTED'
+            this.value = value
+            this.onResolve.map(item => {
+                item(this.value)
+            })
+        }
+    }
+
+    try {
+        func(resolve, reject)
+    } catch (e) {
+        reject(e)
+    }
+}
+
+MyPromise.prototype.then = function(onFullfilled, onRejected) {
+    if (this.state === 'PANDING') {
+        this.rejectCallback.push(onFullfilled)
+        this.resolveCallback.push(onRejected)
+    } else if (this.state === 'RESOLVED') {
+        onFullfilled(this.value)
+    } else {
+        onRejected(this.value)
+    }
+}
+
+function addSeparator(str) {
+    str += ''
+    re = /(\d+)(\d{3})/
+    const arr = str.split('.')
+    let integer = arr[0]
+    while (re.test(integer)) {
+        integer = integer.replace(re, '$1' + ',' + '$2')
+    }
+    integer = arr.length > 1 ? integer + arr[1] : integer
+    return integer
+}
