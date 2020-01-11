@@ -9,51 +9,25 @@
     <style>
         .demo {
             height: 500px;
-            padding: 0 300px;
-        }
-        
-        .left,
-        .main,
-        .right {
-            float: left;
-            position: relative;
-        }
-        
-        .main {
-            height: 500px;
-            width: 100%;
-            background-color: brown;
-        }
-        
-        .content {
-            height: 500px;
-            margin: 0 300px;
-            background-color: red;
+            display: flex;
         }
         
         .left {
-            height: 500px;
             width: 300px;
-            margin-left: -100%;
-            left: -300px;
-            background-color: aqua;
+            background-color: tomato;
+            height: 500px;
         }
         
         .right {
+            background-color: skyblue;
             height: 500px;
-            width: 300px;
-            margin-left: -300px;
-            right: -300px;
-            background-color: aqua;
+            flex: 1;
         }
     </style>
 </head>
 
 <body>
     <div class="demo">
-        <div class="main">
-            11111111
-        </div>
         <div class="left">left</div>
         <div class="right">right</div>
     </div>
