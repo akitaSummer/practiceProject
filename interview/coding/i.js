@@ -321,3 +321,22 @@ function addSeparator(str) {
     integer = arr.length > 1 ? integer + arr[1] : integer
     return integer
 }
+
+function flat(arr) {
+    let result = []
+    for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            result = result.concat(flat(arr[i]))
+        } else {
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+console.log(flat([
+    [1, 2],
+    [
+        [4], 3
+    ]
+]))
