@@ -340,3 +340,27 @@ console.log(flat([
         [4], 3
     ]
 ]))
+
+function repeat(func, times, wait) {
+    return function set(arg, i = 1) {
+        if (i > times) {
+            return
+        } else {
+            setTimeout(() => {
+                func(arg)
+                i++
+                set(arg, i)
+            }, wait)
+        }
+    }
+}
+
+
+// 输入
+const repeatFunc = repeat(console.log, 4, 3000);
+
+// 输出
+// 会alert4次 helloworld, 每次间隔3秒
+repeatFunc('hellworld');
+// 会alert4次 worldhellp, 每次间隔3秒
+repeatFunc('worldhello')

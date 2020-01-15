@@ -2,20 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../electron-react/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/react-hooks/src/components/DogShow.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/react-hooks/src/components/LikeButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/react-hooks/src/components/MouseTracker.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/react-hooks/src/hooks/useMousePosition.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/react-hooks/src/hooks/useURLLoader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/renderer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../electron-react/second.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BottomBtn.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FileList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useKeyPress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/defaultFiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../interview/coding/i.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/coding/i.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -62,6 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1578900064681</updated>
       <workItem from="1578900067840" duration="2019000" />
+      <workItem from="1578960570153" duration="11231000" />
+      <workItem from="1579073220817" duration="583000" />
     </task>
     <servers />
   </component>
