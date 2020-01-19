@@ -7,29 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .demo {
-            height: 500px;
-            display: flex;
+        .box1 {
+            background: red;
+            width: 50%;
+            padding: 25% 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
         
-        .left {
-            width: 300px;
-            background-color: tomato;
-            height: 500px;
-        }
-        
-        .right {
-            background-color: skyblue;
-            height: 500px;
-            flex: 1;
+        .box2 {
+            background: skyblue;
+            width: 50%;
+            padding: 25% 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 
 <body>
-    <div class="demo">
-        <div class="left">left</div>
-        <div class="right">right</div>
+    <div class="box1">
+        <div class="box2"></div>
     </div>
 </body>
 <script>

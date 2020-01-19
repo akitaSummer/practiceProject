@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons'
@@ -11,10 +11,14 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
   const [ value, setValue ] = useState(null)
   const enterPressed = useKeyPress(13)
   const escPressed = useKeyPress(27)
+  let node = useRef(null)
 
-  const closeSearch = () => {
+  const closeSearch = (file) => {
     setEditStatus(false)
     setValue('')
+    if (file.isNew) {
+      onFileDelete(file.id)
+    }
   }
 
   useEffect(() => {
@@ -33,13 +37,38 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
     // return () => {
     //   document.removeEventListener('keyup', handleInputEvent)
     // }
-    if (enterPressed && editStatus) {
-      const editItem = files.find(file => file.id === editStatus)
-      onSaveEdit(editItem.id, value)
-      setEditStatus(false)
-      setValue('')
+    const editItem = files.find(file => file.id === editStatus)
+    if (enterPressed && editStatus && value.trim()) {
+      const sameName = files.find(file => {
+        return file.id !== editStatus && file.title === value
+      })
+      if (sameName) {
+        console.log('有同名文件')
+      } else {
+        onSaveEdit(editItem.id, value, editItem.isNew)
+        if (editItem.isNew) {
+          editItem.isNew = false
+        }
+        setEditStatus(false)
+        setValue('')
+      }
     } else if (escPressed && editStatus) {
-      closeSearch()
+      closeSearch(editItem)
+    }
+  })
+
+
+  useEffect(() => {
+    const newFile = files.find(file => file.isNew)
+    if (newFile) {
+      setEditStatus(newFile.id)
+      setValue(newFile.title)
+    }
+  }, [files])
+
+  useEffect(() => {
+    if (editStatus) {
+      node.current.focus()
     }
   })
 
@@ -49,11 +78,11 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
         {
           files.map(file => (
             <li
-              className='list-group-item bg-light row d-flex align-items-center file-item'
+              className='list-group-item bg-light row d-flex align-items-center file-item mx-0'
               key={file.id}
             >
               {
-                (file.id !== editStatus) &&
+                (file.id !== editStatus && !file.isNew) &&
                   <>
                     <span className='col-2'>
                       <FontAwesomeIcon
@@ -62,13 +91,16 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
                       ></FontAwesomeIcon>
                     </span>
                     <span
-                      className='col-8 c-link'
+                      className='col-6 c-link'
                       onClick={() => { onFileClick(file.id)}}
                     >{file.title}</span>
                     <button
                       type='button'
-                      className='icon-button col-1'
+                      className='icon-button col-2'
                       onClick={() => {
+                        if (editStatus) {
+                          closeSearch(files.find(file => file.id === editStatus))
+                        }
                         setEditStatus(file.id)
                         setValue(file.title)
                       }}
@@ -81,7 +113,7 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
                     </button>
                     <button
                       type='button'
-                      className='icon-button col-1'
+                      className='icon-button col-2'
                       onClick={() => { onFileDelete(file.id) }}
                     >
                       <FontAwesomeIcon
@@ -98,13 +130,15 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
                   <input
                     type="text"
                     className='form-control search-height col-10'
-                    value={value}
+                    value={value || ''}
                     onChange={(e) => { setValue(e.target.value) }}
+                    ref={node}
+                    placeholder='请输入文件名'
                   />
                   <button
                     type='button'
                     className='icon-button col-2'
-                    onClick={closeSearch}
+                    onClick={() => {closeSearch(file)}}
                   >
                     <FontAwesomeIcon
                       title='关闭'

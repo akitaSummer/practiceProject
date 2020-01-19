@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/BottomBtn.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FileList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useKeyPress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/defaultFiles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TabList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TabList.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/fileHelper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BottomBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FileList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/defaultFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/defaultFiles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../interview/coding/i.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/coding/i.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../interview/css/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/css/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript JSX File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -47,6 +52,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -73,10 +79,20 @@
       <workItem from="1578900067840" duration="2019000" />
       <workItem from="1578960570153" duration="11231000" />
       <workItem from="1579073220817" duration="583000" />
+      <workItem from="1579145477189" duration="599000" />
+      <workItem from="1579150933158" duration="5114000" />
+      <workItem from="1579324297227" duration="12358000" />
+      <workItem from="1579405040146" duration="14059000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1579151914783">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579151914783" />
   </component>
 </project>
