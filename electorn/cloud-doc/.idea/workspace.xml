@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useContextMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useIpcRenderer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menuTemplate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FileList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +71,7 @@
       <workItem from="1579405040146" duration="14059000" />
       <workItem from="1579506144056" duration="7905000" />
       <workItem from="1579514377842" duration="9296000" />
+      <workItem from="1579536845968" duration="57000" />
     </task>
     <servers />
   </component>

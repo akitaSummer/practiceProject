@@ -44,12 +44,10 @@ function App() {
   const savedLocation = remote.app.getPath('documents')
 
   const showFiles = searchFiles.length > 0 ? searchFiles : filesArr
-
+  const activeFile = files[activeFileID]
   const openedFiles = openFilesIDs.map(openID => {
     return files[openID]
   })
-
-  const activeFile = files[activeFileID]
 
   const noFile = (id) => {
     window.alert('文件搜索不到')
