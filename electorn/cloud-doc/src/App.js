@@ -4,7 +4,6 @@ import { faPlus, faFileImport, faSave } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FileSearch from "./components/FileSearch";
 import FileList from "./components/FileList";
-import defaultFiles from "./utils/defaultFiles";
 import BottomBtn from "./components/BottomBtn";
 import TabList from "./components/TabList";
 import SimpleMDE from 'react-simplemde-editor'
@@ -12,9 +11,10 @@ import 'easymde/dist/easymde.min.css'
 import uuidv4 from 'uuid/v4'
 import { flattenArr, objToArr } from './utils/helper'
 import fileHelper from "./utils/fileHelper";
+import useIpcrenderer from "./hooks/useIpcRenderer";
 
-const { join } = window.require('path')
-const { remote } = window.require('electron')
+const { join, basename, extname, dirname } = window.require('path')
+const { remote, ipcRenderer } = window.require('electron')
 const Store = window.require('electron-store')
 const fileStore = new Store({ 'name': 'Files Data' })
 
@@ -39,12 +39,17 @@ function App() {
   const [ openFilesIDs, setOpenFileIDs ] = useState([])
   const [ unsaveFilesIDs, setUnsaveFilesIDs ] = useState([])
   const [ searchFiles, setSearchFiles ] = useState([])
+  const [ searchEvent, setSearchEvent ] = useState(false)
   const filesArr = objToArr(files)
   const savedLocation = remote.app.getPath('documents')
+
+  const showFiles = searchFiles.length > 0 ? searchFiles : filesArr
 
   const openedFiles = openFilesIDs.map(openID => {
     return files[openID]
   })
+
+  const activeFile = files[activeFileID]
 
   const noFile = (id) => {
     window.alert('文件搜索不到')
@@ -53,8 +58,6 @@ function App() {
     saveFilesToStore(newFiles)
     setFiles(newFiles)
   }
-
-  const activeFile = files[activeFileID]
 
   const updateNewFiles = (id, key, value) => {
     const newFile = {
@@ -101,11 +104,13 @@ function App() {
   }
 
   const fileChange = (id, value) => {
-    if (!unsaveFilesIDs.includes(id)) {
-      setUnsaveFilesIDs([...unsaveFilesIDs, id])
+    if (value !== files[id].body) {
+      if (!unsaveFilesIDs.includes(id)) {
+        setUnsaveFilesIDs([...unsaveFilesIDs, id])
+      }
+      const newFiles = updateNewFiles(id, 'body', value)
+      setFiles(newFiles)
     }
-    const newFiles = updateNewFiles(id, 'body', value)
-    setFiles(newFiles)
   }
 
   const fileDelete = (id) => {
@@ -124,8 +129,8 @@ function App() {
     }
   }
 
-  const saveEdit = (id, title, isNew, ) => {
-    const newPath = join(savedLocation, `${title}.md`)
+  const saveEdit = (id, title, isNew) => {
+    const newPath = isNew ? join(savedLocation, `${title}.md`) : join(dirname(files[id].path), `${title}.md`)
     const modifiedFile = { ...files[id], path: newPath, isNew: false, title }
     const newFiles = { ...files, [id]: modifiedFile }
     if (isNew) {
@@ -136,7 +141,7 @@ function App() {
         noFile(id)
       })
     } else {
-      fileHelper.renameFile(join(savedLocation, `${files[id].title}.md`), newPath).then(() => {
+      fileHelper.renameFile(files[id].path, newPath).then(() => {
         setFiles(newFiles)
         saveFilesToStore(newFiles)
       }).catch(() => {
@@ -146,16 +151,17 @@ function App() {
   }
 
   const saveCurrentFile = () => {
-    fileHelper.writeFile(join(savedLocation, `${activeFile}.md`), activeFile.body).then(
+    fileHelper.writeFile(activeFile.path, activeFile.body).then(
       setUnsaveFilesIDs(unsaveFilesIDs.filter(id => id !== activeFile.id))
     )
   }
 
   const fileSearch = (keyword) => {
-    const newFiles = files.filter((file) => {
+    const filesArr = objToArr(files)
+    const newFilesArr = filesArr.filter((file) => {
       return file.title.includes(keyword)
     })
-    setSearchFiles(newFiles)
+    setSearchFiles(newFilesArr)
   }
 
   const addFile = () => {
@@ -173,7 +179,54 @@ function App() {
     setFiles(newFiles)
   }
 
-  const showFiles = searchFiles.length > 0 ? searchFiles : filesArr
+  const fileImport = () => {
+    remote.dialog.showOpenDialog({
+      title: '选择导入的 Markdown 文件',
+      properties: ['openFile', 'multiSelections'],
+      filters: [
+        {name: 'Markdown files', extensions: ['md']}
+      ]
+    }).then(({ canceled, filePaths }) => {
+      if (!canceled) {
+        const fileFinderPath = filePaths.filter(path => {
+          return !Object.values(files).find(file => {
+            return file.path === path
+          })
+        })
+        const importFilesArr = fileFinderPath.map(path => {
+          return {
+            id: uuidv4(),
+            title: basename(path, extname(path)),
+            path
+          }
+        })
+        const newFiles = {
+          ...files,
+          ...flattenArr(importFilesArr)
+        }
+        setFiles(newFiles)
+        saveFilesToStore(newFiles)
+        if (importFilesArr.length > 0) {
+          remote.dialog.showMessageBox({
+            type: 'info',
+            title: `成功导入了${importFilesArr.length}个文件`,
+            message: `成功导入了${importFilesArr.length}个文件`
+          })
+        }
+      }
+    })
+  }
+
+  const fileSearchEvent = () => {
+    setSearchEvent(!searchEvent)
+  }
+
+  useIpcrenderer({
+    'create-new-file': addFile,
+    'import-file': fileImport,
+    'save-edit-file': saveCurrentFile,
+    'search-file': fileSearchEvent
+  })
 
   return (
     <div className="App container-fluid px-0">
@@ -182,6 +235,8 @@ function App() {
           <FileSearch
             title='我的云文档'
             onFileSearch={fileSearch}
+            searchEvent={searchEvent}
+            onFileSearchEvent={fileSearchEvent}
           ></FileSearch>
           <FileList
             files={showFiles}
@@ -203,6 +258,7 @@ function App() {
                 text='导入'
                 colorClass='btn-success'
                 icon={faFileImport}
+                onBtnClick={fileImport}
               ></BottomBtn>
             </div>
           </div>
@@ -226,12 +282,6 @@ function App() {
                     minHeight: '515px'
                   }}
                 ></SimpleMDE>
-                <BottomBtn
-                  text='保存'
-                  colorClass='btn-success'
-                  icon={faSave}
-                  onBtnClick={saveCurrentFile}
-                ></BottomBtn>
               </>
               :
               <div className='start-page'>

@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/TabList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TabList.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/fileHelper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useContextMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useIpcRenderer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menuTemplate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BottomBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomBtn.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FileList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/defaultFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/defaultFiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../interview/css/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/css/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +77,8 @@
       <workItem from="1579150933158" duration="5114000" />
       <workItem from="1579324297227" duration="12358000" />
       <workItem from="1579405040146" duration="14059000" />
+      <workItem from="1579506144056" duration="7905000" />
+      <workItem from="1579514377842" duration="9296000" />
     </task>
     <servers />
   </component>

@@ -4,7 +4,7 @@ import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import useKeyPress from "../hooks/useKeyPress";
 
-const FileSearch = ({ title, onFileSearch }) => {
+const FileSearch = ({ title, onFileSearch, searchEvent, onFileSearchEvent }) => {
   const [ inputActive, setInputActive ] = useState(false)
   const [ value, setValue ] = useState('')
   const enterPressed = useKeyPress(13)
@@ -13,9 +13,9 @@ const FileSearch = ({ title, onFileSearch }) => {
   let node = useRef(null)
 
   const closeSearch = () => {
-    setInputActive(false)
     setValue('')
     onFileSearch('')
+    onFileSearchEvent()
   }
 
   useEffect(() => {
@@ -45,6 +45,14 @@ const FileSearch = ({ title, onFileSearch }) => {
     }
   }, [inputActive])
 
+  useEffect(() => {
+    if (searchEvent) {
+      setInputActive(true)
+    } else {
+      setInputActive(false)
+    }
+  }, [searchEvent])
+
   return (
     <div className="alert alert-primary d-flex justify-content-between align-items-center mb-0">
       {
@@ -54,7 +62,7 @@ const FileSearch = ({ title, onFileSearch }) => {
           <button
             type='button'
             className='icon-button'
-            onClick={() => { setInputActive(true) }}
+            onClick={() => { onFileSearchEvent() }}
           >
             <FontAwesomeIcon
               title='搜索'

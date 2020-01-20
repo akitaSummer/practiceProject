@@ -4,6 +4,8 @@ import { faEdit, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons'
 import PropTypes from 'prop-types'
 import useKeyPress from "../hooks/useKeyPress";
+import useContextMenu from "../hooks/useContextMenu";
+import { getParentNode } from '../utils/helper'
 
 const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
 
@@ -13,6 +15,30 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
   const escPressed = useKeyPress(27)
   let node = useRef(null)
 
+  const clickedItem = useContextMenu([
+    {
+      label: '打开',
+      click: () => {
+        const parentElement = getParentNode(clickedItem.current, 'file-list')
+        if (parentElement) {
+          onFileClick(parentElement.dataset.id)
+        }
+      }
+    },
+    {
+      label: '重命名',
+      click: () => {
+        console.log('renaming')
+      }
+    },
+    {
+      label: '删除',
+      click: () => {
+        console.log('deleting')
+      }
+    }
+  ], '.file-list', [files])
+
   const closeSearch = (file) => {
     setEditStatus(false)
     setValue('')
@@ -20,6 +46,7 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
       onFileDelete(file.id)
     }
   }
+
 
   useEffect(() => {
     // const handleInputEvent = (event) => {
@@ -80,6 +107,8 @@ const FileList = ({ files, onFileClick, onSaveEdit, onFileDelete }) => {
             <li
               className='list-group-item bg-light row d-flex align-items-center file-item mx-0'
               key={file.id}
+              data-id={file.id}
+              data-title={file.title}
             >
               {
                 (file.id !== editStatus && !file.isNew) &&
