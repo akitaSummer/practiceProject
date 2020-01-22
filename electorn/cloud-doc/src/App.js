@@ -17,6 +17,7 @@ const { join, basename, extname, dirname } = window.require('path')
 const { remote, ipcRenderer } = window.require('electron')
 const Store = window.require('electron-store')
 const fileStore = new Store({ 'name': 'Files Data' })
+const settingsStore = new Store({ 'name': 'settings' })
 
 const saveFilesToStore = (files) => {
   const filesStoreObj = objToArr(files).reduce((result, file) => {
@@ -41,7 +42,7 @@ function App() {
   const [ searchFiles, setSearchFiles ] = useState([])
   const [ searchEvent, setSearchEvent ] = useState(false)
   const filesArr = objToArr(files)
-  const savedLocation = remote.app.getPath('documents')
+  const savedLocation = settingsStore.get('saveLocation') || remote.app.getPath('documents')
 
   const showFiles = searchFiles.length > 0 ? searchFiles : filesArr
   const activeFile = files[activeFileID]

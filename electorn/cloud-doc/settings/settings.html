@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h5>设置</h5>
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="exampleInputPassword1">选择文件储存位置</label>
+          <div class="input-group mb-2">
+            <input type="text" id="saved-file-location" class="form-control" placeholder="当前存储地址" readonly>
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-primary" id="select-new-location">选择新的位置</button>
+            </div>
+          </div>
+        </div>
+        <button id="btn1" type="button" class="btn btn-primary">保存</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    require('./settings')
+  </script>
+</html>
