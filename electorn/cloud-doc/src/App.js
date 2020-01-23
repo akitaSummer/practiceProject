@@ -19,6 +19,8 @@ const Store = window.require('electron-store')
 const fileStore = new Store({ 'name': 'Files Data' })
 const settingsStore = new Store({ 'name': 'settings' })
 
+const qiniuConfig = () => ['#accessKey', '#secretKey', "#bucketName", 'enableAutoSync'].every(item => !!settingsStore.get(item))
+
 const saveFilesToStore = (files) => {
   const filesStoreObj = objToArr(files).reduce((result, file) => {
     const { id, title, path, createdAt } = file
@@ -150,9 +152,16 @@ function App() {
   }
 
   const saveCurrentFile = () => {
-    fileHelper.writeFile(activeFile.path, activeFile.body).then(
+    const { path, body, title } = activeFile
+    fileHelper.writeFile(path, body).then(() => {
       setUnsaveFilesIDs(unsaveFilesIDs.filter(id => id !== activeFile.id))
-    )
+      if (qiniuConfig) {
+        ipcRenderer.send('upload-file', {
+          key: `${title}.md`,
+          path
+        })
+      }
+    })
   }
 
   const fileSearch = (keyword) => {

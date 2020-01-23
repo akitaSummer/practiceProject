@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/settings/settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings/settings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppWindow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/QiniuManager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testStream.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings/settings.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/settings/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/settings/settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menuTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menuTemplate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,7 @@
         <option value="JavaScript JSX File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,6 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -87,7 +84,8 @@
       <workItem from="1579514377842" duration="9296000" />
       <workItem from="1579536845968" duration="57000" />
       <workItem from="1579584409085" duration="6259000" />
-      <workItem from="1579673002271" duration="7394000" />
+      <workItem from="1579673002271" duration="8234000" />
+      <workItem from="1579763391904" duration="8457000" />
     </task>
     <servers />
   </component>

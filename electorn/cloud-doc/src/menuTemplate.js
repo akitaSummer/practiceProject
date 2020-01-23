@@ -1,4 +1,10 @@
 const { app, shell, ipcMain } = require('electron')
+const Store = require('electron-store')
+const qiniuConfigArr = ['#accessKey', '#secretKey', "#bucketName"]
+const settingsStore = new Store({ name: 'settings' })
+
+const qiniuIsConfiged = qiniuConfigArr.every(item => !!settingsStore.get(item))
+const enableAutoSync = settingsStore.get('enableAutoSync') || false
 
 let template = [
   {
@@ -31,6 +37,40 @@ let template = [
         click: (menuItem, browserWindow, event) => {
           browserWindow.webContents.send('inport-file')
         }
+      }
+    ]
+  },
+  {
+    label:'云同步',
+    submenu:[
+      {
+        label: '设置',
+        accelerator: 'Ctrl+,',
+        click: () => {
+          // ipcMain继承于Event Emitter
+          ipcMain.emit('open-settings-window')
+        }
+      },
+      {
+        label: '自动同步',
+        type: 'checkbox',
+        checked: enableAutoSync,
+        enabled: qiniuIsConfiged,
+        click:()=>{
+          settingsStore.set('enableAutoSync', !enableAutoSync)
+        }
+      },
+      {
+        label:'全部同步至云端',
+        enabled: qiniuIsConfiged,
+        click:()=>{
+          ipcMain.emit('upload-all-file')
+        }
+      },
+      {
+        label:'从云端下载到本地',
+        enabled: qiniuIsConfiged,
+        click:()=>{}
       }
     ]
   },
