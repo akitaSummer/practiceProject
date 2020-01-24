@@ -6,10 +6,11 @@ import FileSearch from "./components/FileSearch";
 import FileList from "./components/FileList";
 import BottomBtn from "./components/BottomBtn";
 import TabList from "./components/TabList";
+import Loader from "./components/Loader";
 import SimpleMDE from 'react-simplemde-editor'
 import 'easymde/dist/easymde.min.css'
 import uuidv4 from 'uuid/v4'
-import { flattenArr, objToArr } from './utils/helper'
+import { flattenArr, objToArr, timestampToString } from './utils/helper'
 import fileHelper from "./utils/fileHelper";
 import useIpcrenderer from "./hooks/useIpcRenderer";
 
@@ -23,12 +24,14 @@ const qiniuConfig = () => ['#accessKey', '#secretKey', "#bucketName", 'enableAut
 
 const saveFilesToStore = (files) => {
   const filesStoreObj = objToArr(files).reduce((result, file) => {
-    const { id, title, path, createdAt } = file
+    const { id, title, path, createdAt, isSynced, updatedAt } = file
     result[id] = {
       id,
       title,
       path,
-      createdAt
+      createdAt,
+      isSynced,
+      updatedAt
     }
     return result
   }, {})
@@ -43,6 +46,7 @@ function App() {
   const [ unsaveFilesIDs, setUnsaveFilesIDs ] = useState([])
   const [ searchFiles, setSearchFiles ] = useState([])
   const [ searchEvent, setSearchEvent ] = useState(false)
+  const [ isLoading, setIsLoading ] = useState(false)
   const filesArr = objToArr(files)
   const savedLocation = settingsStore.get('saveLocation') || remote.app.getPath('documents')
 
@@ -71,17 +75,22 @@ function App() {
   const fileClick = (id) => {
     setActiveFileID(id)
     const currentFile = files[id]
-    if (!currentFile.isLoaded) {
-      fileHelper.readFile(currentFile.path).then((value) => {
-        const newFile = {
-          ...currentFile,
-          isLoaded: true,
-          body: value
-        }
-        setFiles({ ...files, [id]: newFile })
-      }).catch(() => {
-        noFile(id)
-      })
+    const { title, path, isLoaded } = currentFile
+    if (!isLoaded) {
+      if (settingsStore.get('enableAutoSync')) {
+        ipcRenderer.send('download-file', { key: `${title}.md`, id, path})
+      } else {
+        fileHelper.readFile(currentFile.path).then((value) => {
+          const newFile = {
+            ...currentFile,
+            isLoaded: true,
+            body: value
+          }
+          setFiles({ ...files, [id]: newFile })
+        }).catch(() => {
+          noFile(id)
+        })
+      }
     }
     if (!openFilesIDs.includes(id)) {
       setOpenFileIDs([...openFilesIDs, id])
@@ -229,15 +238,61 @@ function App() {
     setSearchEvent(!searchEvent)
   }
 
+  const activeFileUploaded = () => {
+    const { id } = activeFile
+    const modifiedFile = { ...files[id], isSynced: true, updatedAt: new Date().getTime()}
+    const newFiles = { ...files, [id]: modifiedFile }
+    setFiles(newFiles)
+    saveFilesToStore(newFiles)
+  }
+
+  const activeFileDownloaded = (event, message) => {
+    const currentFile = files[message.id]
+    const { id, path } = currentFile
+    fileHelper.readFile(path).then(value => {
+      let newFile
+      if (message.status === 'download-success') {
+        newFile = { ...files[id], body: value, isLoaded: true, isSynced: true, updatedAt: new Date().getTime() }
+      } else {
+        newFile = { ...files[id], body: value, isLoaded: true }
+      }
+      const newFiles = { ...files, [id]: newFile }
+      setFiles(newFiles)
+      saveFilesToStore(newFiles)
+    })
+  }
+
+  const filesUploaded = () => {
+    const newFiles = objToArr(files).reduce((result, file) => {
+      const currentTime = new Date().getTime()
+      result[file.id] = {
+        ...files[file.id],
+        isSynced: true,
+        updatedAt: currentTime
+      }
+    }, {})
+    setFiles(newFiles)
+    saveFilesToStore(newFiles)
+  }
+
   useIpcrenderer({
     'create-new-file': addFile,
     'import-file': fileImport,
     'save-edit-file': saveCurrentFile,
-    'search-file': fileSearchEvent
+    'search-file': fileSearchEvent,
+    'active-file-uploaded': activeFileUploaded,
+    'file-downloaded': activeFileDownloaded,
+    'loading-status': (message, status) => {
+      setIsLoading(status)
+    },
+    'files-uploaded': filesUploaded
   })
 
   return (
     <div className="App container-fluid px-0">
+      {
+        isLoading && <Loader></Loader>
+      }
       <div className="row no-gutters">
         <div className="col-3 bg-light left-panel">
           <FileSearch
@@ -290,6 +345,7 @@ function App() {
                     minHeight: '515px'
                   }}
                 ></SimpleMDE>
+                { activeFile.isSynced && <span className="sync-status">已同步，上次同步{timestampToString(activeFile.updatedAt)}</span>}
               </>
               :
               <div className='start-page'>

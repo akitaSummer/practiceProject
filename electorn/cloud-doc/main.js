@@ -7,6 +7,7 @@ const Store = require('electron-store')
 const QiniuManager = require('./src/utils/QiniuManager')
 const qiniuConfigArr = ['#accessKey', '#secretKey', "#bucketName"]
 const settingsStore = new Store({ name: 'settings' })
+const fileStore = new Store({ name: 'Files Data' })
 
 const qiniuIsConfiged = qiniuConfigArr.every(item => !!settingsStore.get(item))
 const createManager = () => {
@@ -58,9 +59,51 @@ app.on('ready', () => {
   ipcMain.on('upload-file', (event, data) => {
     const manager = createManager()
     manager.uploadFile(data.key, data.path).then(data => {
-      console.log('上传成功', data)
+      mainWindow.webContents.send('active-file-uploaded')
     }).catch(() => {
       dialog.showErrorBox('同步失败', '请检查七牛云参数是否正确')
+    })
+  })
+
+  ipcMain.on('download-file', (event, data) => {
+    const manager = createManager()
+    const filesObj = fileStore.get('files')
+    const { key, path, id } = data
+    manager.getStat(data.key).then((resp) => {
+      const serverUpdatedTime = Math.round(resp.putTime / 10000)
+      const localUpdatedTime = filesObj[id].updatedAt
+      if (serverUpdatedTime > localUpdatedTime || !localUpdatedTime) {
+        manager.downloadFile(key, path).then(() => {
+          mainWindow.webContents.send('file-downloaded', { status: 'no-file' , id })
+        })
+      } else {
+        mainWindow.webContents.send('file-downloaded', { status: 'no-new-file' , id })
+      }
+    }, (err) => {
+      if (err.statusCode === 612) {
+        mainWindow.webContents.send('file-downloaded', { status: 'no-file', id })
+      }
+    })
+  })
+  ipcMain.on('upload-all-to-qiniu', () => {
+    mainWindow.webContents.send('loading-status', true)
+    const filesObj = fileStore.get('files') || {}
+    const manager = createManager()
+    const uploadPromiseArr = Object.keys(filesObj).map(key => {
+      const file = filesObj[key]
+      return manager.uploadFile(`${file.title}.md`, file.path)
+    })
+    Promise.all(uploadPromiseArr).then(result => {
+      dialog.showMessageBox({
+        type: 'info',
+        title: `成功上传了${result.length}个文件`,
+        message: `成功上传了${result.length}个文件`
+      })
+      mainWindow.webContents.send('files-uploaded')
+    }).catch(() => {
+      dialog.showErrorBox('同步失败', '请检查七牛云参数是否正确')
+    }).finally(() => {
+      mainWindow.webContents.send('loading-status', false)
     })
   })
 })

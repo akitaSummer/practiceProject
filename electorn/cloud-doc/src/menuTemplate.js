@@ -64,7 +64,7 @@ let template = [
         label:'全部同步至云端',
         enabled: qiniuIsConfiged,
         click:()=>{
-          ipcMain.emit('upload-all-file')
+          ipcMain.emit('upload-all-to-qiniu')
         }
       },
       {

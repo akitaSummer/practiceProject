@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/settings/settings.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/settings/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/settings/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menuTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/menuTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/QiniuManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/QiniuManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/helper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript JSX File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript JSX File" />
       </list>
     </option>
   </component>
@@ -85,7 +87,8 @@
       <workItem from="1579536845968" duration="57000" />
       <workItem from="1579584409085" duration="6259000" />
       <workItem from="1579673002271" duration="8234000" />
-      <workItem from="1579763391904" duration="8457000" />
+      <workItem from="1579763391904" duration="8855000" />
+      <workItem from="1579856245687" duration="5062000" />
     </task>
     <servers />
   </component>
@@ -93,10 +96,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1579151914783">
+    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1579864817474">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579151914783" />
+    <state x="599" y="292" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579864817474" />
+    <state x="570" y="317" key="EditFileWatcherDialog" timestamp="1579864698735">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="570" y="317" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579864698735" />
     <state x="463" y="165" key="SettingsEditor" timestamp="1579673054304">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

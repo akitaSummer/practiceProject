@@ -91,6 +91,12 @@ class QiniuManager {
       this.bucketManager.delete(this.bucket, key, this._handleCallback(resolve, reject))
     })
   }
+
+  getStat(key) {
+    return new Promise((resolve, reject) => {
+      this.bucketManager.stat(this.bucket, key, this._handleCallback(resolve, reject))
+    })
+  }
 }
 
 module.exports = QiniuManager
