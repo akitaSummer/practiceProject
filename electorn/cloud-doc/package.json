@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "main": "main.js",
   "private": true,
+  "description": "Online Markdown Editor using Qiniu cloud service",
+  "author": {
+    "name": "akitaSummer"
+  },
+  "repositiory": "https://github.com/akitaSummer/practiceProject/tree/master/electorn/electron-react",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
@@ -14,6 +19,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "electron-is-dev": "^1.1.0",
     "electron-store": "^5.1.0",
     "node-sass": "^4.13.0",
     "qiniu": "^7.3.0",
@@ -26,12 +32,78 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "buildMain": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"wait-on http://localhost:3000 && nodemon --watch . --exec \\\"electron .\\\"\" \"cross-env BROWSER=none npm start\""
+    "dev": "concurrently \"wait-on http://localhost:3000 && nodemon --watch . --exec \\\"electron .\\\"\" \"cross-env BROWSER=none npm start\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "prepack": "npm run build && npm run buildMain",
+    "predist": "npm run build && npm run buildMain",
+    "release": "electron-builder",
+    "prerelease": "npm run build && npm run buildMain"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "cloudDoc",
+    "productName": "七牛云文档",
+    "copyright": "Copyright © year ${author}",
+    "extends": null,
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "settings/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildRwsources": "assets"
+    },
+    "extraMetadata": {
+      "main": "./build/main.js"
+    },
+    "publish": ["github"],
+    "mac": {
+      "category": "pubilc.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "dmg": {
+      "background": "assets/appdmg.png",
+      "icon": "assets/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "win": {
+      "target": [
+        "msi", "nsis"
+      ],
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-Web-Setup-${version}.${ext}",
+      "publisherName": "akitasummer"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": false
+    }
   },
   "browserslist": {
     "production": [
@@ -49,7 +121,7 @@
     "concurrently": "^5.0.2",
     "cross-env": "^6.0.3",
     "electron": "^7.1.8",
-    "electron-is-dev": "^1.1.0",
+    "electron-builder": "^22.2.0",
     "wait-on": "^3.3.0"
   }
 }

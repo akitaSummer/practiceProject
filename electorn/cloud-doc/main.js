@@ -18,7 +18,7 @@ const createManager = () => {
 }
 
 app.on('ready', () => {
-  const urlLocation = isDev ? 'http://localhost:3000' : 'dummyurl'
+  const urlLocation = isDev ? 'http://localhost:3000' : `path://${path.join(__dirname, './index.html')}`
   let mainWindow = new AppWindow({
     width: 1400,
     height: 1400,
