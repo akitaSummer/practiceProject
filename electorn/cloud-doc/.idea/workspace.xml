@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +81,8 @@
       <workItem from="1579673002271" duration="8234000" />
       <workItem from="1579763391904" duration="8855000" />
       <workItem from="1579856245687" duration="5062000" />
-      <workItem from="1579947242239" duration="6031000" />
+      <workItem from="1579947242239" duration="6303000" />
+      <workItem from="1580107120737" duration="63000" />
     </task>
     <servers />
   </component>
@@ -102,6 +98,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="570" y="317" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579864698735" />
+    <state x="739" y="264" key="FileChooserDialogImpl" timestamp="1580107148570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1580107148570" />
     <state x="463" y="165" key="SettingsEditor" timestamp="1579673054304">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
