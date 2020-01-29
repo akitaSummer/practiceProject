@@ -39,7 +39,7 @@ $bc: #e4e4e4;
   }
 }
 
-.clearfix {
+@mixin clearfix() {
   *zoom: 1;
   &::after {
     content: '';
