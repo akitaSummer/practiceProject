@@ -6,6 +6,7 @@ import Msite from "../pages/Home/Msite/Msite";
 import Search from "../pages/Home/Search/Search";
 import Profile from "../pages/Home/Profile/Profile";
 import Order from "../pages/Home/Order/Order";
+import Login from "@/pages/Login/Login";
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const router = new VueRouter({
     {
       path: '/',
       redirect: '/home/msite'
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })
