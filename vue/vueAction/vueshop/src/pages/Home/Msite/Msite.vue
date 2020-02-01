@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderTop :title="title">
+    <HeaderTop :title="address.data.name">
       <template v-slot:left>
         <span class="header-search">
           <i class="iconfont icon-sousuo"></i>
@@ -251,6 +251,7 @@
 <script>
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import HeaderTop from "@/components/HeaderTop/HeaderTop";
+  import { mapState, mapActions } from 'vuex'
   export default {
     name: "Msite",
     components: {
@@ -270,8 +271,18 @@
           [{ src: process.env.BASE_URL + 'images/nav/1.jpg', title: '甜品饮品'}, { src: process.env.BASE_URL + 'images/nav/2.jpg', title: '超市便利'}, { src: process.env.BASE_URL + 'images/nav/3.jpg', title: '美食'}, { src: process.env.BASE_URL + 'images/nav/4.jpg', title: '简餐'}, { src: process.env.BASE_URL + 'images/nav/5.jpg', title: '新店特惠'}, { src: process.env.BASE_URL + 'images/nav/6.jpg', title: '准时达'}, { src: process.env.BASE_URL + 'images/nav/7.jpg', title: '预定早餐'}, { src: process.env.BASE_URL + 'images/nav/8.jpg', title: '土豪推荐'}],
           [{ src: process.env.BASE_URL + 'images/nav/9.jpg', title: '甜品饮品'}, { src: process.env.BASE_URL + 'images/nav/10.jpg', title: '超市便利'}, { src: process.env.BASE_URL + 'images/nav/11.jpg', title: '美食'}, { src: process.env.BASE_URL + 'images/nav/12.jpg', title: '简餐'}, { src: process.env.BASE_URL + 'images/nav/13.jpg', title: '新店特惠'}, { src: process.env.BASE_URL + 'images/nav/14.jpg', title: '准时达'}, { src: process.env.BASE_URL + 'images/nav/1.jpg', title: '预定早餐'}, { src: process.env.BASE_URL + 'images/nav/2.jpg', title: '土豪推荐'}]
         ],
-        title: '昌平区北七家宏福科技园(337省道北)',
       }
+    },
+    methods: {
+      ...mapActions(['getAddress', 'getCategorys', 'getShops']),
+    },
+    computed: {
+      ...mapState(['address', 'categorys', 'shops'])
+    },
+    async created() {
+      await this.getAddress()
+      await this.getCategorys()
+      await this.getShops()
     }
   }
 </script>
