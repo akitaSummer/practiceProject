@@ -61,10 +61,10 @@
       }
     },
     methods: {
-      ...mapActions(['getAddress', 'getCategorys', 'getShops']),
+      ...mapActions(['getAddress', 'getCategorys', 'getShops', 'getUserInfo']),
     },
     computed: {
-      ...mapState(['address', 'categorys', 'shops']),
+      ...mapState(['address', 'categorys', 'shops', 'userInfo']),
       categorysArr() {
         const result = []
         if (Array.isArray(this.categorys.data)) {
@@ -80,10 +80,11 @@
         return result
       }
     },
-    async created() {
-      await this.getAddress()
-      await this.getCategorys()
-      await this.getShops()
+    created() {
+      this.getAddress()
+      this.getCategorys()
+      this.getShops()
+      this.getUserInfo()
     }
   }
 </script>

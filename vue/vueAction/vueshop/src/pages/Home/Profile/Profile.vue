@@ -92,6 +92,7 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import HeaderTop from "@/components/HeaderTop/HeaderTop";
   export default {
     name: "Profile",
@@ -102,6 +103,9 @@
       return {
         title: '订单列表'
       }
+    },
+    computed: {
+      ...mapState(['userInfo'])
     }
   }
 </script>
