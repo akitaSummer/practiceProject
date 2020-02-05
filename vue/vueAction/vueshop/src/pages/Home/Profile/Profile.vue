@@ -7,12 +7,12 @@
           <i class="iconfont icon-person"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
+          <p class="user-info-top" v-if="!userInfo.phone">{{userInfo._id || "登录/注册"}}</p>
           <p>
             <span class="user-icon">
               <i class="iconfont icon-shouji icon-mobile"></i>
             </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{userInfo.phone || '暂无绑定手机号'}}</span>
           </p>
         </div>
         <span class="arrow">
@@ -88,12 +88,16 @@
         </li>
       </ul>
     </section>
+    <section class="profile-my-order border-1px" v-if="userInfo._id">
+      <mt-button class="logout" type="danger" @click="logoutButton">退出登陆</mt-button>
+    </section>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import HeaderTop from "@/components/HeaderTop/HeaderTop";
+  import { mapState, mapActions } from 'vuex'
+  import HeaderTop from "@/components/HeaderTop/HeaderTop"
+  import { MessageBox } from 'mint-ui'
   export default {
     name: "Profile",
     components: {
@@ -106,6 +110,14 @@
     },
     computed: {
       ...mapState(['userInfo'])
+    },
+    methods: {
+      ...mapActions(['logout']),
+      logoutButton() {
+        MessageBox.confirm('确定退出登陆吗').then(() => {
+          this.logout()
+        })
+      }
     }
   }
 </script>

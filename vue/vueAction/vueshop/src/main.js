@@ -4,11 +4,14 @@ import axios from 'axios'
 import VueAwesomeSwiper from "vue-awesome-swiper/src";
 import router from './router'
 import store from './store'
+import { Button } from 'mint-ui'
 
 // Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper)
 import 'swiper/dist/css/swiper.min.css'
+
+Vue.component(Button.name, Button)
 
 Vue.prototype.$ajax = axios
 

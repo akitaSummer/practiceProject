@@ -7,8 +7,11 @@
         </span>
       </template>
       <template v-slot:right>
-        <span class="header-login">
+        <span class="header-login" v-if="!userInfo._id">
           登录|注册
+        </span>
+        <span class="header-login" v-else>
+          <i class="iconfont person"></i>
         </span>
       </template>
     </HeaderTop>
