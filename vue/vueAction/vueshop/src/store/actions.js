@@ -3,7 +3,10 @@ import {
   reqFoodCategorys,
   reqShops,
   reqUserInfo,
-  reqLogout
+  reqLogout,
+  reqShopGoods,
+  reqShopRatings,
+  reqShopInfo
 } from '../api/index'
 
 import {
@@ -11,7 +14,10 @@ import {
   RECEIVE_CATEGORYS,
   RECEIVE_SHOPS,
   RECEIVE_USER_INFO,
-  RESET_USER_INFO
+  RESET_USER_INFO,
+  RECEIVE_GOODS,
+  RECEIVE_INFO,
+  RECEIVE_REATINGS
 } from './mutation-types'
 
 export default {
@@ -42,6 +48,29 @@ export default {
     const result = await reqLogout()
     if (result.data === 0) {
       commit(RESET_USER_INFO)
+    }
+  },
+  async getShopInfo({ commit }, callback) {
+    const result= await reqShopInfo()
+    if (result.code === 0) {
+      const info = result.data
+      info.score = 3.5
+      commit(RECEIVE_INFO, {info})
+      callback && callback()
+    }
+  },
+  async getShopRatings({ commit }, callback) {
+    const result = await reqShopRatings()
+    if (result.code === 0) {
+      commit(RECEIVE_REATINGS, { ratings: result.data })
+      callback && callback()
+    }
+  },
+  async getShopGoods({ commit }, callback) {
+    const result = await reqShopGoods()
+    if (result.code === 0) {
+      commit(RECEIVE_GOODS, { goods: result.data })
+      callback && callback()
     }
   }
 }

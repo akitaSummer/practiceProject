@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="shop-list" v-if="shopList.length > 0">
-      <li class="shop-li border-1px" v-for="(shop, i) in shopList" :key="'shop' + i">
+      <router-link class="shop-li border-1px" v-for="(shop, i) in shopList" :key="'shop' + i" tag="li" :to="{ name: 'shopgoods' }">
         <div class="shop-left">
           <img src="../../../public/images/shop/1.jpg" alt="" class="shop-img">
         </div>
@@ -27,7 +27,7 @@
             <span class="delivery-style delivery-right">准时达</span>
           </section>
         </div>
-      </li>
+      </router-link>
     </ul>
     <ul v-else>
       <li v-for="item in 10" :key="item + 'shopListElse'">
