@@ -52,8 +52,8 @@ export default {
   },
   async getShopInfo({ commit }, callback) {
     const result= await reqShopInfo()
-    if (result.code === 0) {
-      const info = result.data
+    if (result.data.code === 0) {
+      const info = result.data.data
       info.score = 3.5
       commit(RECEIVE_INFO, {info})
       callback && callback()
@@ -61,15 +61,15 @@ export default {
   },
   async getShopRatings({ commit }, callback) {
     const result = await reqShopRatings()
-    if (result.code === 0) {
-      commit(RECEIVE_REATINGS, { ratings: result.data })
+    if (result.data.code === 0) {
+      commit(RECEIVE_REATINGS, { ratings: result.data.data })
       callback && callback()
     }
   },
   async getShopGoods({ commit }, callback) {
     const result = await reqShopGoods()
-    if (result.code === 0) {
-      commit(RECEIVE_GOODS, { goods: result.data })
+    if (result.data.code === 0) {
+      commit(RECEIVE_GOODS, { goods: result.data.data })
       callback && callback()
     }
   }

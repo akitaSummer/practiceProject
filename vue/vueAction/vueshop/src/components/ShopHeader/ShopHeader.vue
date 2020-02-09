@@ -1,138 +1,141 @@
 <template>
   <div class="shop-header">
-    <nav class="shop-nav">
-      <router-link to="/home/msite" class="back">
+    <nav class="shop-nav" :style="{backgroundImage: `url('${info.bgImg}')`}">
+      <router-link to="/home/msite" class="back" @click="$router.back()">
         <i class="iconfont icon-arrow_left"></i>
       </router-link>
     </nav>
     <div class="shop-content">
-      <img src="https://fuss10.elemecdn.com/8/40/02872ce8aefe75c16d3190e75ad61jpeg.jpeg" class="content-image">
+      <img :src="info.avatar" class="content-image">
       <div class="header-content">
         <h2 class="content-title">
           <span class="content-tag">
             <span class="mini-tag">品牌</span>
           </span>
-          <span class="content-name">大鸭梨</span>
-          <i class="content-icon"></i>
+          <span class="content-name">{{info.name}}</span>
+          <i class="content-icon" @click="modalShowChange"></i>
         </h2>
         <div class="shop-message">
-          <span class="shop-message-detail">5</span>
-          <span class="shop-message-detail">月售100单</span>
+          <span class="shop-message-detail">{{info.score}}</span>
+          <span class="shop-message-detail">月售{{info.sellCount}}单</span>
           <span class="shop-message-detail">
-            硅谷专送
-            <span>约30分钟</span>
+            {{info.description}}
+            <span>约{{info.deliveryTime}}分钟</span>
           </span>
-          <span class="shop-message-detail">距离1000m</span>
+          <span class="shop-message-detail">距离{{info.distance}}</span>
         </div>
       </div>
     </div>
-    <div class="shop-header-discounts">
+    <div class="shop-header-discounts" v-if="info.supports">
       <div class="discounts-left">
-        <div class="activity activeity-green">
+        <div class="activity" :class="supportsClass[info.supports.type]">
           <span class="content-tag">
-            <span class="mini-tag">首单</span>
+            <span class="mini-tag">{{info.supports[0].name}}</span>
           </span>
-          <span class="activity-content ellipsis">新用户下单立减17元</span>
+          <span class="activity-content ellipsis">{{info.supports[0].content}}</span>
         </div>
       </div>
-      <div class="discounts-right">
-        4个优惠
+      <div class="discounts-right" @click="activityShowChange">
+        {{info.supports.length}}
       </div>
     </div>
 
-    <div class="shop-brief-modal">
+    <transition name="fade">
+      <div class="shop-brief-modal" v-show="modalShow">
         <div class="brief-modal-content">
           <h2 class="content-title">
             <span class="content-tag">
             <span class="mini-tag">品牌</span>
             </span>
-            <span class="content-name">嘉禾一品（温都水城）</span>
+            <span class="content-name">{{info.name}}</span>
           </h2>
           <ul class="brief-modal-msg">
             <li>
-              <h3>3.5</h3>
+              <h3>{{info.score}}</h3>
               <p>评分</p>
             </li>
             <li>
-              <h3>90 单</h3>
+              <h3>{{info.sellCount}} 单</h3>
               <p>月售</p>
             </li>
             <li>
               <h3>硅谷专送</h3>
-              <p>约 28 分钟</p>
+              <p>约 {{info.deliveryTime}} 分钟</p>
             </li>
             <li>
-              <h3>4 元</h3>
+              <h3>{{info.deliveryPrive}} 元</h3>
               <p>配送费用</p>
             </li>
             <li>
-              <h3>1000m</h3>
+              <h3>{{info.distance}}</h3>
               <p>距离</p>
             </li>
           </ul>
           <h3 class="brief-modal-title"><span>公告</span></h3>
           <div class="brief-modal-notice">
-            是以粥为特色的中式营养快餐，自 2004 年 10 月 18 日创立“嘉和一品”品牌至今
+            {{info.bulletin}}
           </div>
-          <div class="mask-footer">
+          <div class="mask-footer" @click="modalShowChange">
             <span class="iconfont icon-close"></span>
           </div>
         </div>
         <div class="brief-modal-cover"></div>
-    </div>
-    <div class="activity-sheet">
-      <div class="activity-sheet-content">
-        <h2 class="activity-sheet-title">优惠活动</h2>
-        <ul class="list">
-          <li class="activity-item activity-green">
-            <span class="content-tag">
-              <span class="mini-tag">首单</span>
-            </span>
-            <span class="activity-content">新用户下单立减 17 元(不与其它活动同享)</span>
-          </li>
-          <li class="activity-item activity-red">
-            <span class="content-tag">
-              <span class="mini-tag">满减</span>
-            </span>
-            <span class="activity-content">满 35 减 19，满 65 减 35</span>
-          </li>
-          <li class="activity-item activity-orange">
-            <span class="content-tag">
-              <span class="mini-tag">特价</span>
-            </span>
-            <span class="activity-content">【立减 19.5 元】欢乐小食餐</span>
-          </li>
-          <li class="activity-item activity-green">
-            <span class="content-tag">
-              <span class="mini-tag">首单</span>
-            </span>
-            <span class="activity-content">新用户下单立减 17 元(不与其它活动同享)</span>
-          </li>
-          <li class="activity-item activity-red">
-            <span class="content-tag">
-              <span class="mini-tag">满减</span>
-            </span>
-            <span class="activity-content">满 35 减 19，满 65 减 35</span>
-          </li>
-          <li class="activity-item activity-orange">
-            <span class="content-tag">
-              <span class="mini-tag">特价</span>
-            </span>
-            <span class="activity-content">【立减 19.5 元】欢乐小食餐</span>
-          </li>
-        </ul>
-        <div class="activity-sheet-close">
-          <span class="iconfont icon-close"></span>
-        </div>
       </div>
-      <div class="activity-sheet-cover"></div>
-    </div>
+    </transition>
+
+    <transition name="fade">
+      <div class="activity-sheet" v-show="activityShow">
+        <transition name="fade">
+          <div class="activity-sheet-content"  v-show="activityShow">
+            <h2 class="activity-sheet-title">优惠活动</h2>
+            <ul class="list" v-if="info.supports">
+              <li class="activity-item activity-green" :class="supportsClass[item.type]" v-for="(item, i) in info.supports" :key="item.name + i">
+            <span class="content-tag">
+              <span class="mini-tag">{{item.name}}</span>
+            </span>
+                <span class="activity-content">{{item.content}}</span>
+              </li>
+            </ul>
+            <div class="activity-sheet-close"  @click="activityShowChange">
+              <span class="iconfont icon-close"></span>
+            </div>
+          </div>
+        </transition>
+
+        <div class="activity-sheet-cover"></div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapState } from 'vuex'
   export default {
-    name: "ShopHeader"
+    name: "ShopHeader",
+    data() {
+      return {
+        supportsClass: ['activity-green', 'activity-red', 'activity-orange'],
+        modalShow: false,
+        activityShow: false
+      }
+    },
+    computed: {
+      ...mapState(['goods', 'ratings', 'info'])
+    },
+    methods: {
+      ...mapActions(['getShopInfo', 'getShopRatings', 'getShopGoods']),
+      modalShowChange() {
+        this.modalShow = !this.modalShow
+      },
+      activityShowChange() {
+        this.activityShow = !this.activityShow
+      }
+    },
+    created() {
+      this.getShopInfo()
+      this.getShopGoods()
+      this.getShopRatings()
+    }
   }
 </script>
 
@@ -346,6 +349,15 @@
       z-index: 52;
       flex-direction: column;
       color: #333;
+      &.fade-enter-active, &.fade-leave-active {
+        transition: opacity .3s;
+      }
+      &.fade-enter-to, &.fade-leave {
+        opacity: 1;
+      }
+      &.fade-enter, &.fade-leave-to {
+        opacity: 0;
+      }
       .brief-modal-cover {
         position: absolute;
         width: 100%;
@@ -463,6 +475,15 @@
       width: 100%;
       height: 100%;
       z-index: 99;
+      &.fade-enter-active, &.fade-leave-active {
+        transition: opacity .3s;
+      }
+      &.fade-enter-to, &.fade-leave {
+        opacity: 1;
+      }
+      &.fade-enter, &.fade-leave-to {
+        opacity: 0;
+      }
       .activity-sheet-content {
         position: absolute;
         background-color: #f5f5f5;
@@ -473,9 +494,19 @@
         z-index: 100;
         padding: 20px 30px;
         box-sizing: border-box;
+        transform: translateY(0);
         transition: transform .2s;
         will-change: transform;
         color: #333;
+        &.fade-enter-active, &.fade-leave-active {
+          transition: transform .2s;
+        }
+        &.fade-enter-to, &.fade-leave {
+          transform: translateY(0);;
+        }
+        &.fade-enter, &.fade-leave-to {
+          transform: translateY(375px);;
+        }
         .activity-sheet-title {
           text-align: center;
           font-size: 20px;

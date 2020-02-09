@@ -8,6 +8,8 @@ import { Button } from 'mint-ui'
 
 // Vue.config.productionTip = false
 
+import './mock/mockServer'
+
 Vue.use(VueAwesomeSwiper)
 import 'swiper/dist/css/swiper.min.css'
 
