@@ -17,7 +17,9 @@ import {
   RESET_USER_INFO,
   RECEIVE_GOODS,
   RECEIVE_INFO,
-  RECEIVE_REATINGS
+  RECEIVE_REATINGS,
+  DECREMENT_FOOD_COUNT,
+  INCREMENT_FOOD_COUNT
 } from './mutation-types'
 
 export default {
@@ -71,6 +73,13 @@ export default {
     if (result.data.code === 0) {
       commit(RECEIVE_GOODS, { goods: result.data.data })
       callback && callback()
+    }
+  },
+  updateFoodCount ({ commit }, { food, isAdd }) {
+    if (isAdd) {
+      commit(INCREMENT_FOOD_COUNT, { food })
+    } else {
+      commit(DECREMENT_FOOD_COUNT, { food })
     }
   }
 }

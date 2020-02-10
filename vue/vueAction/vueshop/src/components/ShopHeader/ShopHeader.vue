@@ -120,10 +120,10 @@
       }
     },
     computed: {
-      ...mapState(['goods', 'ratings', 'info'])
+      ...mapState(['info'])
     },
     methods: {
-      ...mapActions(['getShopInfo', 'getShopRatings', 'getShopGoods']),
+      ...mapActions(['getShopInfo']),
       modalShowChange() {
         this.modalShow = !this.modalShow
       },
@@ -133,8 +133,6 @@
     },
     created() {
       this.getShopInfo()
-      this.getShopGoods()
-      this.getShopRatings()
     }
   }
 </script>
