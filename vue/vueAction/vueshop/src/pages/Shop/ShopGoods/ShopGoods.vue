@@ -20,16 +20,19 @@
             </li>
           </ul>
         </div>
+        <ShopCart></ShopCart>
       </div>
 </template>
 
 <script>
   import { mapActions, mapState } from 'vuex'
   import FoodItem from "@/components/FoodItem/FoodItem";
+  import ShopCart from "@/components/ShopCart/ShopCart";
   export default {
     name: "ShopGoods",
     components: {
-      FoodItem
+      FoodItem,
+      ShopCart
     },
     computed: {
       ...mapState(['goods', 'shopCart'])
@@ -55,6 +58,7 @@
     top: 195px;
     right: 0;
     bottom: 46px;
+    overflow: hidden;
     .menu-warpper {
       background: #f3f5f7;
       width: 80px;
