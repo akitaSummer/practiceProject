@@ -38,7 +38,7 @@
     methods: {
       ...mapActions(['updateFoodCount']),
       updateCount(isAdd) {
-        this.updateFoodCount({ food: this.food.name, isAdd })
+        this.updateFoodCount({ food: this.food, isAdd })
       }
     }
   }

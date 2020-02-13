@@ -1,8 +1,8 @@
 <template>
       <div class="goods">
-        <div class="menu-warpper">
+        <div class="menu-warpper" id="menuWrapper">
           <ul>
-            <li class="menu-item current" v-for="(good, i) in goods" :key="'good-menu' + i">
+            <li class="menu-item" :class="nowTip === i ? 'current' : ''" v-for="(good, i) in goods" :key="'good-menu' + i" @click="clickMenuItem(i)">
               <span class="text bottom-border-1px">
                 <img class="icon" :src="good.icon" v-if="good.icon">
                 {{good.name}}
@@ -10,12 +10,12 @@
             </li>
           </ul>
         </div>
-        <div class="foods-wrapper">
+        <div class="foods-wrapper" id="foodsWrapper">
           <ul>
-            <li class="food-list-hook" v-for="(good, i) in goods" :key="'good-food' + i">
+            <li class="food-list-hook" v-for="(good, i) in goods" :key="'good-food' + i" :ref="'good-food' + i">
               <h1 class="title">{{good.name}}</h1>
               <ul>
-                  <FoodItem v-for="(food, i) in good.foods" :key="'goodFoods' + i" :food="food" :count="shopCart[food.name] === undefined ? 0 : shopCart[food.name]"></FoodItem>
+                  <FoodItem v-for="(food, i) in good.foods" :key="'goodFoods' + i" :food="food" :count="shopCart[food.name] === undefined ? 0 : shopCart[food.name].count"></FoodItem>
               </ul>
             </li>
           </ul>
@@ -26,6 +26,7 @@
 
 <script>
   import { mapActions, mapState } from 'vuex'
+  import BScroll from 'better-scroll'
   import FoodItem from "@/components/FoodItem/FoodItem";
   import ShopCart from "@/components/ShopCart/ShopCart";
   export default {
@@ -34,14 +35,66 @@
       FoodItem,
       ShopCart
     },
+    data() {
+      return {
+        tops: [],
+        scrollY: 0,
+        nowTip: 0
+      }
+    },
     computed: {
       ...mapState(['goods', 'shopCart'])
     },
     methods: {
-      ...mapActions(['getShopGoods'])
+      ...mapActions(['getShopGoods']),
+      clickMenuItem (index) {
+        const top = this.tops[index]
+        this.scrollY = top
+        this.goodsScroll.scrollTo(0, -top, 300)
+      }
     },
     mounted() {
       this.getShopGoods()
+    },
+    watch: {
+      goods() {
+        if (this.goods.length > 0) {
+          if (!this.goodsScroll) {
+            this.goodsScroll = new BScroll('#foodsWrapper', {
+              click: true
+            })
+          } else {
+            this.goodsScroll.refresh()
+          }
+
+          if (!this.menuScroll) {
+            this.menuScroll = new BScroll('#menuWrapper', {
+              click: true
+            })
+          } else {
+            this.goodsScroll.refresh()
+          }
+
+          this.$nextTick(() => {
+            if (!this.tops.length > 0) {
+              for (let list in this.$refs) {
+                if (this.$refs.hasOwnProperty(list)) {
+                  this.tops.push(this.$refs[list][0].offsetTop)
+                }
+              }
+              this.goodsScroll.on('scrollEnd',(pos) => {
+                this.scrollY = Math.abs(pos.y)
+                for (let i = 1; i < this.tops.length; i++) {
+                  if (this.tops[i] > this.scrollY) {
+                    this.nowTip = i - 1
+                    break
+                  }
+                }
+              })
+            }
+          })
+        }
+      },
     }
   }
 </script>

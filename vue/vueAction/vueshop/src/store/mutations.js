@@ -8,7 +8,8 @@ import {
   RECEIVE_REATINGS,
   RECEIVE_INFO,
   DECREMENT_FOOD_COUNT,
-  INCREMENT_FOOD_COUNT
+  INCREMENT_FOOD_COUNT,
+  CLEAR_CART
 } from './mutation-types'
 
 import Vue from 'vue'
@@ -39,18 +40,21 @@ export default {
     state.goods = goods
   },
   [INCREMENT_FOOD_COUNT](state, { food }) {
-    if (!state.shopCart[food]) {
-      Vue.set(state.shopCart, food, 1)
+    if (!state.shopCart[food.name]) {
+      Vue.set(state.shopCart, food.name, { ...food, count: 1 })
     } else {
-      state.shopCart[food]++
+      state.shopCart[food.name].count++
     }
   },
   [DECREMENT_FOOD_COUNT](state, { food }) {
-    if (state.shopCart[food] === 0) {
-      delete state.shopCart[food]
+    if (state.shopCart[food.name].count === 1) {
+      Vue.delete(state.shopCart, food.name)
     } else {
-      state.shopCart[food]--
+      state.shopCart[food.name].count--
     }
+  },
+  [CLEAR_CART](state) {
+    Vue.set(state, 'shopCart', {})
   }
 }
 
