@@ -1,23 +1,23 @@
 <template>
   <div>
-    <div class="ratings">
-      <div class="rating-content">
+    <div class="ratings"  ref="ratings">
+      <div class="rating-content" v-if="info">
         <div class="overview">
           <div class="overview-left">
-            <h1 class="score">4.7</h1>
+            <h1 class="score">{{info.score}}</h1>
             <div class="title">综合评分</div>
-            <div class="rank">高于周边商家99%</div>
+            <div class="rank">高于周边商家{{info.rankRate}}%</div>
           </div>
           <div class="overview-right">
             <div class="score-wrapper">
               <span class="title">服务态度</span>
-              <Star :score="4.6" :size="36"></Star>
-              <span class="score">4.6</span>
+              <Star :rating="info.serviceScore" :size="36" :shop-key="'shopRatingsTitle'"></Star>
+              <span class="score">{{info.serviceScore}}</span>
             </div>
             <div class="score-wrapper">
               <span class="title">商品评分</span>
-              <Star :score="4.7" :size="36" />
-              <span class="score">4.7</span>
+              <Star :rating="info.foodScore" :size="36" :shop-key="'shopRatingsScore'"/>
+              <span class="score">{{info.foodScore}}</span>
             </div>
             <div class="delivery-wrapper">
               <span class="title">送达时间</span>
@@ -28,14 +28,24 @@
         <div class="split"></div>
         <div class="ratingselect">
           <div class="rating-type border-1px">
-            <span class="block positive active">
-              全部<span class="count">30</span>
+            <span class="block positive"  @click="filterRateType(-1)" :class="filterType === -1 ? 'active' : ''">
+              全部<span class="count">{{ratings.length}}</span>
             </span>
-            <span class="block positive">
-              满意<span class="count">28</span>
+            <span class="block positive" @click="filterRateType(0)"  :class="filterType === 0 ? 'active' : ''">
+              满意<span class="count">{{ratings.reduce((pre, item) => {
+                if (item.rateType === 0) {
+                  pre++
+                }
+              return pre
+              }, 0)}}</span>
             </span>
-            <span class="block negative">
-              不满意<span class="count">2</span>
+            <span class="block negative" @click="filterRateType(1)"  :class="filterType === 1 ? 'active' : ''">
+              不满意<span class="count">{{ratings.reduce((pre, item) => {
+                if (item.rateType !== 0) {
+                  pre++
+                }
+              return pre
+              }, 0)}}</span>
             </span>
           </div>
           <div class="switch on">
@@ -43,27 +53,24 @@
             <span class="text">只看有内容的评价</span>
           </div>
         </div>
-        <div class="rating-wrapper">
+        <div class="rating-wrapper" v-if="ratings">
           <ul>
-            <li class="rating-item">
+            <li class="rating-item" v-for="(rating, i) in filterRatings" :key="'ratingsItem' + i">
               <div class="avatar">
-                <img width="28" height="28"
-                     src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
+                <img width="28" height="28" :src="rating.avatar">
               </div>
               <div class="content">
-                <h1 class="name">aa</h1>
+                <h1 class="name">{{rating.username}}</h1>
                 <div class="star-wrapper">
-                  <Star :score="5" :size="24" />
-                  <span class="delivery">30</span>
+                  <Star :rating="rating.score" :size="24" :shopKey="'shopRatings'"/>
+                  <span class="delivery">{{rating.deliveryTime ? rating.deliveryTime : 0}}</span>
                 </div>
-                <p class="text">不错</p>
+                <p class="text">{{rating.text}}</p>
                 <div class="recommend">
-                  <span class="iconfont icon-thumb_up"></span>
-                  <span class="item">南瓜粥</span>
-                  <span class="item">皮蛋瘦肉粥</span>
-                  <span class="item">扁豆焖面</span>
+                  <span class="iconfont" :class="rating.rateType === 0 ? 'icon-thumb_up' : 'icon-thumb_down'"></span>
+                  <span class="item" v-for="(commend, j) in rating.recommend" :key="'commend' + j">{{commend}}</span>
                 </div>
-                <div class="time">2016-07-23 21:52:44</div>
+                <div class="time">{{rating.rateTime | dateString }}</div>
               </div>
             </li>
           </ul>
@@ -74,11 +81,48 @@
 </template>
 
 <script>
+  import { mapState, mapActions } from 'vuex'
   import Star from "@/components/Star/Star";
+  import BScroll from 'better-scroll'
   export default {
     name: "ShopRatings",
     components: {
       Star
+    },
+    data() {
+      return {
+        filterRatings: [],
+        filterType: -1,
+      }
+    },
+    computed: {
+      ...mapState(['ratings', 'info'])
+    },
+    methods: {
+      ...mapActions(['getShopRatings', 'getShopInfo']),
+      filterRateType(type) {
+        if (type < 0) {
+          this.filterRatings = [...this.ratings]
+        } else {
+          this.filterRatings = this.ratings.reduce((pre, item) => {
+            if (item.rateType === type) {
+              pre.push(item)
+            }
+            return pre
+          }, [])
+        }
+        this.filterType = type
+      },
+    },
+    async mounted() {
+      await this.getShopRatings()
+      await this.getShopInfo()
+      this.filterRatings = [...this.ratings]
+      this.$nextTick(() => {
+        this.scroll = new BScroll(this.$refs.ratings, {
+          click: true
+        })
+      })
     }
   }
 </script>
@@ -89,6 +133,8 @@
     position: absolute;
     top: 195px;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
     overflow: hidden;
     background: #fff;
@@ -109,7 +155,7 @@
           margin-bottom: 6px;
           line-height: 28px;
           font-size: 24px;
-          color: rgba(7, 17, 27);
+          color: rgb(7, 17, 27);
         }
         .rank {
           line-height: 10px;

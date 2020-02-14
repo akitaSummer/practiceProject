@@ -5,6 +5,7 @@ import VueAwesomeSwiper from "vue-awesome-swiper/src";
 import router from './router'
 import store from './store'
 import { Button } from 'mint-ui'
+import './filters'
 
 // Vue.config.productionTip = false
 
