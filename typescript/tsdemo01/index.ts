@@ -1,0 +1,173 @@
+console.log('hello')
+
+let str: string = 'hello'
+
+function getData(): any {}
+
+// vscode自动编译
+// 第一步: cmd --> tsc --init 生成tsconfig.json文件, 将文件中的"outer": "./js"生效
+// 第二部: Terminal 下的 Run Task 选择 tsc.watch
+
+// typescript中的数据类型
+// boolean
+// string
+// number
+// array
+let arr1: number[] = [1, 2, 3]
+let arr2: Array<number> = [1, 2, 3]
+// symbol
+// null
+// undefined
+// let num: number
+// console.log(num) // 报错
+
+let num: number | undefined
+console.log(num)
+
+// 元组类型 tuple
+let arr3: [string, number] = ['1', 2]
+// 枚举类型 enum 只能用string和number且且定义一个类型后，剩余类型均为相同类型
+enum Flag {
+    success,
+    err = 3,
+}
+
+let enum1: Flag = Flag.err
+// 任意类型 any 
+let any: any = 1234
+any = 'str'
+
+const oBox: any = document.getElementById('box')
+oBox.style.color = 'red'
+// void
+function run(): void {
+    console.log('run')
+}
+// never
+
+let a: never
+
+// 返回never的函数必须存在无法达到的终点
+function error(message: string): never {
+    throw new Error(message);
+}
+
+
+// 函数
+// 1. 函数的定义
+function run1(): string {
+    return '123'
+}
+
+let fun2 = function(): number {
+    return 123
+}
+
+function getInfo1(name: string, age: number): string {
+    return name + age
+}
+// 2. 可选参数
+// es5中形参和实参可以不一样，在ts中必须一样，否则需要配置可选参数
+function getInfo2(name: string, age?: number): string {
+    if (age) {
+        return name + age
+    } else {
+        return name
+    }
+}
+getInfo2('tom') // age没有?会报错
+// 注意：可选参数必须配置到参数的最后
+// 3. 默认参数
+function getInfo3(name: string, age: number = 20): string {
+    return name + age
+}
+// 4. 剩余参数
+function sum(a: number, ...result: number[]): number {
+    result.push(a)
+    return result.reduce((pre: number, i: number): number => {
+        return pre + i
+    }, 0)
+}
+// 5. 函数重载
+// java中方法的重载：重载是指两个或者两个以上的同名函数，但是他们的参数不一样，这时会出现函数重载的现象
+// typescript中的重载：通过为同一个函数提供多个函数类型定义来实现多种不同的功能
+function getInfo4(name: string): string 
+function getInfo4(age: number): number
+function getInfo4(str: any): any {
+    if (typeof str === 'string') {
+        return str
+    } else {
+        return str
+    }
+}
+console.log(getInfo4('tom'))
+console.log(getInfo4(24))
+// console.log(getInfo4(true)) //  错误
+
+function getInfo5(name: string): string
+function getInfo5(name: string, age: number): string
+function getInfo5(name: any, age?: any): any {
+    if (age) {
+        return name + age
+    } else {
+        return name
+    }
+}
+
+// 6. 箭头函数
+
+
+// 1. 类的创建
+
+class Person{
+
+    name: string
+
+    constructor(name: string) {
+        this.name = name
+    }
+
+    run(): void {
+        console.log(this.name)
+    }
+
+    getName(): string {
+        return this.name
+    }
+
+    setName(name: string): void {
+        this.name = name
+    }
+}
+
+// 2. 类的继承
+class Student extends Person {
+    constructor(name: string) {
+        super(name)
+    }
+
+    work(): void {
+        console.log('work')
+    }
+}
+
+// 3. 修饰符
+// public 公有: 类，子类和外部都可以访问，不加修饰符为公有
+// private 私有：类可以访问，子类和外部不可以访问
+// protected 保护: 类和子类都可以访问，外部不可以访问
+
+class Teacher extends Person {
+
+    private age: number = 25
+
+    protected sex: string
+
+    constructor(name: string, sex: string) {
+        super(name)
+        this.sex = sex
+    }
+
+    work(): void {
+        console.log('work')
+    }
+}
