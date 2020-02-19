@@ -20,3 +20,4 @@ function getLength(something: string | number): number {
 // function toBoolean(something: string | number): boolean {
 //     return something as boolean
 // }
+

@@ -171,3 +171,105 @@ class Teacher extends Person {
         console.log('work')
     }
 }
+
+class Person1 {
+    static sex: string = 'man'
+    static print(): void { // 静态方法不能调用实例的属性
+        console.log(Person1.sex)
+    }
+}
+
+// 多态：父类定义一个方法不去实现，让继承他的子类趋势线，每一个子类都有不同的实现
+
+interface Animal {
+    eat: () => void
+}
+
+class Dog implements Animal {
+    name: string
+    constructor(name: string) {
+        this.name = name
+    }
+    eat(): void {
+        console.log('wang')
+    }
+}
+
+// abstract关键字定义抽象类和抽象方法，抽象类中的抽象方法不包括具体实现并且不许在派生类中实现
+abstract class Animal1 {
+    abstract eat: () => any
+}
+
+class Cat extends Animal1 {
+    // 抽象类的子类必须实现抽象方法
+    eat = function(): void {
+        console.log('miao')
+    }
+}
+
+// 接口：定义了某一批类所需要遵守的规范，接口不关心内部状态数据，也不关心类里方法的具体实现，只规定必须提供某些方法
+// 1. 属性接口
+
+interface FullName {
+    firstName: string
+    secondName: string
+}
+
+function printName(name: FullName) {
+    console.log(name.firstName + name.secondName)
+}
+
+// printName({
+//     age: 20, // 报错
+//     firstName: '张',
+//     sencondName: '三'
+// })
+
+let obj = {
+    age: 20,
+    firstName: '张',
+    secondName: '三'
+}
+printName(obj)
+
+// 2.可选属性
+interface FullName2 {
+    firstName: string,
+    secondName: string,
+    age?: number
+}
+
+interface Config{
+    type: string,
+    url: string,
+    data?: string,
+    dataType: string
+}
+
+function ajax(config: Config) {
+    const xhr = new XMLHttpRequest()
+    xhr.open(config.type, config.url, true)
+    xhr.send(config.data)
+    xhr.onreadystatechange = function(): void {
+        if (xhr.readyState === 4 && xhr.status == 200) {
+            console.log('success')
+            if (config.dataType === 'json') {
+                JSON.parse(xhr.responseText)
+            } else {
+                console.log(xhr.responseText)
+            }
+        }
+    }
+}
+
+// 3.函数类型接口
+// 对方法传入的参数以及返回值进行约束
+
+// 加密函数接口类型
+interface encrypt {
+    (key: string, value: string): string
+}
+
+const md5: encrypt = function(key: string, value: string): string {
+    return key + value
+}
