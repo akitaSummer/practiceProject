@@ -182,7 +182,7 @@ class Person1 {
 // 多态：父类定义一个方法不去实现，让继承他的子类趋势线，每一个子类都有不同的实现
 
 interface Animal {
-    eat: () => void
+    eat(): void
 }
 
 class Dog implements Animal {
@@ -272,4 +272,76 @@ interface encrypt {
 
 const md5: encrypt = function(key: string, value: string): string {
     return key + value
+}
+
+// 4. 可索引接口: 数组，对象的约束
+interface UserArr {
+    [index: number]: string
+}
+
+let arr: UserArr = ['aaa', 'bbb']
+
+interface UserObj {
+    [index: string]: string
+}
+
+let obj4: UserObj = {name: '20'}
+
+// 5. 类类型接口：对类的约束
+interface Animal4 {
+    name: string
+    eat(str: string): void
+}
+
+class Dog1 implements Animal4 {
+    name: string
+    constructor(name: string) {
+        this.name = name
+    }
+    eat() {
+        console.log('eat')
+    }
+}
+
+// 接口扩展：接口可以继承接口
+interface Person4 extends Animal4 {
+    work(): void;
+}
+
+class Web1 implements Person4 {
+    public name: string
+    constructor(name: string) {
+        this.name = name
+    }
+    eat() {
+        console.log('eat')
+    }
+    work() {
+        console.log('code')
+    }
+}
+
+// 泛型：解决类，方法，接口的复用性，以及对不特定数据类型的支持
+
+function getData2<T>(value: T): T {
+    return value
+}
+
+getData2<number>(1234)
+
+class MinClass<T> {
+    public list: T[] = []
+    add(number: T) {
+        this.list.push(number)
+    }
+}
+
+let m1: MinClass<number> = new MinClass<number>()
+
+interface ConfigFn<T> {
+    (value1: T, value2: T): T
+}
+
+let getDate3: ConfigFn<number> = function (value1: number, value2: number): number {
+    return value1 + value2
 }

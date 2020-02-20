@@ -158,3 +158,113 @@ var Teacher = /** @class */ (function (_super) {
     };
     return Teacher;
 }(Person));
+var Person1 = /** @class */ (function () {
+    function Person1() {
+    }
+    Person1.print = function () {
+        console.log(Person1.sex);
+    };
+    Person1.sex = 'man';
+    return Person1;
+}());
+var Dog = /** @class */ (function () {
+    function Dog(name) {
+        this.name = name;
+    }
+    Dog.prototype.eat = function () {
+        console.log('wang');
+    };
+    return Dog;
+}());
+// abstract关键字定义抽象类和抽象方法，抽象类中的抽象方法不包括具体实现并且不许在派生类中实现
+var Animal1 = /** @class */ (function () {
+    function Animal1() {
+    }
+    return Animal1;
+}());
+var Cat = /** @class */ (function (_super) {
+    __extends(Cat, _super);
+    function Cat() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        // 抽象类的子类必须实现抽象方法
+        _this.eat = function () {
+            console.log('miao');
+        };
+        return _this;
+    }
+    return Cat;
+}(Animal1));
+function printName(name) {
+    console.log(name.firstName + name.secondName);
+}
+// printName({
+//     age: 20, // 报错
+//     firstName: '张',
+//     sencondName: '三'
+// })
+var obj = {
+    age: 20,
+    firstName: '张',
+    secondName: '三'
+};
+printName(obj);
+function ajax(config) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(config.type, config.url, true);
+    xhr.send(config.data);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status == 200) {
+            console.log('success');
+            if (config.dataType === 'json') {
+                JSON.parse(xhr.responseText);
+            }
+            else {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+}
+var md5 = function (key, value) {
+    return key + value;
+};
+var arr = ['aaa', 'bbb'];
+var obj4 = { name: '20' };
+var Dog1 = /** @class */ (function () {
+    function Dog1(name) {
+        this.name = name;
+    }
+    Dog1.prototype.eat = function () {
+        console.log('eat');
+    };
+    return Dog1;
+}());
+var Web1 = /** @class */ (function () {
+    function Web1(name) {
+        this.name = name;
+    }
+    Web1.prototype.eat = function () {
+        console.log('eat');
+    };
+    Web1.prototype.work = function () {
+        console.log('code');
+    };
+    return Web1;
+}());
+// 泛型：解决类，方法，接口的复用性，以及对不特定数据类型的支持
+function getData2(value) {
+    return value;
+}
+getData2(1234);
+var MinClass = /** @class */ (function () {
+    function MinClass() {
+        this.list = [];
+    }
+    MinClass.prototype.add = function (number) {
+        this.list.push(number);
+    };
+    return MinClass;
+}());
+var m1 = new MinClass();
+var getDate3 = function (value1, value2) {
+    return value1 + value2;
+};
