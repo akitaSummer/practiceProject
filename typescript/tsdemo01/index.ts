@@ -345,3 +345,160 @@ interface ConfigFn<T> {
 let getDate3: ConfigFn<number> = function (value1: number, value2: number): number {
     return value1 + value2
 }
+
+interface DBI<T> {
+    add(info: T): boolean
+    update(info: T, id: number): boolean
+    delate(id: number): boolean
+    get(id: number): any[]
+}
+
+class MysqlDB<T> implements DBI<T> {
+    add(info: T): boolean {
+        console.log(info)
+        return true
+    }
+    update(info: T, id: number): boolean {
+        throw new Error("Method not implemented.")
+    }
+    delate(id: number): boolean {
+        throw new Error("Method not implemented.")
+    }
+    get(id: number): any[] {
+        throw new Error("Method not implemented.")
+    }
+}
+
+class MsSqlDB<T> implements DBI<T> {
+    add(info: T): boolean {
+        throw new Error("Method not implemented.")
+    }
+    update(info: T, id: number): boolean {
+        throw new Error("Method not implemented.")
+    }
+    delate(id: number): boolean {
+        throw new Error("Method not implemented.")
+    }
+    get(id: number): any[] {
+        throw new Error("Method not implemented.")
+    }
+}
+
+class User{
+    username: string | undefined
+    password: string | undefined
+}
+
+const u = new User()
+u.username = '张三'
+u.password = '1234'
+
+const oMysql: MysqlDB<User> = new MysqlDB<User>()
+oMysql.add(u)
+
+import getData6 from './modules/db'
+
+getData6()
+
+namespace A {
+    export const dog = 'wang'
+}
+
+console.log(A.dog)
+
+// 装饰器：一种特殊类型的声明，能附加到类声明，方法，属性或参数上，可以使修改类的行为
+// 1. 类装饰器
+
+// 普通装饰器
+function logClass(params: any) {
+    console.log(params)
+    // params 当前类
+    params.prototype.apiUrl = 'xxx'
+    params.prototype.run = function() {}
+}
+
+@logClass
+class HttpClient {
+    constructor() {}
+}
+
+// 装饰器工厂（可传参）
+function logClass2(params: string) {
+    return function(target: any) {
+        console.log(target)
+    }
+}
+
+@logClass2('hello')
+class HttpClient2 {
+    constructor() {}
+}
+
+// 重构构造函数
+function logClass3(target: any) {
+    return class extends target {
+        apiUrl: any = 'hello'
+    }
+}
+
+@logClass3
+class HttpClient3 {
+    public apiUrl: string | undefined
+    constructor() {}
+}
+
+// 2. 属性装饰器
+function logClass4(params: any) {
+    return function(target: any, attr: any) {
+        // target: 对象
+        // attr: 属性名称
+        target[attr] = params
+    }
+}
+
+class HttpClient4 {
+    @logClass4('hello')
+    public url: any | undefined
+    constructor() {}
+}
+
+// 3. 方法装饰器
+function logMethod(params: any) {
+    return function(target: any, methodName: any, desc: any) {
+        // target: 类的构造函数
+        // methodName: 成员的名字
+        // desc：成员属性描述
+        target.run = function() {}
+        // 修改装饰器的方法
+        // 1. 保存当前方法
+        let oMethod = desc.value
+        desc.value = function(...arg: any[]) {
+            arg = arg.map((value) => {
+                return String(value)
+            })
+            oMethod.apply(this, arg)
+        }
+    }
+}
+
+class HttpClient5 {
+    constructor() {}
+    @logMethod('hello')
+    getData() {}
+}
+// 4. 方法参数装饰器
+// 参数装饰器表达式会在运行时当做函数被调用，可以使用参数装饰器为类的原型添加一些元素数据
+function logParams(params: any) {
+    return function(target: any, methodName: any, paramsIndex: any) {
+        // target: 当前原型对象
+        // methodName: 函数名称
+        // paramsIndex: 参数下标
+    }
+}
+
+class HttpClient6 {
+    constructor() {}
+    getData(@logParams('uuid') uuid: any) {}
+}
+
+// 执行顺序：属性装饰器，方法装饰器，方法参数装饰器，类装饰器
