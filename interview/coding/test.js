@@ -1,114 +1,36 @@
-function bubbleSort(arr) {
-    let result = [...arr]
-    let temp
-    for (let i = 0; i < result.length; i++) {
-        for (let j = 0; j < result.length - i; j++) {
-            if (result[j] > result[j + 1]) {
-                temp = result[j + 1]
-                result[j + 1] = result[j]
-                result[j] = temp
-            }
+function add(num1, num2) {
+    num1 = num1.split('')
+    num2 = num2.split('')
+    if (num1.length > num2.length) {
+        const need = num1.length - num2.length
+        for (let i = 0; i < need; i++) {
+            num2.unshift('0')
+        }
+    } else {
+        const need = num2.length - num1.length
+        for (let i = 0; i < need; i++) {
+            num1.unshift('0')
         }
     }
-    return result
-}
-
-function insertSort(arr) {
-    const result = [...arr]
-    const handle = []
-    handle.push(result[0])
-    for (let i = 1; i < result.length; i++) {
-        const j = handle.length
-        while (J > 0 && result[i] < handle[j - 1]) {
-            j--
-        }
-        handle.splice(j, 0, result[i])
-    }
-    return handle
-}
-
-function selectionSort(arr) {
-    const result = [...arr]
-    let temp
-    for (let i = 0; i < result.length; i++) {
-        let min = result[i]
-        for (let j = i + 1; j < result.length; j++) {
-            if (result[j] < min) {
-                temp = min
-                min = result[j]
-                result[j] = min
-            }
-        }
-    }
-    return result
-}
-
-function quickSort(arr) {
-    if (arr.length < 2) {
-        return arr
-    }
-    const arrCopy = [...arr]
-    const middle = arrCopy.splice(Math.floor(arrCopy.length / 2), 1)
-    const right = []
-    const left = []
-    for (let i = 0; i < arrCopy.length; i++) {
-        if (arrCopy[i] < middle) {
-            left.push(arrCopy[i])
-        } else {
-            right.push(arrCopy[i])
-        }
-    }
-    return quickSort(left).concat(middle, quickSort(right))
-}
-
-function mergeSort(arr) {
-    if (arr.length < 2) {
-        return arr
-    }
-    const arrCopy = [...arr]
-    const left = arrCopy.slice(0, Math.floor(arrCopy.length / 2))
-    const right = arrCopy.slice(Math.floor(arrCopy.length / 2))
-    return merge(mergeSort(left), mergeSort(right))
-}
-
-function merge(left, right) {
+    let ten = 0
     const result = []
-    while (left.length && right.length) {
-        if (left[0] < right[0]) {
-            result.push(left.shift())
-        } else {
-            result.push(right.shift())
+    for (let i = num1.length - 1; i >= 0; i--) {
+        let resultNum = Number(num1[i]) + Number(num2[i]) + ten
+        ten = 0
+        if (resultNum >= 10 && i > 0) {
+            ten = 1
+            resultNum = resultNum - 10
         }
+        result.unshift('' + resultNum)
     }
-    while (left.length) {
-        result.push(left.shift())
-    }
-    while (right.length) {
-        result.push(right.shift())
-    }
-    return result
+    return result.join('')
 }
 
-function Parent(name) {
-    this.name = name
+console.log(add('999999999', '1'))
+
+function format(num) {
+    const reg = /(\d{1,3})(?=(\d{3}))/g
+    return (num + '').replace(reg, '$1,')
 }
 
-Parent.prototype.getName = function() {
-    console.log(this.name)
-}
-
-function creatObject(obj) {
-    function F() {}
-    F.prototype = obj.prototype
-    return new F()
-}
-
-function prototype(child, parent) {
-    child.prototype = creatObject(parent)
-    child.prototype.constructor = child
-}
-
-function Child(name) {
-    Parent.call(this, name)
-    prototype(Child, Parent)
-}
+console.log(format(13456))
