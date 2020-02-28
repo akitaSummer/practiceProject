@@ -143,3 +143,102 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([1, 56, 23, 6, 534252, 343, 7, 32, 66]))
+
+function curry(fn, ...args) {
+    if (args.length === fn.length) {
+        return fn.apply(this, args)
+    } else {
+        return function(...args2) {
+            return curry(fn, ...args, ...args2)
+        }
+    }
+}
+
+function add(a, b, c) {
+    return a + b + c
+}
+
+console.log(curry(add, 1)(2)(3))
+
+function flatArr(arr) {
+    let result = []
+    for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            result = result.concat(flatArr(arr[i]))
+        } else {
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+console.log(flatArr([1, 2, 3, [44, 55, [33]]]))
+console.log([1, 2, 3, [44, 55, [33]]].flat(Infinity))
+
+function rabbit(n) {
+    let result = [1, 0, 0]
+    if (n === 0) {
+        return 0
+    } else if (n === 1) {
+        return 1
+    } else {
+        for (let i = 1; i < n; i++) {
+            let res2 = []
+            for (let j = 0; j < 3; j++) {
+                if (j === 0) {
+                    res2[1] = result[0]
+                } else if (j === 1) {
+                    res2[2] = result[1] + result[2]
+                } else {
+                    res2[0] = res2[2]
+                }
+            }
+            result = res2
+        }
+        return result.reduce((pre, item) => {
+            return pre + item
+        }, 0)
+    }
+}
+
+function fi(n) {
+    if (n === 1) {
+        return 1
+    } else if (n === 2) {
+        return 1
+    } else {
+        return fi(n - 1) + fi(n - 2)
+    }
+}
+
+console.log(rabbit(10))
+console.log(fi(10))
+
+function coin(n) {
+    if (n > 990) {
+        return 0
+    } else if (n === 0) {
+        return 1
+    } else if (n > 0 && n <= 10) {
+        let result = []
+        for (let i = 0; i < n; i++) {
+            let com = (990 - i) / (1000 - i)
+            result.push(com)
+        }
+        return result.reduce((pre, item) => {
+            return pre * item
+        }, 1)
+    } else {
+        let result = []
+        for (let i = 0; i < 10; i++) {
+            let com = (990 - n + i + 1) / (1000 - i)
+            result.push(com)
+        }
+        console.log(result)
+        return result.reduce((pre, item) => {
+            return pre * item
+        }, 1)
+    }
+}
+
+console.log(coin(11))
