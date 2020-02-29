@@ -242,3 +242,104 @@ function coin(n) {
 }
 
 console.log(coin(11))
+
+function MyPromise(cb) {
+    this.state = 'PADDING'
+    this.value = null
+    this.resCallBack = []
+    this.rejCallBack = []
+    const resolve = (value) => {
+        if (this.state === 'PADDING') {
+            this.state = 'FULFILLED'
+            this.value = value
+            this.resCallBack.map(item => item(this.value))
+        }
+    }
+    const reject = (value) => {
+        if (this.state === 'PADDING') {
+            this.state = 'REJECT'
+            this.value = value
+            this.rejCallBack.map(item => item(this.value))
+        }
+    }
+    try {
+        cb(resolve, reject)
+    } catch (error) {
+        reject(error)
+    }
+}
+
+MyPromise.prototype.then = function(onFulfilled, onRejected) {
+    if (this.state === 'PADDING') {
+        this.resCallBack.push(onFulfilled)
+        this.rejCallBack.push(onRejected)
+    } else if (this.state === 'FULFILLED') {
+        onFulfilled(this.value)
+    } else {
+        onRejected(this.value)
+    }
+}
+
+class myPromise {
+    constructor(cb) {
+        try {
+            cb(this.resolve, this.reject)
+        } catch (error) {
+            this.reject(error)
+        }
+    }
+
+    state = 'PADDING'
+
+    value = null
+
+    resCallBack = []
+
+    rejCallBack = []
+
+    resolve = (value) => {
+        if (this.state === 'PADDING') {
+            this.value = value
+            this.state = 'FULFILLED'
+            this.resCallBack.map(item => item(this.value))
+        }
+    }
+    reject = (value) => {
+        if (this.state === 'PADDING') {
+            this.value = value
+            this.state = 'REJECTED'
+            this.rejCallBack.map(item => item(this.value))
+        }
+    }
+    then = (onFulfilled, onRejected) => {
+        if (this.state === 'PADDING') {
+            this.rejCallBack.push(onRejected)
+            this.resCallBack.push(onFulfilled)
+        } else if (this.state === 'FULFILLED') {
+            onFulfilled(this.value)
+        } else {
+            onRejected(this.value)
+        }
+    }
+}
+
+Function.prototype.myCall = function(obj, ...args) {
+    obj.fn = this
+    const result = obj.fn(...args)
+    delete obj.fn
+    return result
+}
+
+Function.prototype.myApply = function(obj, args) {
+    obj.fn = this
+    const result = obj.fn(...args)
+    delete obj.fn
+    return result
+}
+
+Function.prototype.myBind = function(obj, ...args1) {
+    const that = this
+    return function(...args2) {
+        that.call(obj, ...args1, ...args2)
+    }
+}
