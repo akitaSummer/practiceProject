@@ -343,3 +343,69 @@ Function.prototype.myBind = function(obj, ...args1) {
         that.call(obj, ...args1, ...args2)
     }
 }
+
+function object(obj) {
+    const F = function() {}
+    F.prototype = obj.prototype
+    return new F()
+}
+
+function sub(...args) {
+    this.prototype = obj(sup)
+    this.prototype.constructor = this
+    sup.call(this, ...args)
+}
+
+function debounce(func, time) {
+    let I = null
+    return function(...args) {
+        clearTimeout(I)
+        I = setTimeout(func.bind(null, ...args), time)
+    }
+}
+
+function throttle(func, time) {
+    let flag = false
+    return function(...args) {
+        if (flag) {
+            return
+        } else {
+            flag = true
+            func(...args)
+            setTimeout(() => { flag = false }, time)
+        }
+    }
+}
+
+Promise.myAll = function(arr) {
+    return new Promise((resolve, reject) => {
+        try {
+            const result = []
+            arr.forEach(item => {
+                item.then((res) => {
+                    result.push(res)
+                    if (result.length === arr.length) {
+                        resolve(result)
+                    }
+                })
+            })
+        } catch (err) {
+            reject(err)
+        }
+
+    })
+}
+
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(1)
+    }, 500)
+})
+
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(2)
+    }, 300)
+})
+
+Promise.myAll([promise1, promise2]).then(item => console.log(item))
