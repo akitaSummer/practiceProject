@@ -160,16 +160,31 @@ function add(a, b, c) {
 
 console.log(curry(add, 1)(2)(3))
 
-function flatArr(arr) {
-    let result = []
-    for (let i = 0; i < arr.length; i++) {
-        if (Array.isArray(arr[i])) {
-            result = result.concat(flatArr(arr[i]))
-        } else {
-            result.push(arr[i])
+function flatArr(arr, n = 1) {
+    let result = [...arr]
+    const arrs = []
+    if (n <= 0) {
+        return result
+    } else {
+        for (let i = 0; i < result.length; i++) {
+            if (Array.isArray(result[i])) {
+                const left = result.splice(0, i)
+                const middle = result.shift()
+                arrs.push(left)
+                arrs.push(middle)
+                i = -1
+            }
         }
+        result = arrs.reduce((pre, item) => {
+            return pre.concat(item)
+        }, [])
+
+        if (!result.some((item) => Array.isArray(item))) {
+            return result
+        }
+
+        return flatArr(result, n - 1)
     }
-    return result
 }
 
 console.log(flatArr([1, 2, 3, [44, 55, [33]]]))
@@ -409,3 +424,57 @@ const promise2 = new Promise((resolve, reject) => {
 })
 
 Promise.myAll([promise1, promise2]).then(item => console.log(item))
+
+function bubbleSort(arr) {
+    const result = [...arr]
+    for (let i = 0; i < result.length; i++) {
+        for (let j = 0; j < result.length - i; j++) {
+            if (result[j] > result[j + 1]) {
+                let temp = result[j + 1]
+                result[j + 1] = result[j]
+                result[j] = temp
+            }
+        }
+    }
+    return result
+}
+
+console.log(bubbleSort([1, 56, 23, 6, 534252, 343, 7, 32, 66]))
+
+function insertSort(arr) {
+    const cards = [...arr]
+    let card = null
+    const result = []
+    while (cards.length > 0) {
+        card = cards.shift()
+        for (let i = result.length - 1; i >= 0; i--) {
+            if (card > result[i]) {
+                result.splice(i + 1, 0, card)
+                card = null
+                break
+            }
+        }
+        if (card !== null) {
+            result.unshift(card)
+        }
+    }
+    return result
+}
+
+console.log(insertSort([1, 56, 23, 6, 534252, 343, 7, 32, 66]))
+
+function selectSort(arr) {
+    const result = [...arr]
+    for (let i = 0; i < result.length; i++) {
+        for (let j = i + 1; j < result.length; j++) {
+            if (result[i] > result[j]) {
+                const temp = result[i]
+                result[i] = result[j]
+                result[j] = temp
+            }
+        }
+    }
+    return result
+}
+
+console.log(selectSort([1, 56, 23, 6, 534252, 343, 7, 32, 66]))

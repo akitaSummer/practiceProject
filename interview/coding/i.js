@@ -1,32 +1,32 @@
-Promise.myAll = function(arr) {
-    return new Promise((resolve, reject) => {
-        try {
-            const result = []
-            arr.forEach(item => {
-                item.then((res) => {
-                    result.push(res)
-                    if (result.length === arr.length) {
-                        resolve(result)
-                    }
-                })
-            })
-        } catch (err) {
-            reject(err)
+function flatArr(arr, n = 1) {
+    let result = [...arr]
+    const arrs = []
+    if (n <= 0) {
+        return result
+    } else {
+        for (let i = 0; i < result.length; i++) {
+            if (Array.isArray(result[i])) {
+                const left = result.splice(0, i)
+                const middle = result.shift()
+                arrs.push(left)
+                arrs.push(middle)
+                i = -1
+            }
+        }
+        result = arrs.reduce((pre, item) => {
+            return pre.concat(item)
+        }, [])
+
+        if (!result.some((item) => Array.isArray(item))) {
+            return result
         }
 
-    })
+        return flatArr(result, n - 1)
+    }
 }
 
-const promise1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(1)
-    }, 500)
-})
 
-const promise2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(2)
-    }, 300)
-})
 
-Promise.myAll([promise1, promise2]).then(item => console.log(item))
+console.log(flatArr([1, 2, 3, [11, 22, [33]],
+    [111, 222, [333]]
+], 1))
