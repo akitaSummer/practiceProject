@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../login/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/components/LoginTabs.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/mutations-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/store/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/src/views/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../login/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../interview/coding/i.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/coding/i.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../interview/css/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../interview/css/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +104,7 @@
       <workItem from="1579856245687" duration="5062000" />
       <workItem from="1579947242239" duration="6303000" />
       <workItem from="1580107120737" duration="63000" />
+      <workItem from="1583845816665" duration="1189000" />
     </task>
     <servers />
   </component>

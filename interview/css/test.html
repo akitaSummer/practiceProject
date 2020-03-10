@@ -4,55 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .box1 {
-            background: red;
-            width: 50%;
-            padding: 25% 0;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .wrap {
+            position: relative;
+            height: 100vh;
+            width: 100%;
         }
         
-        .box2 {
-            background: skyblue;
-            width: 50%;
-            padding: 25% 0;
+        .inner {
             position: absolute;
-            left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);
+            left: 50%;
+            margin-top: -5px;
+            margin-left: -5px;
+            border-radius: 50%;
+            background-color: aqua;
+            width: 10px;
+            height: 10px;
+            animation: test 1s linear infinite;
+        }
+        
+        @keyframes test {
+            from {
+                transform: translateY(-50vh);
+            }
+            to {
+                transform: translateY(50vh);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="box1">
-        <div class="box2"></div>
+    <div class="wrap">
+        <div class="inner"></div>
     </div>
 </body>
-<script>
-    window.onload = function() {
-        const root = document.querySelector('#root')
-        const arr = []
-        let num = 0
-
-        function test(root) {
-            const nodesList = Array.from(root.children) || []
-            arr.push(root.tagName)
-            num = num < root.getAttribute('data-v') ? root.getAttribute('data-v') : num
-            console.log(arr.toString(), num)
-            while (nodesList.length > 0) {
-                test(nodesList[0])
-                nodesList.shift()
-            }
-            arr.pop()
-        }
-        test(root)
-    }
-</script>
 
 </html>
