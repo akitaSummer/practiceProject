@@ -48,6 +48,6 @@ export default {
   #app {
     height: 100%;
     overflow: hidden;
-    background-image: linear-gradient(to bottom, #ff6262, #ffa947);
+    background-image: linear-gradient(to bottom, #5b9df9, #47bfff);
   }
 </style>
