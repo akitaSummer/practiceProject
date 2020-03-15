@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //自动生成html文�
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //清除之前打包的文件
 
 module.exports = {
-    entry: '',
+    entry: './js/index.js',
     output: {
-        path: path.resolve(__dirname, '../src/js'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -25,7 +25,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: path.resolve(__dirname, '../src/index.html') }),
+        new HtmlWebpackPlugin({ template: path.resolve(__dirname, './index.html') }),
         new CleanWebpackPlugin()
     ]
 }
