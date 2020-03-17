@@ -7,30 +7,36 @@
     <title>Document</title>
     <style>
         .wrap {
-            position: relative;
-            height: 100vh;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100vh
         }
         
-        .inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-top: -5px;
-            margin-left: -5px;
-            border-radius: 50%;
+        .left {
+            width: 20%;
+            height: 20px;
             background-color: aqua;
-            width: 10px;
-            height: 10px;
-            animation: test 1s linear infinite;
         }
         
-        @keyframes test {
+        .main {
+            flex: 1;
+            width: 60%;
+            background-color: aqua;
+            animation: change 1s linear;
+        }
+        
+        .right {
+            width: 20%;
+            height: 20px;
+            background-color: aqua;
+        }
+        
+        @keyframes change {
             from {
-                transform: translateY(-50vh);
+                background-color: red;
             }
             to {
-                transform: translateY(50vh);
+                background-color: aqua;
             }
         }
     </style>
@@ -38,7 +44,9 @@
 
 <body>
     <div class="wrap">
-        <div class="inner"></div>
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
     </div>
 </body>
 

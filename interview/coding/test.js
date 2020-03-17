@@ -29,8 +29,20 @@ function add(num1, num2) {
 console.log(add('999999999', '1'))
 
 function format(num) {
-    const reg = /(\d{1,3})(?=(\d{3}))/g
+    const reg = /(\d{1,3})(?=(\d{3})+$)/g
     return (num + '').replace(reg, '$1,')
+}
+
+function toHump(str) {
+    const reg = /\_([a-z])/g
+    return str.replace(reg, (all, rep) => {
+        return rep.toUpperCase()
+    })
+}
+
+function toLine(str) {
+    const reg = /([A-Z])/g
+    return str.replace(reg, '_$1').toLowerCase()
 }
 
 console.log(format(13456))
