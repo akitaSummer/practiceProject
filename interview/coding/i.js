@@ -1,47 +1,18 @@
-class eventTarget {
-    constructor() {
-        this.listeners = {}
+function test(arr) {
+    if (arr.length <= 1) {
+        return arr
     }
-
-    on(type, callback) {
-        if (this.listeners[type] === undefined) {
-            this.listeners[type] = [callback]
-        } else if (this.listeners[type].indexOf(callback) !== -1) {
-            return
+    const middle = arr.splice(Math.floor(arr.length / 2), 1)
+    const left = []
+    const right = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= middle[0]) {
+            right.push(arr[i])
         } else {
-            this.listeners[type].push(callback)
+            left.push(arr[i])
         }
     }
-
-    once(type, callback) {
-        callback._once = true
-        if (this.listeners[type] === undefined) {
-            this.listeners[type] = [callback]
-        } else if (this.listeners[type].indexOf(callback) !== -1) {
-            return
-        } else {
-            this.listeners[type].push(callback)
-        }
-    }
-
-    off(type, callback) {
-        if (this.listeners[type] === undefined) {
-            return
-        } else if (this.listeners[type].indexOf(callback) !== -1) {
-            return
-        } else {
-            this.listeners[type].splice(this.listeners[type].indexOf(callback), 1)
-        }
-    }
-
-    trigger({ type, target }) {
-        this.listeners[type] && this.listeners[type].map((callback, i) => {
-            callback(target)
-            if (callback._once) {
-                this.listeners[type].splice(i, 1)
-            }
-        })
-    }
+    return test(left).concat(middle, test(right))
 }
 
-console.log(test(obj1), test(obj1) === obj1)
+console.log(test([1, 23, 12, 34, 2423, 32, 44]))

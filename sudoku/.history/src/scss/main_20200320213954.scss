@@ -1,0 +1,23 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eee;
+    font-family: "Consolas", "微软雅黑";
+    user-select: none;
+    max-width: 450px;
+    >* {
+        max-width: 450px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    margin: j0
+}
