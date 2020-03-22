@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../sudoku/src/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +102,7 @@
       <workItem from="1577437210637" duration="1198000" />
       <workItem from="1577548561769" duration="642000" />
       <workItem from="1577865454885" duration="599000" />
+      <workItem from="1584781953439" duration="4388000" />
     </task>
     <servers />
   </component>

@@ -29,6 +29,7 @@ body {
     h1 {
         margin: 0;
         padding: 0;
+        font-weight: normal;
     }
 }
 
@@ -56,8 +57,59 @@ body {
             border: 1px solid #ccc;
             background: transparent;
             border-right: none;
+            font-family: "微软雅黑";
             &:last-child {
                 border-right: 1px solid #ccc;
+            }
+        }
+    }
+}
+
+.container {
+    padding-left: 5%;
+    .row {
+        > span {
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            width: 10%;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-bottom: none;
+            background: white;
+            &:last-child {
+                border-right: 2px solid #ccc;
+            }
+            &:nth-child(3n) {
+                border-right: 2px solid #ccc;
+            }
+            &:nth-child(3n + 1) {
+                border-left: none;
+            }
+            &:first-child {
+                border-left: 2px solid #ccc;
+            }
+        }
+        &:last-child {
+            > span {
+                border-bottom: 2px solid #ccc;
+            }
+        }
+        &:nth-child(3n) {
+            > span {
+                border-bottom: 2px solid #ccc;
+            }
+        }
+        &:nth-child(3n + 1) {
+            > span {
+                border-top: none;
+            }
+        }
+        &:first-child {
+            > span {
+                border-top: 2px solid #ccc;
             }
         }
     }

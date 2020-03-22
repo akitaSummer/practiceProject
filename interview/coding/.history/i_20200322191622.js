@@ -5,14 +5,11 @@ function DistanceToHigher(height) {
         for (let j = i - 1; j >= 0; j--) {
             if (height[j] > height[i]) {
                 result.push(i - j)
-                break
-            }
-            if (j === 0) {
-                result.push(0)
             }
         }
+        console.log(i, count)
     }
-    return result
+    console.log(result)
 }
 
-console.log(DistanceToHigher([175, 179, 174, 163, 176, 177]))
+console.log(DistanceToHigher([175, 173, 174, 163, 182, 177]))

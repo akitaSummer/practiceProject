@@ -16,3 +16,12 @@ function DistanceToHigher(height) {
 }
 
 console.log(DistanceToHigher([175, 179, 174, 163, 176, 177]))
+
+
+function test(str) {
+    const content = str.split('\n')
+    content[0] = content[0].split(' ')
+    const es = content.slice(1, content.length - 1).map(item => item.split(' '))
+}
+
+console.log(test('14612244221,14612544221,14612644221\n'))

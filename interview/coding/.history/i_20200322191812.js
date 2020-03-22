@@ -15,4 +15,4 @@ function DistanceToHigher(height) {
     return result
 }
 
-console.log(DistanceToHigher([175, 179, 174, 163, 176, 177]))
+console.log(DistanceToHigher([175, 173, 174, 163, 182, 177]))

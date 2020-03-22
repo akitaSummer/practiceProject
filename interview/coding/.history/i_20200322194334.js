@@ -16,3 +16,20 @@ function DistanceToHigher(height) {
 }
 
 console.log(DistanceToHigher([175, 179, 174, 163, 176, 177]))
+
+
+function test(str) {
+    const content = str.split('\n')
+    const num = Number(content[0])
+
+    function fib(n, a1 = 1, a2 = 1) {
+        if (n <= 2) {
+            return a2
+        } else {
+            return fib(n - 1, a2, a2 + a1)
+        }
+    }
+    return fib(num + 1)
+}
+
+console.log(test('1 22 54 123\n'))
