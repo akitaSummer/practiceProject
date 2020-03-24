@@ -3,8 +3,121 @@
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../sudoku/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../sudoku/src/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200319003934.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322190939.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322190951.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191003.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191046.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191225.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191241.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191315.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191352.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191428.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191613.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191622.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191732.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191801.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191812.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322191826.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193323.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193447.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193507.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193525.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193555.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193655.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193719.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193741.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193834.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322193844.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322194334.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322194414.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322194441.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322194451.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322194508.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322195522.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322195528.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200016.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200110.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200123.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200129.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200135.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200234.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200308.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200403.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200407.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200622.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200746.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200908.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200910.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200948.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322200958.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201534.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201710.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201748.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201816.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201859.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201912.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201930.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322201934.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202053.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202156.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202233.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202345.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202527.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202926.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202931.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322202947.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322203033.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322204820.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322204845.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322205615.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322205719.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322205818.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/.history/i_20200322225926.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20191022233118" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200320235231" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200320235341" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200320235418" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200320235446" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200320235458" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/.gitignore_20200321000008" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200315180517.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320212741.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320212813.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213106.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213227.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213304.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213343.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213619.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213639.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/index_20200320213648.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/js/index_20200315184832.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/js/index_20200320215549.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/package_20200315180457.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/package_20200320215446.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320212842.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213201.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213218.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213723.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213836.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213936.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320213954.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214055.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214131.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214221.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214244.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214257.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214520.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214534.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214612.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214635.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214710.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214753.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214838.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214910.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../sudoku/.history/src/scss/main_20200320214949.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin/src/ajax/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin/src/ajax/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +216,7 @@
       <workItem from="1577548561769" duration="642000" />
       <workItem from="1577865454885" duration="599000" />
       <workItem from="1584781953439" duration="4388000" />
+      <workItem from="1584953424095" duration="3705000" />
     </task>
     <servers />
   </component>

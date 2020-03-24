@@ -5,7 +5,7 @@ const http = axios.create({
   baseURL: 'http://localhost:3000/admin/api'
 })
 
-http.interceptors.resquest.use(function (config) {
+http.interceptors.request.use(function (config) {
   if (localStorage) {
     config.header.Authorization = 'Bearer ' + localStorage.token
   }
