@@ -3,16 +3,27 @@
 const Toolkit = require('./toolkit')
 
 class Generator {
+
     generate() {
+        while (!this.internalGenerate()) {}
+    }
+
+    internalGenerate() {
         this.matrix = Toolkit.martix.makeMatrix()
+        this.orders = Toolkit.martix.makeMatrix()
+            .map(row => row.map((v, i) => i))
+            .map(row => Toolkit.martix.shffle(row))
             // 入口方法
         for (let n = 1; n <= 9; n++) {
-            this.fillNumber(n)
+            if (!this.fillNumber(n)) {
+                return false
+            }
         }
+        return true
     }
 
     fillNumber(n) {
-        this.fillRow(n, 0)
+        return this.fillRow(n, 0)
     }
 
     fillRow(n, rowIndex) {
@@ -21,7 +32,9 @@ class Generator {
         }
         // 当前行填写n成功，递归调用fillRow()来在下一行中填写n
         const row = this.matrix[rowIndex]
+        const orders = this.orders[rowIndex]
         for (let i = 0; i < 9; i++) {
+            const colIndex = orders[i];
             const colIndex = i
                 // 如果这个位置有值，跳过
             if (row[colIndex]) {
@@ -29,7 +42,7 @@ class Generator {
             }
 
             // 检查这个位置是否可以填入
-            if (!Toolkit.matrix.checkFillable()) {
+            if (!Toolkit.matrix.checkFillable(this.martix, n, rowIndex, colIndex)) {
                 continue
             }
             row[colIndex] = n
