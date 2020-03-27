@@ -2,7 +2,7 @@
 
 const Toolkit = require('./toolkit')
 
-class Generator {
+module.exports = class Generator {
 
     generate() {
         while (!this.internalGenerate()) {}
