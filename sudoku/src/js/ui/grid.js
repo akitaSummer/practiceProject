@@ -1,5 +1,7 @@
 // 生成九宫格游戏
 const toolkit = require('../core/toolkit').martix
+const Generator = require('../core/generator')
+const Sudoku = require('../core/sudoku')
 
 const $ = require('jquery')
 
@@ -9,9 +11,15 @@ class Grid {
     }
 
     build() {
-        const matrix = toolkit.makeMatrix()
+        // const generator = new Generator()
+        // generator.generate()
+        // const matrix = generator.matrix
 
-        const $cells = matrix.map(rowValues => rowValues.map(cellValue => $('<span>').text(cellValue)))
+        const sudoku = new Sudoku()
+        sudoku.make()
+        const matrix = sudoku.puzzleMatrix
+
+        const $cells = matrix.map(rowValues => rowValues.map(cellValue => $('<span>').addClass(cellValue ? 'fixed' : 'empty').text(cellValue)))
 
         const $divArray = $cells.map($spanArray => $('<div>').addClass('row').append($spanArray))
 

@@ -64,7 +64,7 @@ class Checker {
     }
 
     checkCols() {
-        for (let colndex = 0; colIndex < 9; colIndex++) {
+        for (let colIndex = 0; colIndex < 9; colIndex++) {
             const cols = []
             for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
                 cols[rowIndex] = this._matrix[rowIndex][colIndex]

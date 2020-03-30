@@ -12,7 +12,7 @@ module.exports = class Generator {
         this.matrix = Toolkit.martix.makeMatrix()
         this.orders = Toolkit.martix.makeMatrix()
             .map(row => row.map((v, i) => i))
-            .map(row => Toolkit.martix.shffle(row))
+            .map(row => Toolkit.martix.shuffle(row))
             // 入口方法
         for (let n = 1; n <= 9; n++) {
             if (!this.fillNumber(n)) {
@@ -35,22 +35,22 @@ module.exports = class Generator {
         const orders = this.orders[rowIndex]
         for (let i = 0; i < 9; i++) {
             const colIndex = orders[i];
-            const colIndex = i
-                // 如果这个位置有值，跳过
+            // const colIndex = i
+            // 如果这个位置有值，跳过
             if (row[colIndex]) {
                 continue
             }
-
             // 检查这个位置是否可以填入
-            if (!Toolkit.matrix.checkFillable(this.martix, n, rowIndex, colIndex)) {
+            if (!Toolkit.martix.checkFillable(this.matrix, n, rowIndex, colIndex)) {
                 continue
             }
             row[colIndex] = n
                 // 去填写下一行，如果失败，则还原，继续寻找当前行可填入位置
-            if (this.fillRow(n, rowIndex + 1)) {
+            if (!this.fillRow(n, rowIndex + 1)) {
                 row[colIndex] = 0
                 continue
             }
+
             return true
         }
         return false

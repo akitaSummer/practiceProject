@@ -68,7 +68,7 @@ body {
 .container {
     padding-left: 5%;
     .row {
-        > span {
+        >span {
             display: inline-block;
             cursor: pointer;
             text-align: center;
@@ -79,6 +79,12 @@ body {
             border-right: none;
             border-bottom: none;
             background: white;
+            &.empty {
+                color: white;
+            }
+            &.fixed {
+                background-color: #eee;
+            }
             &:last-child {
                 border-right: 2px solid #ccc;
             }
@@ -93,22 +99,22 @@ body {
             }
         }
         &:last-child {
-            > span {
+            >span {
                 border-bottom: 2px solid #ccc;
             }
         }
         &:nth-child(3n) {
-            > span {
+            >span {
                 border-bottom: 2px solid #ccc;
             }
         }
         &:nth-child(3n + 1) {
-            > span {
+            >span {
                 border-top: none;
             }
         }
         &:first-child {
-            > span {
+            >span {
                 border-top: 2px solid #ccc;
             }
         }
