@@ -35,6 +35,13 @@ class Grid {
                 "font-size": width < 32 ? `${width/2}px` : ""
             })
     }
+
+    bindPopup(popupNumber) {
+        this._$container.on("click", "span", e => {
+            const $cell = $(e.target)
+            popupNumber.popup($cell)
+        })
+    }
 }
 
 module.exports = Grid

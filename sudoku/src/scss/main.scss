@@ -79,6 +79,12 @@ body {
             border-right: none;
             border-bottom: none;
             background: white;
+            &.mark1 {
+                background-color: lightpink;
+            }
+            &.mark2 {
+                background-color: lightgreen;
+            }
             &.empty {
                 color: white;
             }
@@ -117,6 +123,22 @@ body {
             >span {
                 border-top: 2px solid #ccc;
             }
+        }
+    }
+}
+
+$popupCellSize: 40px;
+.popup-num {
+    @extend .container;
+    padding-left: 0;
+    .row {
+        font-size: 0;
+        letter-spacing: -3px;
+        >span {
+            width: $popupCellSize;
+            height: $popupCellSize;
+            line-height: $popupCellSize;
+            font-size: 14px;
         }
     }
 }
