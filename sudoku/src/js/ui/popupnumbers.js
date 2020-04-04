@@ -1,46 +1,53 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // 处理弹出的操作面板
-const $ = require('jquery')
-
-module.exports = class PopupNumbers {
-    constructor($panel) {
-        this._$panel = $panel.hide().removeClass('hidden')
-
-        this._$panel.on('click', 'span', e => {
-            const $cell = this._$targetCell
-            const $span = $(e.target)
+var $ = require('jquery');
+var PopupNumbers = /** @class */ (function () {
+    function PopupNumbers($panel) {
+        var _this = this;
+        this._$panel = $panel.hide().removeClass('hidden');
+        this._$panel.on('click', 'span', function (e) {
+            var $cell = _this._$targetCell;
+            var $span = $(e.target);
             if ($span.hasClass('mark1')) {
                 if ($cell.hasClass('mark1')) {
-                    $cell.removeClass('mark1')
-                } else {
-                    $cell.removeClass('mark2').addClass('mark1')
+                    $cell.removeClass('mark1');
                 }
-            } else if ($span.hasClass('mark2')) {
+                else {
+                    $cell.removeClass('mark2').addClass('mark1');
+                }
+            }
+            else if ($span.hasClass('mark2')) {
                 if ($cell.hasClass('mark2')) {
-                    $cell.removeClass('mark2')
-                } else {
-                    $cell.removeClass('mark1').addClass('mark2')
+                    $cell.removeClass('mark2');
                 }
-            } else if ($span.hasClass('empty')) {
+                else {
+                    $cell.removeClass('mark1').addClass('mark2');
+                }
+            }
+            else if ($span.hasClass('empty')) {
                 $cell.text(0)
                     .removeClass('mark1')
                     .removeClass('mark2')
-            } else {
-                $cell.removeClass('empty').text($span.text())
+                    .addClass('empty');
             }
-            this._$panel.hide()
-        })
+            else {
+                $cell.removeClass('empty').text($span.text());
+            }
+            _this._$panel.hide();
+        });
     }
-
-    popup($cell) {
-        this._$targetCell = $cell
-        const { left, top } = $cell.position()
+    PopupNumbers.prototype.popup = function ($cell) {
+        this._$targetCell = $cell;
+        var _a = $cell.position(), left = _a.left, top = _a.top;
         this._$panel.css({
-            left: `${left}px`,
-            top: `${top}px`
-        }).show()
-    }
-
-    hide() {
-        this._$panel.hide()
-    }
-}
+            left: left + "px",
+            top: top + "px"
+        }).show();
+    };
+    PopupNumbers.prototype.hide = function () {
+        this._$panel.hide();
+    };
+    return PopupNumbers;
+}());
+exports.default = PopupNumbers;
