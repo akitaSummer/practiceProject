@@ -3,6 +3,9 @@ import Toolkit from './toolkit'
 
 export default class Generator {
 
+    public matrix: Array<Array<number>> = [[0]]
+    public orders: Array<Array<number>> = [[0]]
+
     generate() {
         while (!this.internalGenerate()) {}
     }
@@ -21,11 +24,11 @@ export default class Generator {
         return true
     }
 
-    fillNumber(n) {
+    fillNumber(n: number) {
         return this.fillRow(n, 0)
     }
 
-    fillRow(n, rowIndex) {
+    fillRow(n: number, rowIndex: number) {
         if (rowIndex > 8) {
             return true
         }

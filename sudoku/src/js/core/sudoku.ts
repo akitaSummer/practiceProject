@@ -6,6 +6,10 @@
 import Generator from './generator'
 
 export default class Sudoku {
+
+    public solutionMatrix: Array<Array<number>>
+    public puzzleMatrix: Array<Array<number>> = [[0]]
+
     constructor() {
         const generator = new Generator()
         generator.generate()

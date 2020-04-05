@@ -1,5 +1,7 @@
 // 检查数据解决方案
-function checkArray(array) {
+
+import Toolkit from './toolkit'
+function checkArray(array: Array<number>) {
     const length = array.length
     const marks = new Array(length)
     marks.fill(true)
@@ -20,10 +22,14 @@ function checkArray(array) {
     return marks
 }
 
-const Toolkit = require('./toolkit')
 
 export default class Checker {
-    constructor(matrix) {
+
+    private _matrix: Array<Array<number>>
+    private _matrixMarks: Array<Array<Boolean>>
+    private _success: boolean = false
+
+    constructor(matrix: Array<Array<number>>) {
         this._matrix = matrix
         this._matrixMarks = Toolkit.martix.makeMatrix(true)
     }
@@ -42,7 +48,7 @@ export default class Checker {
         this.checkBoxes()
 
         // 检查是否成功
-        this._success = this._matrixMarks.every(row => row.every(cell => cell))
+        this._success = this._matrixMarks.every((row: Array<Boolean>) => row.every((cell: Boolean) => cell))
         return this._success
     }
 

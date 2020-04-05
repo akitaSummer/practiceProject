@@ -3,9 +3,13 @@ import Sudoku from '../core/sudoku'
 import Checker from '../core/checker'
 
 import $ from 'jquery'
+import PopupNumbers from './popupnumbers'
 
 class Grid {
-    constructor(container) {
+
+    private _$container: JQuery<HTMLElement>
+
+    constructor(container: JQuery<HTMLElement>) {
         this._$container = container
     }
 
@@ -18,26 +22,29 @@ class Grid {
         sudoku.make()
         const matrix = sudoku.puzzleMatrix
 
-        const $cells = matrix.map(rowValues => rowValues.map(cellValue => $('<span>').addClass(cellValue ? 'fixed' : 'empty').text(cellValue)))
+        const $cells: Array<Array<JQuery<HTMLElement>>> = matrix.map((rowValues: Array<number>) => rowValues.map(cellValue => $('<span>').addClass(cellValue ? 'fixed' : 'empty').text(cellValue)))
 
-        const $divArray = $cells.map($spanArray => $('<div>').addClass('row').append($spanArray))
+        const $divArray = $cells.map(($spanArray: Array<JQuery<HTMLElement>>) => $('<div>').addClass('row').append($spanArray))
 
         this._$container.append($divArray)
     }
 
     layout() {
-        const width = $('span:first', this._$container).width()
-        $('span', this._$container)
+        const width: number | undefined = $('span:first', this._$container).width()
+        if (typeof width === 'number') {
+            $('span', this._$container)
             .height(width)
             .css({
                 "line-height": `${width}px`,
                 "font-size": width < 32 ? `${width/2}px` : ""
             })
+        }
     }
 
-    bindPopup(popupNumber) {
-        this._$container.on("click", "span", e => {
-            const $cell = $(e.target)
+    bindPopup(popupNumber: PopupNumbers) {
+        this._$container.on("click", "span", (e: Event): void => {
+            const target: any = e.target
+            const $cell: JQuery<HTMLElement> = $(target)
             if (!$cell.is('.fixed')) {
                 popupNumber.popup($cell)
             }

@@ -1,23 +1,23 @@
 // 矩阵和数组工具
-matrixToolkit = {
-    makeRow(v = 0) {
+const matrixToolkit = {
+    makeRow(v: any = 0) {
         const arr = new Array(9)
         arr.fill(v)
         return arr
     },
 
-    makeMatrix(v = 0) {
+    makeMatrix(v: any = 0) {
         return Array.from({ length: 9 }, () => this.makeRow(v))
     },
 
-    shuffle(array) {
+    shuffle(array: Array<number>) {
         for (let i = 0; i < array.length - 1; i++) {
             const j = Math.floor(Math.random() * (array.length - i));
             [array[j], array[i]] = [array[i], array[j]]
         }
         return array
     },
-    checkFillable(martix, n, rowIndex, colIndex) {
+    checkFillable(martix: Array<Array<number>>, n: number, rowIndex: number, colIndex: number) {
         const row = martix[rowIndex]
         const column = this.makeRow().map((v, i) => martix[i][colIndex])
         const { boxIndex } = boxToolit.convertToBoxIndex(rowIndex, colIndex)
@@ -35,19 +35,19 @@ matrixToolkit = {
 // 宫坐标系工具
 
 const boxToolit = {
-    convertToBoxIndex(rowIndex, colIndex) {
+    convertToBoxIndex(rowIndex: number, colIndex: number) {
         return {
             boxIndex: Math.floor(rowIndex / 3) * 3 + Math.floor(colIndex / 3),
             cellIndex: rowIndex % 3 * 3 + colIndex % 3
         }
     },
-    convertFromBoxIndex(boxIndex, cellIndex) {
+    convertFromBoxIndex(boxIndex: number, cellIndex: number) {
         return {
             rowIndex: Math.floor(boxIndex / 3) * 3 + Math.floor(cellIndex / 3),
             colIndex: boxIndex % 3 * 3 + cellIndex % 3
         }
     },
-    getBoxCells(matrix, boxIndex) {
+    getBoxCells(matrix: Array<Array<number>>, boxIndex: number) {
         const startRowIndex = Math.floor(boxIndex / 3) * 3
         const startColIndex = boxIndex % 3 * 3
         const result = []

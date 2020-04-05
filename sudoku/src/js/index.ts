@@ -8,7 +8,7 @@ const grid = new Grid($('#container'))
 grid.build()
 grid.layout()
 
-const popupnumbers = new PopupNumbers($('#popupNumbers'))
+const popupnumbers: PopupNumbers = new PopupNumbers($('#popupNumbers'))
 grid.bindPopup(popupnumbers)
 
 $('#check').on('click', e => {
