@@ -1,7 +1,7 @@
 // 检查数据解决方案
 
 import Toolkit from './toolkit'
-function checkArray(array: Array<number>) {
+function checkArray(array: Array<number>): boolean[] {
     const length = array.length
     const marks = new Array(length)
     marks.fill(true)
@@ -26,7 +26,7 @@ function checkArray(array: Array<number>) {
 export default class Checker {
 
     private _matrix: Array<Array<number>>
-    private _matrixMarks: Array<Array<Boolean>>
+    private _matrixMarks: boolean[][]
     private _success: boolean = false
 
     constructor(matrix: Array<Array<number>>) {
@@ -34,15 +34,15 @@ export default class Checker {
         this._matrixMarks = Toolkit.martix.makeMatrix(true)
     }
 
-    get matrixMarks() {
+    get matrixMarks(): boolean[][] {
         return this._matrixMarks
     }
 
-    get isSuccess() {
+    get isSuccess(): boolean {
         return this._success
     }
 
-    check() {
+    check(): boolean {
         this.checkRows()
         this.checkCols()
         this.checkBoxes()
@@ -53,7 +53,7 @@ export default class Checker {
     }
 
 
-    checkRows() {
+    private checkRows() {
         for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
             const row = this._matrix[rowIndex]
             const marks = checkArray(row)
@@ -66,7 +66,7 @@ export default class Checker {
         }
     }
 
-    checkCols() {
+    private checkCols() {
         for (let colIndex = 0; colIndex < 9; colIndex++) {
             const cols = []
             for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
@@ -81,7 +81,7 @@ export default class Checker {
         }
     }
 
-    checkBoxes() {
+    private checkBoxes() {
         for (let boxIndex = 0; boxIndex < 9; boxIndex++) {
             const boxes = Toolkit.box.getBoxCells(this._matrix, boxIndex)
             const marks = checkArray(boxes)

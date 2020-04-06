@@ -24,11 +24,11 @@ export default class Generator {
         return true
     }
 
-    fillNumber(n: number) {
+    private fillNumber(n: number) {
         return this.fillRow(n, 0)
     }
 
-    fillRow(n: number, rowIndex: number) {
+    private fillRow(n: number, rowIndex: number) {
         if (rowIndex > 8) {
             return true
         }

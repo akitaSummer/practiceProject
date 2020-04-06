@@ -16,7 +16,7 @@ export default class Sudoku {
         this.solutionMatrix = generator.matrix
     }
 
-    make(level = 5) {
+    make(level: number = 5) {
         this.puzzleMatrix = this.solutionMatrix.map(row => {
             return row.map(cell => Math.random() * 9 < level ? 0 : cell)
         })
