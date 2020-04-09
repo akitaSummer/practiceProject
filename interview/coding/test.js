@@ -473,6 +473,7 @@ function insertSort(arr) {
     return result
 }
 
+
 console.log(insertSort([1, 56, 23, 6, 534252, 343, 7, 32, 66]))
 
 function selectSort(arr) {

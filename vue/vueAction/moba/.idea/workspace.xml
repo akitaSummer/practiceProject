@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../../interview/coding/i.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../interview/coding/i.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../interview/coding/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../interview/coding/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/web/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/web/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -53,18 +52,6 @@
       <recent name="E:\WebStudying\practiceProject\vue\vueAction\moba\admin\admin\src\views" />
       <recent name="E:\WebStudying\practiceProject\vue\vueAction\moba\admin\admin\src\assets" />
     </key>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -105,11 +92,15 @@
       <workItem from="1584781953439" duration="4388000" />
       <workItem from="1584953424095" duration="3705000" />
       <workItem from="1585464454949" duration="2142000" />
+      <workItem from="1586442967355" duration="85000" />
+      <workItem from="1586443106499" duration="103000" />
+      <workItem from="1586443227934" duration="57000" />
+      <workItem from="1586443418830" duration="105000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="72" y="184" key="#Notifications" timestamp="1575351900199">
