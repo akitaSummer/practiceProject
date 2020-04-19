@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../electorn/cloud-doc/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../electorn/cloud-doc/src/components/FileSearch.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +97,7 @@
       <workItem from="1586443418830" duration="105000" />
       <workItem from="1587013252406" duration="798000" />
       <workItem from="1587045961553" duration="308000" />
+      <workItem from="1587278119806" duration="1182000" />
     </task>
     <servers />
   </component>
