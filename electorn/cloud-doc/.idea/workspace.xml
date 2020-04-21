@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FileSearch.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/assets/image/search_active.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/assets/image/search_active@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/components/SearchResult/SearchResult.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/components/SearchResult/SearchResult.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jest/lesson2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../jest/lesson2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jest/lesson2/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../jest/lesson2/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue/vueAction/moba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/vueAction/moba/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -76,6 +92,9 @@
       <workItem from="1584781902528" duration="1189000" />
       <workItem from="1584953453062" duration="595000" />
       <workItem from="1587278565772" duration="1751000" />
+      <workItem from="1587358810538" duration="2054000" />
+      <workItem from="1587396157244" duration="885000" />
+      <workItem from="1587449083926" duration="3971000" />
     </task>
     <servers />
   </component>

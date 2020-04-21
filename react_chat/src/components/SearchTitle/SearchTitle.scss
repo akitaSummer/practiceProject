@@ -1,0 +1,130 @@
+.title {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 44px;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 1px 0px 0px rgba(0,0,0,0.1);
+  .title_icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    left: 0;
+    top: 0;
+    img {
+      width: 44px;
+      height: 21px;
+    }
+  }
+  .title_content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .left {
+      width: 34px;
+      height: 34px;
+      margin-top: 4px;
+      margin-left: 16px;
+      border-radius:8px;
+    }
+    .right {
+      .add {
+        width: 24px;
+        height: 24px;
+        margin-right: 16px;
+        margin-top: 8px;
+      }
+      .search {
+        width: 24px;
+        height: 24px;
+        margin-right: 20px;
+        margin-top: 8px;
+      }
+      .cancel {
+        display: inline-block;
+        margin-top: 12px;
+        margin-left: 15px;
+        width:28px;
+        height:20px;
+        font-size:14px;
+        font-family:PingFangSC-Regular,PingFang SC;
+        font-weight:400;
+        color:rgba(39,40,50,1);
+        line-height:20px;
+      }
+      .search_container {
+        display: inline-block;
+        width:300px;
+        height:30px;
+        margin-top: 7px;
+        margin-left: 16px;
+        position: relative;
+        .search_active {
+          width: 100%;
+          height: 100%;
+          background:rgba(243,244,246,1);
+          border-radius:5px;;
+        }
+        input{
+          outline-style: none ;
+          border: none;
+          border-radius: 3px;
+          padding: 13px 14px;
+          padding-right: 40px;
+          width: 620px;
+          font-size: 14px;
+          font-weight: 700;
+          font-family: "Microsoft soft";
+        }
+        input:focus{
+          border-color: #66afe9;
+          outline: 0;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+        img {
+          position: absolute;
+          left: 274px;
+          top: 5px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+    }
+
+  }
+}
+//enter是入场前的刹那（点击按钮），appear指页面第一次加载前的一刹那（自动）
+.fade-enter, .fade-appear {
+  opacity: 0;
+}
+//enter-active指入场后到入场结束的过程，appear-active则是页面第一次加载自动执行
+.fade-enter-active, .fade-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+//入场动画执行完毕后，保持状态
+.fade-enter-done {
+  opacity: 1;
+}
+//同理，出场前的一刹那，以下就不详细解释了，一样的道理
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+
+.fade-exit-done {
+  opacity: 0;
+}

@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4dc01bd-2f19-4dbf-bc99-de4a47cd5889" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../electorn/cloud-doc/src/components/FileSearch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../electorn/cloud-doc/src/components/FileSearch.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../react_chat/src/assets/image/search_active.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../react_chat/src/assets/image/search_active@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../react_chat/src/components/SearchResult/SearchResult.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../react_chat/src/components/SearchResult/SearchResult.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../react_chat/src/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../electorn/cloud-doc/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jest/lesson2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jest/lesson2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jest/lesson2/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jest/lesson2/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/components/SearchTitle/SearchTitle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/components/SearchTitle/SearchTitle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/components/SearchTitle/SearchTitle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/components/SearchTitle/SearchTitle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/components/UserMessageOutline/UserMessageOutline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/components/UserMessageOutline/UserMessageOutline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../react_chat/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../react_chat/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +113,8 @@
       <workItem from="1587013252406" duration="798000" />
       <workItem from="1587045961553" duration="308000" />
       <workItem from="1587278119806" duration="1182000" />
+      <workItem from="1587358813230" duration="181000" />
+      <workItem from="1587457754838" duration="1825000" />
     </task>
     <servers />
   </component>

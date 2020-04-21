@@ -1,0 +1,72 @@
+.user_message_outline {
+  width:100%;
+  height:64px;
+  background:rgba(255,255,255,1);
+  display: flex;
+  position: relative;
+  &.active {
+    background:rgba(243,244,246,1);
+  }
+  .user_icon {
+    margin-left: 16px;
+    margin-top: 9px;
+    position: relative;
+    .icon {
+      width:48px;
+      height:48px;
+      border-radius:12px;
+    }
+    .number {
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 0;
+      height:16px;
+      font-size:12px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(255,255,255,1);
+      line-height:17px;
+      transform: translate(40%, -40%);
+      background:rgba(255,93,91,1);
+      border-radius:9px;
+      padding: 0 5px;
+      text-align: center;
+    }
+  }
+  .message {
+    flex: 1;
+    margin-top: 11px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .user_name {
+      font-size:18px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(39,40,50,1);
+      line-height:25px;
+    }
+    .message_content {
+      font-size:14px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(39,40,50,0.6);
+      line-height:20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .time {
+      position: absolute;
+      top: 13px;
+      right: 16px;
+      font-size:12px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(39,40,50,0.4);
+      line-height:17px;
+    }
+  }
+}
