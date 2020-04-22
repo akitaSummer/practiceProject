@@ -34,7 +34,7 @@
       text-align: center;
     }
   }
-  .message {
+  .user_message {
     flex: 1;
     margin-top: 11px;
     margin-left: 16px;
@@ -48,7 +48,7 @@
       color:rgba(39,40,50,1);
       line-height:25px;
     }
-    .message_content {
+    .user_message_content {
       font-size:14px;
       font-family:PingFangSC-Regular,PingFang SC;
       font-weight:400;

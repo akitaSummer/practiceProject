@@ -36,9 +36,9 @@ const UserMessageOutline = (props) => {
         <img className="icon" src={props.user.url} alt='icon'/>
         {props.user.noRead > 0 ? <span className="number">{props.user.noRead}</span> : ''}
       </div>
-      <div className="message">
+      <div className="user_message">
         <span className="user_name">{props.user.name}</span>
-        <span className="message_content">{props.user.lastMessage}</span>
+        <span className="user_message_content">{props.user.lastMessage}</span>
         <span className="time">{formData(props.user.time)}</span>
       </div>
     </div>

@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14112176",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "14112184",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "14112189",
+      "name": "fold",
+      "font_class": "fold",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "14112214",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    }
+  ]
+}
