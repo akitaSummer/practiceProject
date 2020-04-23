@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './SearchResult.scss'
 
@@ -36,7 +37,7 @@ const SearchResult = (props) => {
                 {
                   props.searchContent === '' ? <span className="name">{user.name}</span> : <span className="name">{transitionSearchContentStyle(user.name, props.searchContent)}</span>
                 }
-                {user.isFriend ? <span className="talk">发消息</span> : <span className="add">加好友</span>}
+                {user.isFriend ? <Link to={`/chat/${user.name}`} style={{textDecoration: 'none'}} className="talk" ><span>发消息</span></Link> : <Link to={`/add_friend/${user.name}`} style={{textDecoration: 'none'}} className="add" ><span>加好友</span></Link>}
               </div>
             )
           })
@@ -52,7 +53,7 @@ const SearchResult = (props) => {
                 {
                   props.searchContent === '' ? <span className="name">{group.name}</span> : <span className="name">{transitionSearchContentStyle(group.name, props.searchContent)}</span>
                 }
-                {group.isFriend ? <span className="talk">发消息</span> : <span className="add">加好友</span>}
+                {group.isFriend ? <Link to={`/chat/${group.name}`} style={{textDecoration: 'none'}} className="talk" ><span>发消息</span></Link> : <Link to={`/add_friend/${group.name}`} style={{textDecoration: 'none'}} className="add" ><span>加入群</span></Link>}
               </div>
             )
           })

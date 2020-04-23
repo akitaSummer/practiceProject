@@ -59,7 +59,7 @@ const Chat = () => {
     type: 'icon',
     icon: 'icon-back',
     click() {
-      history.push("/chatlist");
+      history.push("/chat_list");
     }
   }
 
