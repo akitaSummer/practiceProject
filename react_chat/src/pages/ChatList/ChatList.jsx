@@ -17,6 +17,7 @@ const ChatList = (props) => {
   const [searchActive, setSearchActive] = useState(false)
   const [searchContent, setSearchContent] = useState('')
 
+
   const handRefreshing = () => {
     if (STATS.refreshing === action) {
       return false;

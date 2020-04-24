@@ -14,7 +14,8 @@ module.exports = {
   // 测试环境建立好后运行的文件
   "setupFilesAfterEnv": [
     "<rootDir>/src/setupTests.js",
-    "<rootDir>/node_modules/jest-enzyme/lib/index.js"
+    "<rootDir>/node_modules/jest-enzyme/lib/index.js",
+    "<rootDir>/src/utils/testSetup.js",
   ],
   // 运行的测试文件
   "testMatch": [

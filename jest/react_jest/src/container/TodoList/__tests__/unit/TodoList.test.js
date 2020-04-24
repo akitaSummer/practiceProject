@@ -1,18 +1,25 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils'
-import Enzyme, { shallow, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow, mount } from 'enzyme'
 import TodoList from "../../TodoList";
+import { findTestWrapper } from '../../../../utils/testUtils'
 
-Enzyme.configure({ adapter: new Adapter() })
+// test('TodoList 初始化列表为空', () => {
+//   const wrapper = shallow(<TodoList />)
+//   expect(wrapper.state('undoList')).toEqual([])
+// })
 
-test('TodoList 初始化列表为空', () => {
+// test('TodoList 应当传递给 Header 一个增加 undoList 的方法', () => {
+//   const wrapper = mount(<TodoList />)
+//   const Header = wrapper.find('Header')
+//   let undoList
+//   expect(Header.prop('addUndoItem')).toBe(wrapper.instance().setUndoList)
+// })
+
+test('当Header回车时，undoList应该新增内容', () => {
   const wrapper = shallow(<TodoList />)
-})
-
-test('TodoList 应当传递给 Header 一个增加 undoList 的方法', () => {
-  const wrapper = mount(<TodoList />)
   const Header = wrapper.find('Header')
-  console.log(Header.prop('addUndoItem'))
-  expect(Header.prop('addUndoItem')).toBe(wrapper.instance().setUndoList)
+  const addFunc = Header.prop('addUndoItem')
+  addFunc(['Jest'])
+  const length = findTestWrapper(wrapper, 'undoList').text()
+  expect(length).toBe('1')
 })

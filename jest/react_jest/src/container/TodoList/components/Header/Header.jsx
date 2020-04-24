@@ -7,19 +7,25 @@ const Header = (props) => {
   const handleInputKeyUp = (e) => {
     if (e.keyCode === 13 && value) {
       props.addUndoItem(value)
+      setValue('')
     }
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        data-test='input'
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyUp={handleInputKeyUp}
-      />
-    </div>
+      <div className='header'>
+        <div className="header-content">
+          Todo
+          <input
+            placeholder='Todo'
+            className='header-input'
+            type="text"
+            data-test='input'
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onKeyUp={handleInputKeyUp}
+          />
+        </div>
+      </div>
   )
 }
 

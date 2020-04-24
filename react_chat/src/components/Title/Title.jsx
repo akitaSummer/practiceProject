@@ -13,7 +13,7 @@ const Title = (props) => {
         </div>)
         :
         (<div className="left_icon" onClick={() => {props.left.click()}}>
-        <i className={'iconfont ' + props.left.icon}/>
+          {props.left.icon ? <i className={'iconfont ' + props.left.icon}/> : <span className={'null'}/>}
       </div>)
       }
       <div className="middle">{ props.middle }</div>
@@ -23,7 +23,7 @@ const Title = (props) => {
         </div>)
         :
         (<div className="right_icon" onClick={() => {props.right.click && props.right.click()}}>
-          <i className={'iconfont' + props.right.icon}/>
+          {props.right.icon ? <i className={'iconfont ' + props.right.icon}/> : <span className={'null'}/>}
         </div>)
       }
     </div>
