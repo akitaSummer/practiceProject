@@ -11,7 +11,7 @@ const UserMessageOutline = (props) => {
   const formData = (time) => {
     const now = new Date()
     if (time.getFullYear() < now.getFullYear()) {
-      return `${time.getFullYear()}/${time.getMonth() + 1}/${time.getDay()}`
+      return `${time.getFullYear()}/${time.getMonth() + 1}/${time.getDate()}`
     } else if (time.getMonth() < now.getMonth() || time.getDate() < now.getDate()) {
       return `${time.getMonth() + 1}.${time.getDate()}`
     } else {

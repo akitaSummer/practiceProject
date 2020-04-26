@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "8918512",
+      "name": "benefits",
+      "font_class": "icon-test",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
       "icon_id": "14112176",
       "name": "back",
       "font_class": "back",

@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b929c897-5fe5-4f8c-9222-ad4ed246f4ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/__tests__/unit/UndoList.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/components/UndoList/UndoList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/components/InformationItem/InformationItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/components/InformationItem/InformationItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/pages/CreateGroup/CreateGroup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../react_chat/src/pages/CreateGroup/CreateGroup.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vue/vueAction/moba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue/vueAction/moba/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jest/react_jest/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../jest/react_jest/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/TodoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/TodoList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/__tests__/unit/TodoList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../jest/react_jest/src/container/TodoList/__tests__/unit/TodoList.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/demo_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/demo_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/assets/icon/iconfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/SearchTitle/SearchTitle.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/components/UserMessageOutline/UserMessageOutline.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/pages/UserDetail/UserDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/pages/UserDetail/UserDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/pages/UserDetail/UserDetail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/pages/UserDetail/UserDetail.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../react_chat/src/redux/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../react_chat/src/redux/actions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +105,7 @@
       <workItem from="1587358810538" duration="2054000" />
       <workItem from="1587396157244" duration="885000" />
       <workItem from="1587449083926" duration="3971000" />
+      <workItem from="1587876591118" duration="605000" />
     </task>
     <servers />
   </component>

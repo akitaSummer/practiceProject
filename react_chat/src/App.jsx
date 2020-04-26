@@ -8,12 +8,15 @@ import Chat from './pages/Chat/Chat'
 import AddFriend from './pages/AddFriend/AddFriend'
 import SendRequest from './pages/SendRequest/SendRequest'
 import UserDetail from './pages/UserDetail/UserDetail'
+import CreateGroup from './pages/CreateGroup/CreateGroup'
 
 const App = (props) => {
 
   useEffect(() => {
-    props.getUserList()
-  }, [])
+    if (props.users.length === 0) {
+      props.getUserList()
+    }
+  }, [props])
 
   return (
     <>
@@ -23,7 +26,8 @@ const App = (props) => {
           <Route path='/chat/:name' component={(props) => <Chat {...props}/>}/>
           <Route path='/add_friend/:name' component={(props) => <AddFriend {...props}/>}/>
           <Route path='/send_request/:name' component={(props) => <SendRequest {...props}/>}/>
-          <Route path='/user_detail' component={(props) => <UserDetail {...props}/>}/>
+          <Route path='/user_detail' component={UserDetail}/>
+          <Route path='/create_group' component={CreateGroup}/>
           <Redirect from='/' to='/chat_list' />
         </Switch>
       </HashRouter>

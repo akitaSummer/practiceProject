@@ -15,11 +15,11 @@ import { findTestWrapper } from '../../../../utils/testUtils'
 //   expect(Header.prop('addUndoItem')).toBe(wrapper.instance().setUndoList)
 // })
 
-test('当Header回车时，undoList应该新增内容', () => {
-  const wrapper = shallow(<TodoList />)
-  const Header = wrapper.find('Header')
-  const addFunc = Header.prop('addUndoItem')
-  addFunc(['Jest'])
-  const length = findTestWrapper(wrapper, 'undoList').text()
-  expect(length).toBe('1')
-})
+// test('当Header回车时，undoList应该新增内容', () => {
+//   const wrapper = shallow(<TodoList />)
+//   const Header = wrapper.find('Header')
+//   const addFunc = Header.prop('addUndoItem')
+//   addFunc(['Jest'])
+//   const length = findTestWrapper(wrapper, 'undoList').text()
+//   expect(length).toBe('1')
+// })

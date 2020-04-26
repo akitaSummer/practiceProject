@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useHistory } from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { CSSTransition } from 'react-transition-group'
 import titleIcon from '../../assets/image/火.png'
@@ -33,7 +33,9 @@ const SearchTitle = (props) => {
           <img src={user} alt="user" className="left" onClick={() => { history.push('/user_detail') }}/>
         <div className="right">
           <img src={search} alt="search" className="search"  onClick={() => props.setActive(true)}/>
-          <img src={add} alt="add" className="add"/>
+          <Link to={`/create_group`} style={{textDecoration: 'none'}}>
+            <img src={add} alt="add" className="add"/>
+          </Link>
         </div>
       </div>
       </CSSTransition>

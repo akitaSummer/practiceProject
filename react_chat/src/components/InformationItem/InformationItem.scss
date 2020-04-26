@@ -1,0 +1,51 @@
+.information_item {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .information_item_left {
+    padding: 0 16px;
+    font-size:16px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(39,40,50,1);
+    line-height:22px;
+  }
+  .information_item_middle_font {
+    flex: 1;
+    font-size:16px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(39,40,50,0.6);
+    line-height:22px;
+  }
+  .information_item_middle_password {
+    flex: 1;
+    font-size:40px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#272832;
+    line-height:22px;
+  }
+  .information_item_middle_img {
+    flex: 1;
+    padding: 11px 0;
+    img {
+      border-radius:10px;
+      height: 52px;
+    }
+  }
+  .information_item_right {
+    padding: 0 13px;
+    font-size:14px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(39,40,50,0.6);
+    line-height:22px;
+    &.null {
+      display: inline-block;
+      padding: 7px;
+    }
+  }
+}

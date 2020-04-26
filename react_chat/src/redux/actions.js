@@ -11,20 +11,29 @@ const USERS = [
   { name: '喵', url: require('../assets/img/v2-7.jpg'), noRead: 0, time: new Date(2019, 11, 20, 14, 35), lastMessage: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', type: 'group', isFriend: true}
 ]
 
+// 格式化日期
+const formData = (time, form) => {
+  if (form === 'signInTime') {
+    return `${time.getFullYear()}-${time.getMonth() > 10 ? time.getMonth() + 1 : '0' + (time.getMonth() + 1)}-${time.getDate() > 10 ? time.getDate() : '0' + time.getDate()} ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+  } else {
+    return `${time.getFullYear()}-${time.getMonth() > 10 ? time.getMonth() + 1 : '0' + (time.getMonth() + 1)}-${time.getDate() > 10 ? time.getDate() : '0' + time.getDate()}`
+  }
+}
+
 export const getUser = () => {
   return {
     type: GET_USER_INFO,
     data: {
       name: 'User',
+      img: require('../assets/img/v2-1.jpg'),
       readme: '把平凡的事做到不平凡',
-      signInTime: new Date(2019, 11, 22, 13, 32, 45),
+      signInTime: formData(new Date(2019, 11, 22, 13, 32, 45),'signInTime'),
       ni: 'student',
-      sex: 'male',
-      birthday: new Date(1996, 4, 11),
+      sex: '男',
+      birthday: formData(new Date(1996, 4, 11)),
       tel: 13018087845,
       email: '644171127@qq.com',
       password: '123456789',
-      img: require('../assets/img/v2-1.jpg')
     }
   }
 }

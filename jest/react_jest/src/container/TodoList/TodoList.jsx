@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from './components/Header/Header'
+import UndoList from './components/UndoList/UndoList'
 import './style.css'
 
 const TodoList = () => {
@@ -9,7 +10,7 @@ const TodoList = () => {
   return (
     <div>
       <Header addUndoItem={setUndoList}/>
-      <span data-testid='undoList'>{undoList.length}</span>
+      <UndoList list={undoList} setUndoList={setUndoList}/>
     </div>
   )
 }
