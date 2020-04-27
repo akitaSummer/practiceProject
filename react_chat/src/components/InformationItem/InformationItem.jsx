@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import '../../assets/icon/iconfont.css'
 import './InformationItem.scss'
 
@@ -24,6 +25,12 @@ const InformationItem = (props) => {
       </span>
     </div>
   )
+}
+
+InformationItem.propTypes = {
+  left: PropTypes.string,
+  middle: PropTypes.object,
+  right: PropTypes.string
 }
 
 export default InformationItem

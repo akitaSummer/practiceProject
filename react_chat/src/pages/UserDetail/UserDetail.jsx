@@ -20,7 +20,7 @@ const UserDetail = (props) => {
     type: 'icon',
     icon: 'icon-back',
     click() {
-      history.push("/chat_list");
+      history.goBack();
     }
   }
 
@@ -43,7 +43,7 @@ const UserDetail = (props) => {
 
 
   return (
-    <>
+    <div className='user_detail'>
       <Title left={left} middle='详情' right={right}/>
       {Object.keys(props.user).length > 0 && <div className="user_detail">
         {
@@ -61,7 +61,7 @@ const UserDetail = (props) => {
         }
       </div>}
       <button className="out_sign_in">退出登录</button>
-    </>
+    </div>
   )
 }
 

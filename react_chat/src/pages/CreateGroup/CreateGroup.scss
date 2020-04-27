@@ -150,3 +150,29 @@
   }
 }
 
+.group_name_textarea-enter, .group_name_textarea-appear {
+  transform: translateY(100vh);
+}
+
+.group_name_textarea-enter-active, .group_name_textarea-apper-active {
+  transform: translateY(0);
+  transition: all .5s ease-in;
+}
+
+.group_name_textarea-enter-done {
+  transform: translateY(0);
+}
+
+.group_name_textarea-exit {
+  transform: translateY(0);
+}
+
+.group_name_textarea-exit-active {
+  transform: translateY(100vh);
+  transition: all .5s ease-in;
+}
+
+.group_name_textarea-exit-done {
+  transform: translateY(100vh);
+}
+

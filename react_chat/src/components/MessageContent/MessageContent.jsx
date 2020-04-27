@@ -1,9 +1,20 @@
 import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom'
 import './MessageContent.scss'
 import PropTypes from "prop-types";
 import user from '../../assets/img/v2-1.jpg'
 
 const MessageContent = (props) => {
+
+  const history = useHistory()
+
+  const goDetail = (type) => {
+    if (type === 'group') {
+      history.push('/group_detail')
+    } else {
+      history.push('/user_detail')
+    }
+  }
 
   useEffect(() => {
     // 163 361
@@ -35,7 +46,7 @@ const MessageContent = (props) => {
                   {formData(item.time)}
                 </p>
                 <div className={item.send === 'user' ? 'user_message' : 'other_message'}>
-                  <img src={item.send === 'user' ? user : url } alt="" className="image"/>
+                  <img src={item.send === 'user' ? user : url } alt="" className="image" onClick={() => {item.send === 'user' ? goDetail('user') : goDetail(props.chatContent.type)}}/>
                   {
                     item.content ? (<p className={"message_content_short"}>{item.content}</p>)
                       :
@@ -52,7 +63,7 @@ const MessageContent = (props) => {
                   {formData(item.time)}
                 </p>
                 <div className={item.send === 'user' ? 'user_message' : 'other_message'}>
-                  <img src={item.send === 'user' ? user : url } alt="" className="image"/>
+                  <img src={item.send === 'user' ? user : url } alt="" className="image" onClick={() => {item.send === 'user' ? goDetail('user') : goDetail(props.chatContent.type)}}/>
                   {
                     item.content ? (<p className={"message_content_short"}>{item.content}</p>)
                       :
@@ -63,7 +74,7 @@ const MessageContent = (props) => {
             ):(
               <div key={i}>
                 <div className={item.send === 'user' ? 'user_message' : 'other_message'}>
-                  <img src={item.send === 'user' ? user : url } alt="" className="image"/>
+                  <img src={item.send === 'user' ? user : url } alt="" className="image" onClick={() => {item.send === 'user' ? goDetail('user') : goDetail(props.chatContent.type)}}/>
                   {
                     item.content ? (<p className={"message_content_short"}>{item.content}</p>)
                       :

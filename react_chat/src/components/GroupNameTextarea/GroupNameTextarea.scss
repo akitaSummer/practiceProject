@@ -1,0 +1,28 @@
+.create_group_name_textarea {
+  background-color: rgba(255,255,255,1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  .right_img {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    width: 26px;
+  }
+  textarea {
+    margin: 17px 16px;
+    padding: 8px 11px;
+    width: calc(100vw - 32px);
+    height:193px;
+    background:rgba(243,244,246,1);
+    border-radius:10px;
+    font-size:16px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(39,40,50,1);
+    line-height:22px;
+  }
+}

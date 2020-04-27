@@ -1,0 +1,203 @@
+.group_detail {
+  background-color: rgba(255,255,255,1);
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 99;
+  position: relative;
+  padding-top: 130px;
+  .title {
+    box-shadow: none;
+    position: fixed;
+    background-color: transparent;
+  }
+  .right_img {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    width: 26px;
+  }
+  .group_detail_background {
+    position: absolute;
+    top: -40px;
+    z-index: -10;
+    width: 100vw;
+  }
+  .group_detail_group_card {
+    min-height: calc(100vh - 130px);
+    padding-top: 18px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 15px;
+    position: relative;
+    .group_detail_group_card_title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .group_detail_group_card_title_name {
+        padding-left: 16px;
+        font-size:24px;
+        font-family:PingFangSC-Semibold,PingFang SC;
+        font-weight:600;
+        color:rgba(39,40,50,1);
+        line-height:33px;
+      }
+      .group_detail_group_card_title_middle {
+        flex: 1;
+      }
+      .group_detail_group_card_title_creare {
+        padding-right: 18px;
+        font-size:14px;
+        font-family:PingFangSC-Regular,PingFang SC;
+        font-weight:400;
+        color:rgba(39,40,50,0.5);
+        line-height:20px;
+      }
+    }
+    .group_detail_group_card_index {
+      margin: 10px 18px 18px 16px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      font-size:14px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(39,40,50,1);
+      line-height:20px;
+    }
+    .group_detail_group_card_users {
+      margin: 11px 16px;
+      .group_detail_group_card_users_title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .group_detail_group_card_users_name {
+          font-size:18px;
+          font-family:PingFangSC-Semibold,PingFang SC;
+          font-weight:600;
+          color:rgba(39,40,50,1);
+          line-height:25px;
+        }
+        .group_detail_group_card_users_middle {
+          flex: 1;
+        }
+        .group_detail_group_card_users_admin {
+          font-size:14px;
+          font-family:PingFangSC-Regular,PingFang SC;
+          font-weight:400;
+          color:rgba(39,40,50,0.6);
+          line-height:20px;
+        }
+      }
+      .group_detail_group_card_users_items {
+        margin-top: 2px;
+        margin-bottom: 1px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .group_detail_group_card_users_item {
+          position: relative;
+          margin: 8px 0;
+          width: 52px;
+          text-align: center;
+          margin: 0 5px;
+          .group_detail_group_card_users_item_img {
+            width: 52px;
+            height: 52px;
+            border-radius:10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &.add {
+              background-color: rgba(255,228,49,1);
+            }
+            i {
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
+              font-size: 20px;
+            }
+          }
+          .group_detail_group_card_users_item_name {
+            display: block;
+            width: 52px;
+            margin: 4px auto 0;
+            font-size:14px;
+            font-family:PingFangSC-Regular,PingFang SC;
+            font-weight:400;
+            color:rgba(39,40,50,1);
+            line-height:20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          .group_detail_group_card_users_item_delete {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 0;
+            top: 0;
+            background-color: rgba(255,93,91,1);
+            border-radius: 50%;
+            color: rgba(255,255,255,1);
+            transform: translate(50%, -50%);
+            line-height: 20px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .group_detail_group_card_info {
+      .information_item_right {
+        &.group_detail_group_card_ignore {
+          position: relative;
+          #group_detail_group_card_ignore {
+            width: 0;
+            height: 0;
+          }
+          label {
+            position: absolute;
+            top: 50%;
+            transform: translate(-100%, -50%);
+            width:48px;
+            height:28px;
+            background: rgba(39, 40, 50, 0.6);;
+            border-radius:14px;
+            transition: all .5s ease-in;
+            &.active {
+              background:rgba(255,228,49,1);
+            }
+            .group_detail_group_card_ignore_boot {
+              width:24px;
+              height:24px;
+              background:rgba(255,255,255,1);
+              border-radius:12px;
+              box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+              margin-top: 2px;
+              margin-left: 2px;
+              transform: translate(0);
+              transition: all .5s ease-in;
+              &.active {
+                transform: translate(20px);
+              }
+            }
+          }
+        }
+      }
+    }
+    .group_detail_group_card_leave {
+      position: absolute;
+      bottom: 38px;
+      width: calc(100% - 32px);
+      margin: 0 16px;
+      height: 40px;
+      font-size:16px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(255,93,91,1);
+      line-height:22px;
+      text-align: center;
+      background-color: transparent;
+      border: none;
+    }
+  }
+}

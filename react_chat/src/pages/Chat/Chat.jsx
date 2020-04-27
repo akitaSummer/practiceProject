@@ -13,35 +13,40 @@ const ChatMessages = {
       {send: 'akitaSumer', content: 'hello world!', time: new Date(2020, 3, 20, 14, 35)},
       {send: 'user', content: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', time: new Date(2020, 3, 22, 14, 35)},
       {send: 'user', url: require('../../assets/img/v2-2.jpg'), time: new Date(2020, 3, 22, 14, 35)}
-    ]
+    ],
+    type: 'user'
   },
   'akita':{
     url: require('../../assets/img/v2-3.jpg'),
     messages: [
       {send: 'akitaSumer', content: 'hello world!', time: new Date(2020, 3, 20, 14, 35)},
       {send: 'user', content: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', time: new Date(2020, 3, 22, 14, 35)},
-    ]
+    ],
+    type: 'user'
   },
   'summer':{
     url: require('../../assets/img/v2-4.jpg'),
     messages: [
       {send: 'akitaSumer', content: 'hello world!', time: new Date(2020, 3, 20, 14, 35)},
       {send: 'user', content: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', time: new Date(2020, 3, 22, 14, 35)},
-    ]
+    ],
+    type: 'user'
   },
   '面包':{
     url: require('../../assets/img/v2-5.jpg'),
     messages: [
       {send: 'akitaSumer', content: 'hello world!', time: new Date(2020, 3, 20, 14, 35)},
       {send: 'user', content: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', time: new Date(2020, 3, 22, 14, 35)},
-    ]
+    ],
+    type: 'user'
   },
   '喵':{
     url: require('../../assets/img/v2-7.jpg'),
     messages: [
       {send: 'akitaSumer', content: 'hello world!', time: new Date(2020, 3, 20, 14, 35)},
       {send: 'user', content: '这是一个静态测试文本样例，用于测试文字颜色，字体以及省略号是否能正确显示~', time: new Date(2020, 3, 22, 14, 35)},
-    ]
+    ],
+    type: 'group'
   },
 }
 

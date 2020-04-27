@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { getUserList } from '../../redux/actions'
 import Title from "../../components/Title/Title";
+import GroupNameTextarea from "../../components/GroupNameTextarea/GroupNameTextarea";
 
 import './CreateGroup.scss'
 
 const CreateGroup = (props) => {
 
   const [checkedUsers, setCheckedUsers] = useState([])
+  const [nameTextarea, setNameTextarea] = useState('')
+  const [nameTextareaShow, setNameTextareaShow] = useState(false)
 
   const history = useHistory()
 
@@ -32,7 +36,7 @@ const CreateGroup = (props) => {
       <div className="create_group_top">
         <Title left={left} middle={'创建群聊'} right={{}}/>
         <img className="create_group_img" src={require('../../assets/image/群聊.png')} alt='群聊'/>
-        <input type="text" className="create_group_name" placeholder='群名称'/>
+        <input type="text" className="create_group_name" placeholder='群名称' onClick={() => {setNameTextareaShow(true)}} value={nameTextarea} readOnly/>
       </div>
       <div className='create_group'>
         <div className="create_group_user_list">
@@ -66,6 +70,19 @@ const CreateGroup = (props) => {
           disabled={!(checkedUsers.length > 0)}
         >{checkedUsers.length > 0 ? `创建(${checkedUsers.length})` : '创建'}</button>
       </div>
+      <CSSTransition
+        in={nameTextareaShow}
+        timeout={500}
+        classNames='group_name_textarea'
+        unmountOnExit
+      >
+        <GroupNameTextarea
+          setNameTextarea={setNameTextarea}
+          setNameTextareaShow={setNameTextareaShow}
+          nameTextarea={nameTextarea}
+        />
+      </CSSTransition>
+
     </>
 
   )

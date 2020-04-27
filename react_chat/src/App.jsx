@@ -9,6 +9,9 @@ import AddFriend from './pages/AddFriend/AddFriend'
 import SendRequest from './pages/SendRequest/SendRequest'
 import UserDetail from './pages/UserDetail/UserDetail'
 import CreateGroup from './pages/CreateGroup/CreateGroup'
+import GroupDetail from "./pages/GroupDetail/GroupDetail";
+
+import './assets/icon/iconfont.css'
 
 const App = (props) => {
 
@@ -28,6 +31,7 @@ const App = (props) => {
           <Route path='/send_request/:name' component={(props) => <SendRequest {...props}/>}/>
           <Route path='/user_detail' component={UserDetail}/>
           <Route path='/create_group' component={CreateGroup}/>
+          <Route path='/group_detail' component={GroupDetail}/>
           <Redirect from='/' to='/chat_list' />
         </Switch>
       </HashRouter>

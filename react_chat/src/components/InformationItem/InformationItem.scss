@@ -19,6 +19,9 @@
     font-weight:400;
     color:rgba(39,40,50,0.6);
     line-height:22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .information_item_middle_password {
     flex: 1;
