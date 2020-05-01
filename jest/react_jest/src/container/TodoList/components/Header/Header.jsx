@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { handleInputChange } from '../../../../redux/actions'
 
 const Header = (props) => {
 
-  const [value, setValue] = useState('')
-
   const handleInputKeyUp = (e) => {
-    if (e.keyCode === 13 && value) {
-      props.addUndoItem(value)
-      setValue('')
+    if (e.keyCode === 13 && props.todoReducer.inputValue) {
+      props.addUndoItem(props.todoReducer.inputValue)
+      props.handleInputChange('')
     }
   }
 
@@ -19,9 +19,9 @@ const Header = (props) => {
             placeholder='Todo'
             className='header-input'
             type="text"
-            data-test='input'
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            data-testid='header-input'
+            value={props.todoReducer.inputValue}
+            onChange={(e) => props.handleInputChange(e.target.value)}
             onKeyUp={handleInputKeyUp}
           />
         </div>
@@ -29,4 +29,7 @@ const Header = (props) => {
   )
 }
 
-export default Header
+export default connect(
+  state => ({ todoReducer: state.todoReducer }),
+  {handleInputChange}
+)(Header)

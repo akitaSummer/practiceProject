@@ -10,6 +10,7 @@ import SendRequest from './pages/SendRequest/SendRequest'
 import UserDetail from './pages/UserDetail/UserDetail'
 import CreateGroup from './pages/CreateGroup/CreateGroup'
 import GroupDetail from "./pages/GroupDetail/GroupDetail";
+import LogIn from "./pages/LogIn/LogIn";
 
 import './assets/icon/iconfont.css'
 
@@ -32,6 +33,7 @@ const App = (props) => {
           <Route path='/user_detail' component={UserDetail}/>
           <Route path='/create_group' component={CreateGroup}/>
           <Route path='/group_detail' component={GroupDetail}/>
+          <Route path='/log_in' component={LogIn}/>
           <Redirect from='/' to='/chat_list' />
         </Switch>
       </HashRouter>

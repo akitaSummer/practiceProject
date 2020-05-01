@@ -5,6 +5,29 @@ import './Title.scss'
 
 const Title = (props) => {
 
+  const rightType = (right, type) => {
+    switch (type) {
+      case 'img':
+        return (
+          <div className="right_img" onClick={() => {right.click && right.click()}}>
+            <img src={right.url} alt=""/>
+          </div>
+        )
+      case 'content':
+        return (
+          <div className="right_icon" onClick={() => {right.click && right.click()}}>
+            {right.content}
+          </div>
+        )
+      default:
+        return (
+          <div className="right_icon" onClick={() => {right.click && right.click()}}>
+            {right.icon ? <i className={'iconfont ' + right.icon}/> : <span className={'null'}/>}
+          </div>
+        )
+    }
+  }
+
   return (
     <div className='title'>
       { props.left.type === 'img' ?
@@ -17,14 +40,8 @@ const Title = (props) => {
       </div>)
       }
       <div className="middle">{ props.middle }</div>
-      { props.right.type === 'img' ?
-        (<div className="right_img" onClick={() => {props.right.click && props.right.click()}}>
-          <img src={props.right.url} alt=""/>
-        </div>)
-        :
-        (<div className="right_icon" onClick={() => {props.right.click && props.right.click()}}>
-          {props.right.icon ? <i className={'iconfont ' + props.right.icon}/> : <span className={'null'}/>}
-        </div>)
+      {
+        rightType(props.right, props.right.type)
       }
     </div>
   )

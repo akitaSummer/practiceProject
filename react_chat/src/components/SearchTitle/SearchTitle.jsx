@@ -30,7 +30,7 @@ const SearchTitle = (props) => {
         unmountOnExit
       >
       <div className="title_content">
-          <img src={user} alt="user" className="left" onClick={() => { history.push('/user_detail') }}/>
+          <img src={user} alt="user" className="left" onClick={() => { history.push('/log_in') }}/>
         <div className="right">
           <img src={search} alt="search" className="search"  onClick={() => props.setActive(true)}/>
           <Link to={`/create_group`} style={{textDecoration: 'none'}}>
