@@ -1,0 +1,29 @@
+{
+	"name": "typescript_web_crawler",
+	"version": "1.0.0",
+	"description": "web_crawler",
+	"main": "index.js",
+	"author": "akita_summer",
+	"license": "MIT",
+	"scripts": {
+		"dev": "ts-node ./src/crowller.ts",
+		"dev:build": "tsc -w",
+		"dev:start": "nodemon node ./build/crowller.js",
+		"dev:run": "concurrently yarn dev:build & yarn dev:start"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"data/*"
+		]
+	},
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.3",
+		"superagent": "^5.2.2"
+	},
+	"devDependencies": {
+		"@types/cheerio": "^0.22.18",
+		"@types/superagent": "^4.1.7",
+		"concurrently": "^5.2.0",
+		"prettier": "^2.0.5"
+	}
+}

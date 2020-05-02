@@ -7,7 +7,7 @@
         type="text"
         data-testid="input"
         :value="inputValue"
-        @input="e => changeInputValue(e.target.value)"
+        @input="e => changeValue(e.target.value)"
         @keyup.enter="addTodoItem"
         placeholder="TodoList"
       >
@@ -25,7 +25,10 @@ export default {
         this.changeInputValue('')
       }
     },
-    ...mapActions(['changeInputValue'])
+    ...mapActions(['changeInputValue']),
+    changeValue (value) {
+      this.changeInputValue(value)
+    }
   },
   computed: {
     ...mapState(['inputValue'])

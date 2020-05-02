@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
-import TodoList from '../TodoList'
+import TodoList from '../../TodoList'
 // import Header from '../../../components/Header/Header'
-import UndoList from '../../../components/UndoList/UndoList'
+import UndoList from '../../../../components/UndoList/UndoList'
 
 describe('TodoList组件', () => {
   it('初始化时, undoList为空', () => {

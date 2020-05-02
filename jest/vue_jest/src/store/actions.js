@@ -4,7 +4,6 @@ import {
 
 export default {
   changeInputValue ({ commit }, value) {
-    console.log(value)
     commit(CHANGE_INPUT_VALUE, value)
   }
 }

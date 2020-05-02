@@ -8,6 +8,7 @@
 <script>
 import Header from '../../components/Header/Header'
 import UndoList from '../../components/UndoList/UndoList'
+import axios from 'axios'
 export default {
   name: 'TodoList',
   components: {
@@ -40,6 +41,29 @@ export default {
         return { status: 'div', value: item.value }
       })
     }
+  },
+  mounted () {
+    /*
+    * {
+    *   success: true,
+    *   data: [{
+    *     status: 'div',
+    *     value: 'dell lee'
+    *   }]
+    * }
+    * */
+    axios.get('/getUndoList.json').then((res) => {
+      this.undoList = res.data
+    }).catch(e => {
+      console.log(e)
+    })
+    // setTimeout(() => {
+    //   axios.get('/getUndoList.json').then((res) => {
+    //     this.undoList = res.data
+    //   }).catch(e => {
+    //     console.log(e)
+    //   })
+    // }, 5000)
   }
 }
 </script>

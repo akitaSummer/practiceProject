@@ -21,6 +21,7 @@ class Car implements Alarm {
 interface Light {
     lightOn(): any
     lightOff(): any
+    [propName: string]: any
 }
 
 class Car2 implements Alarm, Light {
