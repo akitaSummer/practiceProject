@@ -142,7 +142,6 @@ Object.defineProperty(exports, '__esModule', { value: true })
 var superagent_1 = __importDefault(require('superagent'))
 var fs_1 = __importDefault(require('fs'))
 var path_1 = __importDefault(require('path'))
-var dellAnalyzer_1 = __importDefault(require('./dellAnalyzer'))
 var Crowller = /** @class */ (function () {
 	function Crowller(url, analyzer) {
 		this.url = url
@@ -185,6 +184,4 @@ var Crowller = /** @class */ (function () {
 	}
 	return Crowller
 })()
-var url = 'http://www.dell-lee.com/'
-var analyzer = dellAnalyzer_1.default.getInstance()
-var crowller = new Crowller(url, analyzer)
+exports.default = Crowller

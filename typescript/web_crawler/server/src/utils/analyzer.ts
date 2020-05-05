@@ -17,7 +17,7 @@ interface Content {
 }
 
 export default class DellAnalyzer implements Analyzer {
-	private static instance: DellAnalyzer
+	private static instance: Analyzer
 
 	static getInstance() {
 		if (!this.instance) {

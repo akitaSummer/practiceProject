@@ -1,0 +1,35 @@
+{
+	"name": "typescript_web_crawler",
+	"version": "1.0.0",
+	"description": "web_crawler",
+	"main": "index.js",
+	"author": "akita_summer",
+	"license": "MIT",
+	"scripts": {
+		"dev": "ts-node ./src/index.ts",
+		"dev:build": "tsc -w",
+		"dev:start": "nodemon node ./build/index.js",
+		"dev:run": "tsc && concurrently yarn dev:build && yarn dev:start"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"data/*"
+		]
+	},
+	"dependencies": {
+		"@types/cookie-session": "^2.0.39",
+		"body-parse": "^0.1.0",
+		"cheerio": "^1.0.0-rc.3",
+		"cookie-session": "^1.4.0",
+		"express": "^4.17.1",
+		"reflect-metadata": "^0.1.13",
+		"superagent": "^5.2.2"
+	},
+	"devDependencies": {
+		"@types/cheerio": "^0.22.18",
+		"@types/express": "^4.17.6",
+		"@types/superagent": "^4.1.7",
+		"concurrently": "^5.2.0",
+		"prettier": "^2.0.5"
+	}
+}

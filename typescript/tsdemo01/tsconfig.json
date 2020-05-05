@@ -6,15 +6,15 @@
     "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
     "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     // "lib": [],                             /* Specify library files to be included in the compilation. */
-    // "allowJs": true,                       /* Allow javascript files to be compiled. */
-    // "checkJs": true,                       /* Report errors in .js files. */
+    // "allowJs": true,                       /* 将js文件也进行编译 */
+    // "checkJs": true,                       /* 将js文件也进行检测 */
     // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    "outDir": "./js",                        /* Redirect output structure to the directory. */
-    // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "outDir": "./js",                        /* 指定输出地址 */
+    // "rootDir": "./",                       /* 指定输入地址 */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
     // "removeComments": true,                /* Do not emit comments to output. */
@@ -25,8 +25,8 @@
 
     /* Strict Type-Checking Options */
     "strict": true,                           /* Enable all strict type-checking options. */
-    // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
-    // "strictNullChecks": true,              /* Enable strict null checks. */
+    // "noImplicitAny": true,                 /* 不能隐式表示any */
+    // "strictNullChecks": true,              /* 不能将null类型赋值给其他基础类型 */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
