@@ -31,15 +31,4 @@ option是传递给middleware的选项列表，默认可以不用传递
 
 ```put(action)```
 用来命令middleware向Store发起一个action。这个effect是非阻塞型的
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
