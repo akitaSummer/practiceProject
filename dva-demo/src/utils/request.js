@@ -1,4 +1,5 @@
 import fetch from 'dva/fetch';
+import qs from 'querystring'
 
 function parseJSON(response) {
   return response.json();
@@ -12,6 +13,21 @@ function checkStatus(response) {
   const error = new Error(response.statusText);
   error.response = response;
   throw error;
+}
+
+function handleHeader(options) {
+  const headers = options.headers = options.headers ? options.headers : {}
+  const defaultHeader = {
+    'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+  }
+
+  options.headers = Object.assign({}, defaultHeader, headers)
+
+  if (options.method === 'post') {
+    let body = options.body ? options.body : {}
+    body = qs.stringify(body)
+    options.body = body
+  }
 }
 
 /**
