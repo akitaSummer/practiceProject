@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //自动生成html文�
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //清除之前打包的文件
 
 module.exports = {
+    // entry: {
+    //     main: './src/js/entry.js'
+    // },
     entry: './src/js/entry.js',
     output: {
         path: path.resolve(__dirname, 'dist/js'),
