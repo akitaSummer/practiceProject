@@ -20,11 +20,23 @@ module.exports = {
                 ]
             },
             {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader', // webpack在打包时是有顺序的，由下至上，由右至左
+                  'postcss-loader', // 为CSS添加-webkit等兼容开头
+                ]
+            },
+            {
                 test: /\.(png|jpg|gif)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 8192
+                        limit: 8192,
+                        // placeholder：占位符
+                        name: '[name].[ext]', // 打包文件后，文件名为原文件名
+                        outputPath: 'images/'
                     }
                 }]
             }
