@@ -1,0 +1,28 @@
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const commonConfig = require('./webpack.common')
+
+const devConfig = {
+    mode: 'development',
+    //source-map 默认开启，是打包文件对原文件的映射，通过source-map，我们就可以知道源文件哪行出错
+    devtool: 'cheap-module-eval-source-map', // inline- 开头：将.map文件存至js文件最后一行 cheap- 开头：简化提示，只告诉哪行出错 module- 开头： 包含module的提示 eval-是通过eval储存映射内容
+    // production devtool: 'cheap-module-source-map'
+    devServer: {
+        contentBase: './dist', // 打包文件位置
+        open: true, // 自动打开浏览器
+        // proxy: {
+        //     '/api': 'http://localhost:3000' // 配置跨域代理
+        // },
+        // port: 8888, // 配置端口
+        hot: true, // 热模块加载
+        hotOnly: true // 即使hot未生效，也不刷新页面
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(), // 热加载插件
+    ],
+    optimization: {
+        usedExports: true, // development 开发环境下，设置Tree shaking
+    }
+}
+
+module.exports = merge(commonConfig, devConfig)
