@@ -1,7 +1,7 @@
 // import '@babel/polyfill' // 引入babel/polyfill，用于兼容低版本浏览器
-import { fun, fun2 } from './content';
 import data from '../json/data.json';
 import { add } from './math' // Tree shaking, 只支持ES Module，即静态引用
+import { fun, fun2 } from './content';
 import _ from 'lodash'
 
 import '../css/test.css';
@@ -36,3 +36,14 @@ if (module.hot) {
 // }
 //
 // ReactDom.render(<App/>, document.getElementById('root'))
+
+if ('serviceWorker' in navigator) { // progress web application 配置
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('service-worker registed')
+      }).catch(err => {
+        console.log(err)
+    })
+  })
+}

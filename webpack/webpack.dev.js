@@ -17,6 +17,30 @@ const devConfig = {
         hot: true, // 热模块加载
         hotOnly: true // 即使hot未生效，也不刷新页面
     },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ]
+        },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: "css-loader", // 若要配置loader，需要使用对象写法
+                        options: {
+                            importLoaders: 2, // 通过import引入的css文件需要再走下面两个loader
+                            modules: true, // 模块化css，通过style.xxx定义class
+                        }
+                    },
+                    'sass-loader', // webpack在打包时是有顺序的，由下至上，由右至左
+                    'postcss-loader', // 为CSS添加-webkit等兼容开头
+                ]
+            }]
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
     ],
@@ -25,4 +49,4 @@ const devConfig = {
     }
 }
 
-module.exports = merge(commonConfig, devConfig)
+module.exports = devConfig
