@@ -10,9 +10,22 @@ const devConfig = {
     devServer: {
         contentBase: './dist', // 打包文件位置
         open: true, // 自动打开浏览器
-        // proxy: {
-        //     '/api': 'http://localhost:3000' // 配置跨域代理
-        // },
+        proxy: {
+            // '/api': 'http://localhost:3000', // 配置跨域代理
+            '/api': {
+                target: 'http://loaclhost:3000',
+                secure: false, // 对https网址的请求转发
+                pathRewrite: {
+                    'header.json': 'demo.json' // 请求header.json文件会返回demo.json文件
+                },
+                bypass: function (req, res, proxyOptions) { // 根据特定请求，返回特定内容
+                    if (req.header.accept.indexOf('html')) {
+                        return '/index.html'
+                    }
+                },
+                changeOrigin: true // 突破Origin限制
+            }
+        },
         // port: 8888, // 配置端口
         hot: true, // 热模块加载
         hotOnly: true // 即使hot未生效，也不刷新页面

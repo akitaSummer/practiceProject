@@ -78,6 +78,11 @@ const commonConfig = {
           //   loader: 'imports-loader?this=>window', // 设置模块中的this为window而不是模块本身
           // },
         ],
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_nodules/
       }
     ]
   },
