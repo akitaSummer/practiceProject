@@ -10,6 +10,13 @@ const devConfig = {
     devServer: {
         contentBase: './dist', // 打包文件位置
         open: true, // 自动打开浏览器
+        // historyApiFallback: true, // 解决单页面路由browser后端问题
+        historyApiFallback: {
+            rewrites: [{
+                from: /abc.html/,
+                to: '/views/landing.html' // 也可传入function（content） {} 结合逻辑动态返回路径
+            }]
+        },
         proxy: {
             // '/api': 'http://localhost:3000', // 配置跨域代理
             '/api': {
@@ -23,7 +30,8 @@ const devConfig = {
                         return '/index.html'
                     }
                 },
-                changeOrigin: true // 突破Origin限制
+                changeOrigin: true, // 突破Origin限制
+                overlay: true, // eslint检测出错时，会弹出页面提醒
             }
         },
         // port: 8888, // 配置端口

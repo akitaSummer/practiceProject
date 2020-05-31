@@ -13,6 +13,13 @@ const commonConfig = {
   // },
   entry: './src/js/entry.js',
   // externals: ['lodash'], // 打包时忽略的库
+  resolve: {
+    extensions: ['.js', '.jsx'], // 省略后缀，从左到右查找
+    mainFile: ['index', 'child'], // 未写文件名，则优先加载的文件名
+    alias: {
+      path: path.resolve(__dirname, './src/') // 路径别名
+    }
+  },
   externals: {
     lodash: {
       root: '_', // 要求src条件下，需要注入'_'，作为lodash
@@ -46,7 +53,8 @@ const commonConfig = {
       {
         test: /\.(eot|ttf|svg|woff|woff2)$/,
         use: {
-          loader: 'file-loader' // 打包字体文件
+          loader: 'file-loader', // 打包字体文件
+          force: 'pre', // 强制loader优于其他loader
         }
       },
       {
@@ -77,6 +85,12 @@ const commonConfig = {
           // {
           //   loader: 'imports-loader?this=>window', // 设置模块中的this为window而不是模块本身
           // },
+          {
+            loader: "eslint-loader", // 配置eslint在打包时检测
+            options: {
+              fix: true // 简单问题自动修复
+            },
+          }
         ],
       },
       {
