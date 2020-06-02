@@ -1,5 +1,5 @@
 {
-  "name": "webpack-loader",
+  "name": "webpack-loader-plugin",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "debug": "node --inspect --inspect-brk node_modules/webpack/bin/webpack.js"
   }
 }

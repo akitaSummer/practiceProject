@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/parser": "^7.10.2"
+  }
+}

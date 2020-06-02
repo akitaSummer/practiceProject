@@ -1,4 +1,5 @@
 const path = require('path')
+const CopyRightWebpackPlugin = require('./plugins/coypright-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -9,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: "[name].js"
   },
-  resolveLoader: {
+  resolveLoader:  {
     modules: ['node_modules', './loaders'] // 未写路径时，loader查找的目录
   },
   module: {
@@ -18,13 +19,13 @@ module.exports = {
         test: /\.js/,
         use: [{
           // loader: path.resolve(__dirname, './loaders/replaceLoader.js'),
-          loader: replaceLoader,
+          loader: 'replaceLoader',
           options: {
             name: 'akita'
           }
         },
           {
-            loader: replaceLoaderAsync,
+            loader: 'replaceLoaderAsync',
             options: {
               name: 'akitaSummer'
             }
@@ -32,5 +33,8 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new CopyRightWebpackPlugin({name: 'akitaSummer'})
+  ]
 }
