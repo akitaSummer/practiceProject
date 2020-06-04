@@ -50,5 +50,30 @@ const makeDependenciesGraph = (entry) => { // 依赖图谱
     return graph
 }
 
-const graphInfo = makeDependenciesGraph('./src/index.js')
-console.log(graphInfo)
+const generateCode = (entry) => {
+    const graph = JSON.stringify(makeDependenciesGraph(entry)) // 放置模板字符串会将对象转化为[Object Object]
+    return `
+    ;(function(graph) { // 使用闭包，防止污染全局
+        function require(module) { // 自己构造require函数
+            function localRequire(relativePath) { // 将相对路径转换成真实路径后调用
+                return require(graph[module].dependencies[relativePath])
+            }
+            var exports = {} // 内部需要exports对象
+            ;(function (require, exports, code) {// 使用闭包，防止污染全局
+                eval(code) // graph[module].code 中有require函数，会递归调用，不断引入
+            })(localRequire, exports, graph[module].code)
+            return exports
+        }
+        require('${entry}')
+    })(
+        ${graph}
+    )
+    `
+}
+
+const code = generateCode('./src/index.js')
+console.log(code)
+
+(function(require, exports, code) { // 使用闭包，防止污染全局
+    eval(code) // graph[module] 中有require函数，会递归调用，不断引入
+})(localRequire, exports, graph[module].code)
