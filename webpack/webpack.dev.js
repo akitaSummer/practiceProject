@@ -25,7 +25,7 @@ const devConfig = {
                 pathRewrite: {
                     'header.json': 'demo.json' // 请求header.json文件会返回demo.json文件
                 },
-                bypass: function (req, res, proxyOptions) { // 根据特定请求，返回特定内容
+                bypass: function(req, res, proxyOptions) { // 根据特定请求，返回特定内容
                     if (req.header.accept.indexOf('html')) {
                         return '/index.html'
                     }
@@ -40,12 +40,12 @@ const devConfig = {
     },
     module: {
         rules: [{
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader'
-            ]
-        },
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
             {
                 test: /\.scss$/,
                 use: [
@@ -60,7 +60,8 @@ const devConfig = {
                     'sass-loader', // webpack在打包时是有顺序的，由下至上，由右至左
                     'postcss-loader', // 为CSS添加-webkit等兼容开头
                 ]
-            }]
+            }
+        ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
