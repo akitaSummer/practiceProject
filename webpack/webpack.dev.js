@@ -36,7 +36,10 @@ const devConfig = {
         },
         // port: 8888, // 配置端口
         hot: true, // 热模块加载
-        hotOnly: true // 即使hot未生效，也不刷新页面
+        hotOnly: true, // 即使hot未生效，也不刷新页面
+        clientLogLevel: 'none', // 不需要显示启动服务器日志信息
+        quiet: true, // 除了一些基本的配置以外，其他的内容都不要显示
+        overlay: false, // 如果出错了，不需要全局显示
     },
     module: {
         rules: [{

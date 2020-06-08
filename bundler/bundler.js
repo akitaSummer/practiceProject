@@ -73,7 +73,3 @@ const generateCode = (entry) => {
 
 const code = generateCode('./src/index.js')
 console.log(code)
-
-(function(require, exports, code) { // 使用闭包，防止污染全局
-    eval(code) // graph[module] 中有require函数，会递归调用，不断引入
-})(localRequire, exports, graph[module].code)
