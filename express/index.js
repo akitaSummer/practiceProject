@@ -3,15 +3,15 @@ const express = require('express')
 const app = express()
 
 app.use(express.json()) // 允许express解析post中的json到req.body中
+app.use(express.urlencoded({ extended: false }))
 
-const mongoose = require('mongoose') // 引入mongoose
-mongoose.connect('mongodb://localhost:27017/express-test', { useNewUrlParser: true, useUnifiedTopology: true }) // 连接mongodb数据库
-const Product = mongoose.model('Product', new mongoose.Schema({
-        title: String
-    })) // 创建一个集合（表），schema作为结构
+const { Product, User } = require('./models')
 app.use(require('cors')()) // 使用cors解决跨域
 
-app.use('/', express.static('public')) // 使用中间件托管静态文件夹, 并且可以设置路径
+const SECRET = 'miyao'
+const jwt = require('jsonwebtoken')
+
+app.use('/public', express.static('public')) // 使用中间件托管静态文件夹, 并且可以设置路径
 
 app.get('/', function(req, res) {
     res.send({
@@ -50,6 +50,58 @@ app.delete('/products/:id', async(req, res) => {
     res.send({
         success: true
     })
+})
+
+app.get('/api/users', async(req, res) => {
+    const users = await User.find()
+    res.send(users)
+})
+
+app.post('/api/register', async(req, res) => {
+    const { username, password } = req.body
+    const user = await User.create({
+        username,
+        password
+    })
+    res.send(user)
+})
+
+app.post('/api/login', async(req, res) => {
+    const { username, password } = req.body
+    const user = await User.findOne({
+        username
+    })
+    if (!user) {
+        return res.status(422).send({
+            message: '用户不存在'
+        })
+    }
+    const isPasswordValid = user.password === password
+    if (!isPasswordValid) {
+        return res.status(422).send({
+            message: '密码无效'
+        })
+    }
+    // 生成token
+    const token = jwt.sign({
+        id: String(user._id)
+    }, SECRET)
+    res.send({
+        user,
+        token
+    })
+})
+
+const auth = async(req, res, next) => { // 中间件
+    const raw = String(req.headers.authorization).split(' ').pop()
+    const { id } = jwt.verify(raw, SECRET)
+    req.user = await User.findById(id)
+    next()
+}
+
+app.get('/api/profile', auth, async(req, res) => {
+
+    res.send(req.user)
 })
 
 app.listen(4000, () => {
