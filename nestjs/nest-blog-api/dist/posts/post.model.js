@@ -9,28 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppController = void 0;
-const common_1 = require("@nestjs/common");
-const app_service_1 = require("./app.service");
-const swagger_1 = require("@nestjs/swagger");
-let AppController = class AppController {
-    constructor(appService) {
-        this.appService = appService;
-    }
-    getHello() {
-        return this.appService.getHello();
-    }
-};
+exports.PostModel = exports.Post = void 0;
+const typegoose_1 = require("@hasezoey/typegoose");
+class Post {
+}
 __decorate([
-    common_1.Get(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getHello", null);
-AppController = __decorate([
-    common_1.Controller(),
-    swagger_1.ApiTags('默认'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
-], AppController);
-exports.AppController = AppController;
-//# sourceMappingURL=app.controller.js.map
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Post.prototype, "title", void 0);
+__decorate([
+    typegoose_1.prop(),
+    __metadata("design:type", String)
+], Post.prototype, "content", void 0);
+exports.Post = Post;
+exports.PostModel = typegoose_1.getModelForClass(Post);
+//# sourceMappingURL=post.model.js.map
