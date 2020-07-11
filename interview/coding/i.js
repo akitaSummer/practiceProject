@@ -169,3 +169,101 @@ const Observer = (function() {
         }
     }
 })()
+
+// quene
+function Quene() {
+    this.quene = []
+    this.task = function(time, fn) {
+        this.quene.push({
+            time,
+            fn
+        })
+        return this
+    }
+    this.start = function() {
+        if (this.quene.length === 0) return
+        const obj = this.quene.shift()
+        setTimeout(() => {
+            obj.fn()
+            this.start()
+        }, obj.time)
+    }
+    this.start_test = function() {
+        if (this.quene.length === 0) return
+        const quene = this.quene
+        async function fn() {
+            for (let i = 0; i < quene.length; i++) {
+                await new Promise((resolve) => {
+                    setTimeout(() => {
+                        quene[i].fn()
+                        resolve()
+                    }, quene[i].time)
+                })
+            }
+        }
+        fn()
+    }
+}
+
+// new Quene()
+//     .task(1000, () => {
+//         console.log(1)
+//     })
+//     .task(6000, () => {
+//         console.log(2)
+//     })
+//     .task(1000, () => {
+//         console.log(3)
+//     })
+//     .start_test()
+
+// chain
+
+function chain() {
+    const list = []
+    setTimeout(async() => {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].type !== 'sleep') {
+                list[i].fn()
+            } else {
+                await list[i].fn()
+            }
+        }
+    }, 0)
+    const obj = {
+        eat: () => {
+            list.push({
+                type: 'eat',
+                fn: () => { console.log('eat') }
+            })
+            return obj
+        },
+        work: () => {
+            list.push({
+                type: 'work',
+                fn: () => { console.log('work') }
+            })
+            return obj
+        },
+        sleep: (time) => {
+            list.push({
+                type: 'sleep',
+                fn: () => new Promise((resolve) => {
+                    setTimeout(() => { resolve() }, time * 1000)
+                })
+            })
+            return obj
+        }
+    }
+    return obj
+}
+
+
+// chain().eat().sleep(5).work().eat().sleep(10).work()
+
+// new
+const myNew = (fn, ...args) => {
+    const obj = Object.create(fn.prototype)
+    const returnObj = fn.call(obj, ...args)
+    return returnObj
+}
