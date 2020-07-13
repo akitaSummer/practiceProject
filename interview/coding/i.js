@@ -146,7 +146,7 @@ console.log(merge([
     [7, 8]
 ]))
 
-// 观察者模式
+// 发布订阅模式
 const Observer = (function() {
     const _message = {}
     return {
@@ -166,6 +166,22 @@ const Observer = (function() {
         off: (type, fn) => {
             if (!_message[type]) return
             _message[type] = _message[type].filter(item => item !== fn)
+        }
+    }
+})()
+
+// 观察者模式
+const Observer = (function() {
+    let list = []
+    return {
+        add: (obj) => {
+            list.push(obj)
+        },
+        remove: (obj) => {
+            list = list.filter(item => item !== obj)
+        },
+        notify: () => {
+            list.forEach(obj => obj.fn())
         }
     }
 })()
@@ -267,3 +283,19 @@ const myNew = (fn, ...args) => {
     const returnObj = fn.call(obj, ...args)
     return returnObj
 }
+
+// 千分符
+const thousands = (str) => {
+    const reverseStr = str.split('').reverse().join('')
+    const reg = /([0-9]{3})/g
+    const reverseStrRes = reverseStr.replace(reg, function($1) {
+        return $1 + ','
+    })
+    const result = reverseStrRes.split('').reverse()
+    if (result[0] === ',') {
+        result.shift()
+    }
+    return result.join('')
+}
+
+console.log(thousands('100000'))
