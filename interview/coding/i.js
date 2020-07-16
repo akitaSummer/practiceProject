@@ -147,7 +147,7 @@ console.log(merge([
 ]))
 
 // 发布订阅模式
-const Observer = (function() {
+const subscribe = (function() {
     const _message = {}
     return {
         on: (type, fn) => {
@@ -299,3 +299,47 @@ const thousands = (str) => {
 }
 
 console.log(thousands('100000'))
+
+// leetcode 001
+const twoSum = (nums, target) => {
+    const arr = []
+    for (let i = 0; i < nums.length; i++) {
+        if (arr[nums[i]] === undefined) {
+            arr[nums[i]] = [i]
+        } else {
+            arr[nums[i]].push(i)
+        }
+    }
+    for (let i = 0; i < nums.length; i++) {
+        const j = target - nums[i]
+        if (j === nums[i] && arr[j].length > 1) {
+            return [i, arr[j][1]]
+        } else if (j !== nums[i] && arr[j] !== undefined) {
+            return [i, arr[j][0]]
+        }
+    }
+}
+
+// 斐波那契
+const fibonacci_1 = (n, a1 = 1, a2 = 1) => {
+    if (n <= 2) return a2
+    return fibonacci_1(n - 1, a2, a1 + a2)
+}
+
+const fibonacci_2 = (n) => {
+    if (n <= 2) return 1
+    return fibonacci_2(n - 1) + fibonacci_2(n - 2)
+}
+
+console.log(fibonacci_1(5), fibonacci_2(5))
+
+// ajax
+const xhr = new XMLHttpRequest()
+
+xhr.open('GET', 'www.baidu.com', true)
+
+xhr.onreadystatechanges = () => {
+    if (xhr.readystate === 4 && xhr.status === 200) {}
+}
+
+xhr.send()
