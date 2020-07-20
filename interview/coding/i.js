@@ -334,12 +334,61 @@ const fibonacci_2 = (n) => {
 console.log(fibonacci_1(5), fibonacci_2(5))
 
 // ajax
-const xhr = new XMLHttpRequest()
+// const xhr = new XMLHttpRequest()
 
-xhr.open('GET', 'www.baidu.com', true)
+// xhr.open('GET', 'www.baidu.com', true)
 
-xhr.onreadystatechanges = () => {
-    if (xhr.readystate === 4 && xhr.status === 200) {}
+// xhr.onreadystatechanges = () => {
+//     if (xhr.readystate === 4 && xhr.status === 200) {}
+// }
+
+// xhr.send()
+
+// function ajax({ url, method, data, timeout, success, error }) {
+//     const xhr = new XMLHttpRequest()
+//     xhr.open(url, method, true)
+//     xhr.send(data)
+//     return new Promise((resolve, reject) => {
+//         xhr.onreadystatechange = function() {
+//             if (xhr.readyState === 4 && xhr.status === 200) {
+//                 resolve()
+//             } else {
+//                 reject()
+//             }
+//         }
+//         if (timeout) {
+//             setTimeout(() => {
+//                 reject()
+//             }, timeout)
+//         }
+//     }).then(() => {
+//         success()
+//     }).catch(() => {
+//         error()
+//     })
+// }
+
+function generateId() {
+    let i = -1
+    return () => {
+        return ++i
+    }
 }
 
-xhr.send()
+let generator = generateId();
+
+var a = generator(); // 输出0
+console.log(a)
+var b = generator(); // 输出1
+console.log(b)
+generator(); // 输出2
+
+const isBalanced = (root) => {
+    if (root === null) return
+    return Math.abs(dep(root.left) - dep(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right)
+}
+
+const dep = (root) => {
+    if (root === null) return
+    return 1 + Math.max(dep(root.left), dep(root.right))
+}
