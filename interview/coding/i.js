@@ -392,3 +392,47 @@ const dep = (root) => {
     if (root === null) return
     return 1 + Math.max(dep(root.left), dep(root.right))
 }
+
+const objCompare = (obj1, obj2) => {
+    const obj1Keys = Object.keys(obj1).sort((a, b) => a.charCodeAt() - b.charCodeAt())
+    const obj2Keys = Object.keys(obj2).sort((a, b) => a.charCodeAt() - b.charCodeAt())
+    if (JSON.stringify(obj1Keys) !== JSON.stringify(obj2Keys)) {
+        return false
+    } else {
+        for (let i = 0; i < obj1Keys.length; i++) {
+            const key = obj1Keys[i]
+            const obj1Value = obj1[key]
+            const obj2Value = obj2[key]
+            if (obj1Value !== obj2Value) {
+                if (typeof obj1Value !== 'object' && typeof obj2Value !== 'object') {
+                    return false
+                } else if (typeof obj1Value !== 'object') {
+                    return false
+                } else if (typeof obj2Value !== 'object') {
+                    return false
+                } else {
+                    if (!objCompare(obj1Value, obj2Value)) return false
+                }
+            }
+        }
+        return true
+    }
+}
+
+console.log(objCompare({
+    a: 1,
+    b: '2',
+    c: {
+        d: null,
+        e: undefined,
+        f: [1, 2]
+    }
+}, {
+    a: 1,
+    b: "2",
+    c: {
+        d: null,
+        e: undefined,
+        f: [1, 2]
+    }
+}))
