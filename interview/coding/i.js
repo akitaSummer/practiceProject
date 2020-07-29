@@ -436,3 +436,38 @@ console.log(objCompare({
         f: [1, 2]
     }
 }))
+
+var restoreIpAddresses = function(s) {
+    const numsArr = s.split('')
+    if (numsArr.length > 12 || numsArr.length === 0) {
+        return []
+    }
+    const result = []
+    function find(now, count, arr) {
+        if (count === 4 && arr.length === 0) {
+            result.push(now)
+        } else if (count === 4 && arr.length > 0) {
+            return 
+        } else if (count > 4) {
+            return
+        }
+        const length = arr.length > 3 ? 3 : arr.length
+        for (let i = 0; i < length; i++) {
+            const nextArr = [...arr]
+            const num = nextArr.splice(0, i + 1).join('')
+            if (+num > 0 && num.slice(0, 1) === '0') {
+                continue
+            }
+            if (+num === 0 && num.length > 1) {
+                continue
+            }
+            if (+num > 255) {
+                continue
+            }
+            const next = now + num + '.'
+            find(next, count + 1, nextArr)
+        }
+    }
+    find('', 0, numsArr)
+    return result.map(item => item.slice(0, item.length - 1))
+};
