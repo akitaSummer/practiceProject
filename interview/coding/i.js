@@ -443,11 +443,12 @@ var restoreIpAddresses = function(s) {
         return []
     }
     const result = []
+
     function find(now, count, arr) {
         if (count === 4 && arr.length === 0) {
             result.push(now)
         } else if (count === 4 && arr.length > 0) {
-            return 
+            return
         } else if (count > 4) {
             return
         }
@@ -470,4 +471,40 @@ var restoreIpAddresses = function(s) {
     }
     find('', 0, numsArr)
     return result.map(item => item.slice(0, item.length - 1))
+};
+
+function rgba(a, b, c) {
+    console.log(`$color1:        rgba(${(a * 255).toFixed()}, ${(b * 255).toFixed()}, ${(c * 255).toFixed()}, 1);`)
+}
+
+rgba(0.9586862922, 0.660125792, 0.8447988033)
+rgba(0.8714533448, 0.723166883, 0.9342088699)
+rgba(0.7458761334, 0.7851135731, 0.9899476171)
+rgba(0.595767796, 0.8494840264, 1)
+rgba(0.4398113191, 0.8953480721, 0.9796616435)
+rgba(0.3484552801, 0.933657825, 0.9058339596)
+rgba(0.4113925397, 0.9645707011, 0.8110389113)
+rgba(0.5567936897, 0.9780793786, 0.6893508434)
+rgba(0.8850132227, 0.9840424657, 0.4586077332)
+
+var maxDepth = function(root) {
+    if (root === null) {
+        return 0
+    }
+    let result = -1
+
+    function com(root, i) {
+        if (root.left === null && root.right === null) {
+            result = result < i ? i : result
+        } else if (root.left === null) {
+            com(root.right, i + 1)
+        } else if (root.right === null) {
+            com(root.left, i + 1)
+        } else {
+            com(root.left, i + 1)
+            com(root.right, i + 1)
+        }
+    }
+    com(root, 1)
+    return result
 };
