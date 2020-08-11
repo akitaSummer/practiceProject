@@ -508,3 +508,38 @@ var maxDepth = function(root) {
     com(root, 1)
     return result
 };
+
+const transArr = (arg) => {
+    const result = []
+    const com = (strs, arr) => {
+        if (strs.length === 0) return
+        let flag = false
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].name === strs[0]) {
+                flag = true
+                com(strs.slice(1), arr[i].child)
+                break
+            }
+        }
+        if (!flag) {
+            const pushItem = {
+                name: strs[0],
+                child: []
+            }
+            arr.push(pushItem)
+            com(strs.slice(1), pushItem.child)
+        }
+    }
+    for (let i = 0; i < arg.length; i++) {
+        com(arg[i], result)
+    }
+    return result
+}
+
+console.log(transArr(
+    [
+        ["a", "aa", "aaa", "aaaa"],
+        ["b", "bb", "bbb"],
+        ["a", "ab", "aba"],
+        ["a", "aa", "aab"]
+    ]))
