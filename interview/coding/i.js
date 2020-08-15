@@ -543,3 +543,60 @@ console.log(transArr(
         ["a", "ab", "aba"],
         ["a", "aa", "aab"]
     ]))
+
+const divingBoard = (a, b, k) => {
+    let min, max
+    if (a > b) {
+        min = b
+        max = a
+    } else {
+        min = a
+        max = b
+    }
+    const result = new Array(max * k)
+    result[min * k - 1] = min * k
+    result[max * k - 1] = max * k
+    const com = (now, min, max, num) => {
+        if (num === 0) {
+            if (now < max * k) {
+                result[now - 1] = now
+            }
+            return
+        } else {
+            if (now + min < max * k) {
+                com(now + min, min, max, num - 1)
+            }
+            if (now + max < max * k) {
+                com(now + max, min, max, num - 1)
+            }
+        }
+    }
+    com(0, min, max, k)
+    return result.filter(item => item !== undefined)
+}
+
+console.log(divingBoard(1, 100, 2))
+
+const comStart = (arr) => {
+    let result = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        const length = result.length > arr[i].length ? arr[i].length : result.length
+        for (let j = 1; j < length; j++) {
+            const one = result.slice(0, j)
+            const twe = arr[i].slice(0, j)
+            if (one === twe) {
+                if (j === length - 1) {
+                    result = result.slice(0, j + 1)
+                } else {
+                    continue
+                }
+            } else {
+                result = result.slice(0, j - 1)
+                break
+            }
+        }
+    }
+    return result
+}
+
+console.log(comStart(['flower', 'flow', 'flight']))
