@@ -600,3 +600,123 @@ const comStart = (arr) => {
 }
 
 console.log(comStart(['flower', 'flow', 'flight']))
+
+const bubbleSort = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+        }
+    }
+    return arr
+}
+
+console.log(bubbleSort([7, 5, 3, 9, 1, 11]))
+
+const insertSort = (arr) => {
+    const result = []
+    let card = arr.shift()
+    result.push(card)
+    while (arr.length > 0) {
+        card = arr.shift()
+        for (let i = result.length - 1; i >= 0; i--) {
+            if (result[i] < card) {
+                result.splice(i + 1, 0, card)
+                card = null
+            }
+            break
+        }
+        if (card !== null) {
+            result.unshift(card)
+        }
+    }
+    return result
+}
+
+console.log(insertSort([7, 5, 3, 9, 1, 11]))
+
+const quickSort = (arr) => {
+    if (arr.length <= 1) return arr
+    const middle = arr.splice(Math.floor(arr.length / 2), 1)
+    const left = []
+    const right = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > middle) {
+            right.push(arr[i])
+        } else {
+            left.push(arr[i])
+        }
+    }
+    return quickSort(left).concat(middle, quickSort(right))
+}
+
+console.log(quickSort([7, 5, 3, 9, 1, 11]))
+
+const mergeArr = (left, right) => {
+    let result = []
+    while (left.length > 0 && right.length > 0) {
+        if (left[0] > right[0]) {
+            result.push(right[0])
+            right.shift()
+        } else {
+            result.push(left[0])
+            left.shift()
+        }
+    }
+    if (left.length > 0) {
+        result = result.concat(left)
+    }
+    if (right.length > 0) {
+        result = result.concat(right)
+    }
+    return result
+}
+
+const mergeSort = (arr) => {
+    if (arr.length <= 1) return arr
+    const left = arr.splice(0, Math.floor(arr.length / 2))
+    return mergeArr(mergeSort(left), mergeSort(arr))
+}
+
+console.log(mergeSort([7, 5, 3, 9, 1, 11]))
+
+function myPromise(func) {
+    this.state = 'PENDING'
+    this.fullfillList = []
+    this.rejectList = []
+    this.value = null
+
+    const resolve = (value) => {
+        this.value = value
+        this.state = 'FULLFILL'
+        this.fullfillList.forEach(fn => {
+            fn(this.value)
+        })
+    }
+
+    const reject = (value) => {
+        this.value = value
+        this.state = 'REJECT'
+        this.rejectList.forEach(fn => {
+            fn(this.value)
+        })
+    }
+
+    try {
+        func(resolve, reject)
+    } catch (e) {
+        reject(e)
+    }
+
+}
+
+myPromise.prototype.then = (resolve, reject) => {
+    if (this.state === 'PENDING') {
+        this.fullfillList.push(resolve)
+    } else if (this.state === 'FULLFILL') {
+        resolve(this.value)
+    } else {
+        reject(this.value)
+    }
+}
