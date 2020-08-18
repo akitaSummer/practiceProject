@@ -720,3 +720,30 @@ myPromise.prototype.then = (resolve, reject) => {
         reject(this.value)
     }
 }
+
+const jsonp = (url, data, callback) => {
+    return new Promise((resolve, reject) => {
+        url = url.indexOf('?') === -1 ? url + '?' : url + '&'
+        window[callback] = (data) => {
+            resolve(data)
+        }
+        const keys = Object.keys(data)
+        for (let i = 0; i < keys.length; i++) {
+            url = url + `${keys[i]}=${data[keys[i]]}&`
+        }
+        url = url + `callbacl=${callback}`
+        const node = document.createElement('script')
+        node.type = 'text/javascript'
+        node.url = url
+        document.body.appendChild(node)
+    })
+}
+
+const ajax = (url, method, data) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open(method, url, true)
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status >= 200) {}
+    }
+    xhr.send(data)
+}
