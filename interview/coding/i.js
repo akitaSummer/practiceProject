@@ -747,3 +747,128 @@ const ajax = (url, method, data) => {
     }
     xhr.send(data)
 }
+
+const trim = (string) => {
+    return string.replace(/^([ ]{0,})(.{0,})([ ]{0,})$/g, (s, $1, $2, $3) => {
+        console.log($1, $2, $3)
+        return $2
+    })
+}
+
+console.log(trim('  a 1 2 '))
+
+const delBAC = (str) => {
+    const reg1 = /b/g
+    const reg2 = /(ac)/g
+    let result = str.replace(reg1, '')
+    while (result.match(reg2)) {
+        result = result.replace(reg2, '')
+    }
+    return result
+}
+
+console.log(delBAC('aaabbccc'))
+
+const upload = (time) => {
+    return new Promise((resolve, reject) => {
+        let flag = true
+        setTimeout(() => {
+            flag = false;
+            resolve()
+        }, 3000)
+        setTimeout(() => { if (flag) { reject() } }, time)
+    }).then(() => console.log('resolve')).catch(() => console.log('reject'))
+}
+
+upload(2000)
+
+const sortVersion = (arr) => {
+    const com = (a, b) => {
+        const aArr = a.split('.')
+        const bArr = b.split('.')
+        if (a.length > b.length) {
+            const length = aArr.length - bArr.length
+            for (let i = 0; i < length; i++) {
+                bArr.push('0')
+            }
+        } else {
+            const length = bArr.length - aArr.length
+            for (let i = 0; i < length; i++) {
+                aArr.push('0')
+            }
+        }
+        for (let i = 0; i < aArr.length; i++) {
+            if (Number(aArr[i]) > Number(bArr[i])) {
+                return true
+            } else if (Number(bArr[i]) > Number(aArr[i])) {
+                return false
+            }
+        }
+        return false
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+            if (!com(arr[j], arr[j + 1])) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+        }
+    }
+    return arr
+}
+
+console.log(sortVersion(['1.1.1.1.1.1', '6', '5.4.3', '2.3.1', '2.3.1.1']))
+
+function Scheduler() {
+    this.awaitList = []
+    this.run = 0
+    this.addTask = (time, str) => {
+        const func = () => new Promise((resolve, reject) => {
+            setTimeout(() => { resolve(str) }, time)
+        }).then(() => {
+            console.log(str)
+            if (this.awaitList.length > 0) {
+                fn = this.awaitList.shift()
+                fn()
+            } else {
+                this.run--
+            }
+        })
+
+        if (this.run < 2) {
+            this.run++
+                func()
+        } else {
+            this.awaitList.push(func)
+        }
+
+    }
+}
+
+const scheduler = new Scheduler()
+
+scheduler.addTask(1000, 1)
+scheduler.addTask(500, 2)
+scheduler.addTask(300, 3)
+scheduler.addTask(400, 4)
+
+const removeDeb = (arr) => {
+    const obj = {}
+    for (let i = 0; i < arr.length; i++) {
+        if (obj[arr[i]] === undefined) {
+            obj[arr[i]] = {
+                [typeof arr[i]]: true
+            }
+        } else if (!obj[arr[i]][typeof arr[i]]) {
+            obj[arr[i]] = {
+                [typeof arr[i]]: true
+            }
+        } else {
+            arr.splice(i, 1)
+            i--
+        }
+    }
+    return arr
+}
+
+console.log(removeDeb([1, 2, 2, '1', '2', 3, 4, 4, 'test']))
