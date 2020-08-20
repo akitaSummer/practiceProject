@@ -2,9 +2,9 @@
 const myFlat = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-            const left = arr.splice(0, i)
-            const right = arr.splice(1)
-            arr = left.concat(arr[0], right)
+            const left = arr.slice(0, i)
+            const right = arr.slice(i + 1)
+            arr = left.concat(arr[i], right)
             i--
         }
     }
