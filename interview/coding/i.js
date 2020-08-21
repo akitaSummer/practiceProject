@@ -872,3 +872,43 @@ const removeDeb = (arr) => {
 }
 
 console.log(removeDeb([1, 2, 2, '1', '2', 3, 4, 4, 'test']))
+
+function Animal(color) {
+    this.color = color
+}
+
+Animal.prototype.move = function() {}
+
+function Dog(color, name) {
+    Animal.call(this, color)
+    this.name = name
+}
+
+function temp() {}
+
+temp.prototype = Animal.prototype
+
+Dog.prototype = new temp()
+
+Dog.prototype.constructor = Dog
+
+class Animal {
+    constructor(color) {
+        this.color = color
+    }
+    move() {}
+}
+
+class Dog extends Animal {
+    constructor(color, name) {
+        super(color)
+        this.name = name
+    }
+    say() {}
+}
+
+function myNew(func, ...args) {
+    const obj = Object.create(func.prototype)
+    func.call(obj, ...args)
+    return obj
+}
