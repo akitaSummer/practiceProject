@@ -750,6 +750,7 @@ const ajax = (url, method, data) => {
 
 const trim = (string) => {
     return string.replace(/^([ ]{0,})(.{0,})([ ]{0,})$/g, (s, $1, $2, $3) => {
+        /^('rgb(')(.{0,})(')')$/g
         console.log($1, $2, $3)
         return $2
     })
@@ -873,42 +874,61 @@ const removeDeb = (arr) => {
 
 console.log(removeDeb([1, 2, 2, '1', '2', 3, 4, 4, 'test']))
 
-function Animal(color) {
-    this.color = color
-}
+// function Animal(color) {
+//     this.color = color
+// }
 
-Animal.prototype.move = function() {}
+// Animal.prototype.move = function() {}
 
-function Dog(color, name) {
-    Animal.call(this, color)
-    this.name = name
-}
+// function Dog(color, name) {
+//     Animal.call(this, color)
+//     this.name = name
+// }
 
-function temp() {}
+// function temp() {}
 
-temp.prototype = Animal.prototype
+// temp.prototype = Animal.prototype
 
-Dog.prototype = new temp()
+// Dog.prototype = new temp()
 
-Dog.prototype.constructor = Dog
+// Dog.prototype.constructor = Dog
 
-class Animal {
-    constructor(color) {
-        this.color = color
+// class Animal {
+//     constructor(color) {
+//         this.color = color
+//     }
+//     move() {}
+// }
+
+// class Dog extends Animal {
+//     constructor(color, name) {
+//         super(color)
+//         this.name = name
+//     }
+//     say() {}
+// }
+
+// function myNew(func, ...args) {
+//     const obj = Object.create(func.prototype)
+//     func.call(obj, ...args)
+//     return obj
+// }
+
+// "3[a2[c]]" => "accaccacc"
+
+const decodeString = function(s) {
+    const reg = /([1-9]{1}[0-9]{0,})\[([a-zA-Z]{1,})\]/g
+    let str = s
+    while (str.match(reg)) {
+        str = str.replace(reg, (s, $1, $2) => {
+            let result = ''
+            for (let i = 0; i < Number($1); i++) {
+                result += $2
+            }
+            return result
+        })
     }
-    move() {}
-}
+    return str
+};
 
-class Dog extends Animal {
-    constructor(color, name) {
-        super(color)
-        this.name = name
-    }
-    say() {}
-}
-
-function myNew(func, ...args) {
-    const obj = Object.create(func.prototype)
-    func.call(obj, ...args)
-    return obj
-}
+console.log(decodeString("3[a2[c]]"))
