@@ -11,7 +11,16 @@ const myFlat = (arr) => {
     return arr
 }
 
+const myFlatJSON = (arr) => {
+    const str = JSON.stringify(arr).replace(/\[|\]/g, '')
+    return JSON.parse(`[${str}]`)
+}
+
 console.log(myFlat([1, 2, 3, [4, 5], 6, 7, [
+    [8, 9], 10
+]]))
+
+console.log(myFlatJSON([1, 2, 3, [4, 5], 6, 7, [
     [8, 9], 10
 ]]))
 
@@ -932,3 +941,23 @@ const decodeString = function(s) {
 };
 
 console.log(decodeString("3[a2[c]]"))
+
+Function.prototype.myBind = function(obj, ...args) {
+    return (...newArgs) => {
+        this.call(obj, ...args, ...newArgs)
+    }
+}
+
+Function.prototype.myCall = function(obj, ...args) {
+    obj.fn = this
+    const result = obj.fn(...args)
+    delete obj.fn
+    return result
+}
+
+Function.prototype.myApply = function(obj, args) {
+    obj.fn = this
+    const result = obj.fn(...args)
+    delete obj.fn
+    return result
+}
