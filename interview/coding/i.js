@@ -942,22 +942,51 @@ const decodeString = function(s) {
 
 console.log(decodeString("3[a2[c]]"))
 
-Function.prototype.myBind = function(obj, ...args) {
-    return (...newArgs) => {
-        this.call(obj, ...args, ...newArgs)
+// Function.prototype.myBind = function(obj, ...args) {
+//     return (...newArgs) => {
+//         this.call(obj, ...args, ...newArgs)
+//     }
+// }
+
+// Function.prototype.myCall = function(obj, ...args) {
+//     obj.fn = this
+//     const result = obj.fn(...args)
+//     delete obj.fn
+//     return result
+// }
+
+// Function.prototype.myApply = function(obj, args) {
+//     obj.fn = this
+//     const result = obj.fn(...args)
+//     delete obj.fn
+//     return result
+// }
+
+const dobArr = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i][0])
+        let a = i - 1
+        let b = 1
+        while (arr[a] && arr[a][b]) {
+            console.log(arr[a][b])
+            a = a - 1
+            b = b + 1
+        }
+    }
+    for (let i = 1; i < arr[arr.length - 1].length; i++) {
+        console.log(arr[arr.length - 1][i])
+        let a = arr.length - 2
+        let b = i + 1
+        while (arr[a] && arr[a][b]) {
+            console.log(arr[a][b])
+            a = a - 1
+            b = b + 1
+        }
     }
 }
 
-Function.prototype.myCall = function(obj, ...args) {
-    obj.fn = this
-    const result = obj.fn(...args)
-    delete obj.fn
-    return result
-}
-
-Function.prototype.myApply = function(obj, args) {
-    obj.fn = this
-    const result = obj.fn(...args)
-    delete obj.fn
-    return result
-}
+dobArr([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
