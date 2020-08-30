@@ -6,43 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .wrap {
-            width: 100px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .row {
-            flex: 1;
-            display: flex;
+        table.game {
+            font-size: 14px;
+            border-collapse: collapse;
             width: 100%;
+            table-layout: fixed;
         }
         
-        .item {
-            flex: 1;
+        table.game td {
+            border: 1px solid #e1e1e1;
+            padding: 0;
+            height: 30px;
+            text-align: center;
+        }
+        
+        table.game td.current {
+            background: #1890ff;
+        }
+        
+        table.game td.wrap {
+            background: #f5f5f5;
         }
     </style>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="row">
-            <div class="item" style="background: black"></div>
-            <div class="item" style="background: gold"></div>
-            <div class="item" style="background: greenyellow"></div>
-        </div>
-        <div class="row">
-            <div class="item" style="background: yellow"></div>
-            <div class="item" style="background: blue"></div>
-            <div class="item" style="background: skyblue"></div>
-        </div>
-        <div class="row">
-            <div class="item" style="background: springgreen"></div>
-            <div class="item" style="background: gray"></div>
-            <div class="item" style="background: red"></div>
-        </div>
+    <div id="jsContainer">
+        <table class="game">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="current"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
+<script>
+    const tds = document.getElementsByTagName('td')
+
+    function bind(e) {
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].setAttribute('class', '')
+        }
+        const parentNode = e.target.parentNode
+        for (let i = 0; i < parentNode.children.length; i++) {
+            parentNode.children[i].setAttribute('class', 'wrap')
+        }
+        e.target.setAttribute('class', 'current')
+        let flag
+        for (let i = 0; i < parentNode.children.length; i++) {
+            const name = parentNode.children[i].getAttribute('class')
+            if (name === 'current') {
+                flag = i
+            }
+        }
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].parentNode.children[flag].setAttribute('class', 'wrap')
+        }
+        e.target.setAttribute('class', 'current')
+    }
+    for (let i = 0; i < tds.length; i++) {
+        tds[i].addEventListener('click', bind)
+    }
+</script>
 
 </html>
