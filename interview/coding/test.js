@@ -1,33 +1,31 @@
-function myPromise(fn) {
-    this.state = 'padding'
-    this.value = null
-    this.resolveCallbacks = []
-    this.rejectCallbacks = []
-    resolve = (value) => {
-        if (this.state === 'padding') {
-            this.state = 'resolve'
-            this.value = value
-            this.resolveCallbacks.forEach(item => item(value))
-        }
+class Task {
+    constructor() {
+        this.list = []
+        setTimeout(async() => {
+            for (let i = 0; i < this.list.length; i++) {
+                await new Promise((resolve, reject) => {
+                    const item = this.list[i]
+                    if (item.type === 'sleep') {
+                        setTimeout(() => {
+                            resolve()
+                        }, item.value)
+                    } else {
+                        console.log(item.value)
+                        resolve()
+                    }
+                })
+            }
+        }, 0)
+        this.list = []
     }
-    reject = (value) => {
-        if (this.state === 'padding') {
-            this.state = 'reject'
-            this.value = value
-            this.rejectCallbacks.forEach(item => item(value))
-        }
+    sleep(time) {
+        this.list.push({ type: 'sleep', value: time })
+        return this
     }
-    try {
-        fn(resolve, reject)
-    } catch {
-        reject()
+    print(string) {
+        this.list.push({ type: 'print', value: string })
+        return this
     }
 }
 
-myPromise.prototype.then = (fn) => {
-    if (this.state === 'padding') {
-        this.resolveCallbacks.push(fn)
-    } else {
-        fn(this.value)
-    }
-}
+(new Task()).print('hello').sleep(1000).print('world')

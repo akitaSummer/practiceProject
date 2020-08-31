@@ -990,3 +990,94 @@ dobArr([
     [4, 5, 6],
     [7, 8, 9]
 ])
+
+const computedStr = (str) => {
+    const reg1 = /(\([0-9*/+-]{0,}\))/g
+    const reg2 = /([0-9]{0,})([*/])([0-9]{0,})/g
+    const reg3 = /([0-9]{0,})([+-])([0-9]{0,})/g
+
+    while (reg1.test(str)) {
+        str = str.replace(reg1, (s, $1) => {
+            return computedStr($1.slice(1, $1.length - 1))
+        })
+    }
+    while (reg2.test(str)) {
+        str = str.replace(reg2, (s, $1, $2, $3) => {
+            if ($2 === '*') {
+                return Number($1) * Number($3)
+            } else {
+                return Number($1) / Number($3)
+            }
+        })
+    }
+    while (reg3.test(str)) {
+        str = str.replace(reg3, (s, $1, $2, $3) => {
+            if ($2 === '+') {
+                return Number($1) + Number($3)
+            } else {
+                return Number($1) - Number($3)
+            }
+        })
+    }
+    return str
+}
+
+console.log(computedStr('(2+3)*2-2'))
+
+const buyCoffee = (arr) => {
+    const count = {
+        '5': 0,
+        '10': 0,
+        '20': 0
+    }
+    const trans = (num) => {
+        count[num + '']++
+            if (num === 5) {
+                return true
+            } else
+        if (num === 10) {
+            if (count['5'] > 0) {
+                count['5']--;
+                return true
+            } else {
+                return false
+            }
+        } else if (num === 20) {
+            if (count['5'] > 0 && count['10'] > 0) {
+                count['5']--;
+                count['10']--;
+                return true
+            } else if (count['5'] > 2) {
+                count['5'] = count['5'] - 3
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if (!trans(arr[i])) return false
+    }
+    return true
+}
+
+console.log(buyCoffee([10, 5, 5]))
+
+const delArr = (arr) => {
+    let flag = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] === flag) {
+            arr.splice(i, 1)
+            i--
+        } else {
+            flag = arr[i]
+        }
+    }
+    return arr
+}
+
+const testArr = [1, 2, 2, 4, 7, 8, 8, 12]
+
+const delArrResult = delArr(testArr)
+
+console.log(delArrResult, testArr === delArrResult)
