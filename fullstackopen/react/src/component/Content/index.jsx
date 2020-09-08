@@ -1,9 +1,10 @@
 import React from 'react'
 import Part from "../Part";
 
-import config from './config'
+const Content = (props) => {
 
-const Content = () => {
+  const { parts: config } = props
+
     return (
         <div>
           Content

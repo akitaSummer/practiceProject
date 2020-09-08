@@ -5,13 +5,25 @@ import Content from './component/Content'
 import Total from './component/Total'
 
 const App = () => {
-    const course = 'Half Stack application development'
+    const course = {
+        name: 'Half Stack application development',
+        parts: [{
+            name: 'Fundamentals of React',
+            number: 10
+        }, {
+            name: 'Using props to pass data',
+            number: 7
+        }, {
+            name: 'State of a component',
+            number: 14
+        }]
+    }
 
     return (
       <div>
         <Header course={course}/>
-        <Content/>
-        <Total/>
+        <Content parts={course.parts}/>
+        <Total parts={course.parts}/>
       </div>
     )
 }
