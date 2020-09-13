@@ -1,27 +1,57 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Course from "./component/Course";
 import './App.css';
-import Statistic from "./component/Statistic";
 
 const App = () => {
-    const [good, setGood] = useState(0)
-    const [neutral, setNeutral] = useState(0)
-    const [bad, setBad] = useState(0)
 
-    return (
-      <div>
-          <div>
-              <h2>give feedback</h2>
-              <button onClick={() => setGood(good + 1)}>good</button>
-              <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
-              <button onClick={() => setBad(bad + 1)}>neutral</button>
-          </div>
-          <Statistic
-            good={good}
-            neutral={neutral}
-            bad={bad}
-          />
-      </div>
-    )
+  const courses = [
+    {
+      name: 'Half Stack application development',
+      id: 1,
+      parts: [
+        {
+          name: 'Fundamentals of React',
+          exercises: 10,
+          id: 1
+        },
+        {
+          name: 'Using props to pass data',
+          exercises: 7,
+          id: 2
+        },
+        {
+          name: 'State of a component',
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    },
+    {
+      name: 'Node.js',
+      id: 2,
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
+        }
+      ]
+    }
+  ]
+
+
+  return <Course courses={courses} />
+
 }
 
 export default App;
