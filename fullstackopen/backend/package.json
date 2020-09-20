@@ -11,8 +11,11 @@
     "author": "akitasummer",
     "license": "MIT",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.1",
-        "morgan": "^1.10.0"
+        "mongoose": "^5.10.6",
+        "morgan": "^1.10.0",
+        "require-all": "^3.0.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
