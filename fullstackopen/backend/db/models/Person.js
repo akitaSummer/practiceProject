@@ -5,4 +5,4 @@ const Person = mongoose.Schema({
   number: String
 })
 
-module.exports = mongoose.Model('Person', Person)
+module.exports = mongoose.model('Person', Person)

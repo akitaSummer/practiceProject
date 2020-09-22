@@ -7,5 +7,5 @@ module.exports = () => {
 
   conn.on('connected', () => {console.log('数据库连接成功')})
 
-  require('require-all')(__dirname + './models')
+  require('require-all')(__dirname + '/models')
 }
