@@ -15,6 +15,10 @@ app.use(cors())
 // 设置文件下载文件夹
 app.use(express.static('build'))
 
+app.use(require('./middleware/unknownEndpoint'))
+
+app.use(require('./middleware/errorHandlers'))
+
 app.get('/info', (req, res) => {
   res.send(
     `

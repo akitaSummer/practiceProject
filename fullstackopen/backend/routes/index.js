@@ -29,4 +29,10 @@ Router.post('/', async (req,res) => {
   await person.save((error, item) => res.json(item))
 })
 
+Router.put('/', async (req,res) => {
+  const person = await Person.findOneAndUpdate({ name: req.body.name }, req.body)
+
+  await person.save((error, item) => res.json(item))
+})
+
 module.exports = Router
