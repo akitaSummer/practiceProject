@@ -1,8 +1,6 @@
 const Router = require('express').Router()
 
-const mongoose = require('mongoose')
-
-const Person = mongoose.model('Person')
+const Person = require('mongoose').model('Person')
 
 Router.get('/', async (req, res) => {
   const persons = await Person.find()

@@ -29,7 +29,8 @@ app.get('/info', (req, res) => {
 })
 
 // 引入路由
-app.use('/api/persons', require('./routes'))
+app.use('/api/persons', require('./routes/persons'))
+app.use('/api/blogs', require('./routes/blogs'))
 
 const PORT = 3001
 
