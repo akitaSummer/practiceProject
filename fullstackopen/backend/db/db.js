@@ -1,7 +1,7 @@
 module.exports = () => {
   const mongoose = require('mongoose')
 
-  mongoose.connect('mongodb://localhost:27017/', {userNewUrlParser: true})
+  mongoose.connect('mongodb://localhost:27017/fullstack', {userNewUrlParser: true})
 
   const conn = mongoose.connection
 
