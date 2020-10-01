@@ -16,7 +16,7 @@ import chalk from 'chalk'
 // log-symbols：日志符号
 import logSymbols from 'log-symbols'
 import fs from 'fs'
-import JSONFormat from './utils/JSONFormat'
+import install from './install'
 // 使用download-git-repo模板下载
 const download = require('download-git-repo')
 
@@ -24,14 +24,16 @@ type initType = 'react' | 'vue'
 
 const templates = {
     'react' : {
-        url: 'https://github.com:akitaSummer/akita_summer_component_library#master',
+        url: 'https://github.com:akitaSummer/electron-app-template#react',
         description: '',
-        color: chalk.blue
+        color: chalk.blue,
+        tsUrl: 'https://github.com:akitaSummer/electron-app-template#react-ts'
     },
     'vue' : {
-        url: 'https://github.com:akitaSummer/card-app#master',
+        url: 'https://github.com:akitaSummer/electron-app-template#vue',
         description: '',
-        color: chalk.green
+        color: chalk.green,
+        tsUrl: 'https://github.com:akitaSummer/electron-app-template#vue-ts'
     }
 }
 
@@ -39,36 +41,56 @@ program.version('0.1.0', '-v, --version')
 
 // 下载命令
 program.command('init <type> <name> [ts]') // command 设置命令，使用<>的参数为必须，使用[]的参数为非必须
-.action((type: initType, name: string, ts: string | undefined) => {
+.action((type: initType, name: string, ts?: string) => {
     if (type === 'react' || 'vue') {
-        const { url } = templates[type]
-        const spinner = ora('download...')
-        spinner.start()
+        const url = ts ? templates[type].tsUrl : templates[type].url
+        const downloadSpinner = ora('download...')
+        downloadSpinner.start()
         download(url, name, { clone: true }, async (err: any) => {
             if (err) {
                 console.log(err)
-                spinner.fail()
+                downloadSpinner.fail()
                 console.log(logSymbols.error,chalk.red('download error'))
                 return 
             }
-            spinner.succeed()
+            downloadSpinner.succeed()
             // 询问细节
-            const answers = await inquirer.prompt([{
+            const answers = await inquirer.prompt<{[propsName: string]: string}>([{
                 type: 'input',
                 name: 'author',
                 message: 'Please enter author'
+            }, {
+                type: 'input',
+                name: 'description',
+                message: 'Please enter app description'
+            }, {
+                type: 'input',
+                name: 'appId',
+                message: 'Please enter appId'
+            }, {
+                type: 'input',
+                name: 'productName',
+                message: 'Please enter app productName'
             }])
+            answers.name = name
+            
             const packagePath = `${name}/package.json`
             // 获取package.json内容
             const packageContent = fs.readFileSync(packagePath, 'utf-8')
-            let packageResult = handlebars.compile(packageContent)(answers)
-            if (answers.author) {
-                const packageResultObj : { [PropsName: string] : { [PropsName: string] : string } } = JSON.parse(handlebars.compile(packageContent)(answers))
-                packageResultObj.dependencies.typescript = '4.0.0'
-                packageResult = JSONFormat(JSON.stringify(packageResultObj))
-            }
+            const packageResult = handlebars.compile(packageContent)(answers)
             fs.writeFileSync(packagePath, packageResult)
-            console.log(logSymbols.success, templates[type].color('enjoy your app'))
+
+            // 执行install
+            try {
+                install(name)
+                console.log(chalk.gray('$'), templates[type].color(` cd ${name}`))
+                console.log(chalk.gray('$'), templates[type].color(` yarn dev`))
+                console.log(logSymbols.success, templates[type].color('enjoy your app'))
+            } catch(err) {
+                console.log(err)
+                downloadSpinner.fail()
+                console.log(logSymbols.error,chalk.red('install error'))
+            }
         })
     } else {
         console.log('The frameworks are only Vue and react')
