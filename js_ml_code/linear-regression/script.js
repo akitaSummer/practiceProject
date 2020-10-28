@@ -24,7 +24,7 @@ window.onload = async() => {
     }))
     model.compile({
         //设置损失函数
-        loss: tf.losses.meanSquaredError, // 使用均方误差
+        loss: tf.losses.meanSquaredError, // 使用均方误差，适用于线性
         // 设置优化器
         optimizer: tf.train.sgd(0.1) // 随机梯度下降
     })
