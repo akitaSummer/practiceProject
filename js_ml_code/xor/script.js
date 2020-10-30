@@ -1,14 +1,14 @@
 import * as tf from '@tensorflow/tfjs'
 import * as tfvis from '@tensorflow/tfjs-vis'
-import { getData } from './data'
+import { getData } from './data.js'
 
 window.onload = async() => {
     const data = getData(400)
 
     tfvis.render.scatterplot({
-        name: 'logistic-regression-inputs'
+        name: 'XOR inputs'
     }, {
-        values: [ // 使用数组设置输出图样例分组
+        values: [
             data.filter(p => p.label === 1),
             data.filter(p => p.label === 0)
         ]
@@ -16,12 +16,18 @@ window.onload = async() => {
 
     const model = tf.sequential()
     model.add(tf.layers.dense({
-        units: 1,
-        inputShape: [2],
-        activation: 'sigmoid' // 设置激活函数
-    }))
+            units: 4,
+            inputShape: [2],
+            activation: 'relu'
+        }))
+        // 设置中间层
+    model.add(tf.layers.dense({
+            units: 1,
+            activation: 'sigmoid'
+        }))
+        // 设置输出层
     model.compile({
-        loss: tf.losses.logLoss, // 逻辑回归使用对数损失函数
+        loss: tf.losses.logLoss,
         optimizer: tf.train.adam(0.1)
     })
 
@@ -29,15 +35,12 @@ window.onload = async() => {
     const labels = tf.tensor(data.map(p => p.label))
 
     await model.fit(inputs, labels, {
-        batchSize: 40,
-        epochs: 50,
-        callbacks: tfvis.show.fitCallbacks({
-            name: 'loss'
-        }, ['loss'])
+        epochs: 10,
+        callbacks: tfvis.show.fitCallbacks({ name: 'result' }, ['loss'])
     })
 
-    window.predict = (form) => {
-        const pred = model.predict(tf.tensor([
+    window.predict = async(form) => {
+        const pred = await model.predict(tf.tensor([
             [form.x.value * 1, form.y.value * 1]
         ]))
         document.querySelector('.result').innerHTML = `预测结果为${pred.dataSync()[0]}`
