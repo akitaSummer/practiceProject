@@ -47,4 +47,55 @@ window.onload = async() => {
         activation: 'softmax',
         kernelInitializer: 'varianceScaling'
     }))
+    model.compile({
+        loss: 'categoricalCrossentropy',
+        optimizer: tf.train.adam(),
+        metrics: 'accuracy'
+    })
+    const [trainXs, trainYs] = tf.tidy(() => {
+        const d = data.nextTestBatch(1000)
+        return [
+            d.xs.reshape([1000, 28, 28, 1]),
+            d.labels
+        ]
+    })
+    const [testXs, testYs] = tf.tidy(() => {
+        const d = data.nextTestBatch(200)
+        return [
+            d.xs.reshape([200, 28, 28, 1]),
+            d.labels
+        ]
+    })
+
+    await model.fit(trainXs, trainYs, {
+        validationData: [testXs, testYs],
+        epochs: 50,
+        callbacks: tfvis.show.fitCallbacks({ name: 'result' }, ['loss', 'val_loss', 'acc', 'val_acc'], { callbacks: ['onEpochEnd'] })
+    })
+
+    const canvas = document.querySelector('canvas')
+
+    canvas.addEventListener('mousemove', (e) => {
+        if (e.buttons === 1) {
+            const ctx = canvas.getContext('2d')
+            ctx.fillStyle = 'rgb(255, 255, 255)'
+            ctx.fillRect(e.offsetX, e.offsetY, 25, 25)
+        }
+    })
+
+    window.clear = () => {
+        const ctx = canvas.getContext('2d')
+        ctx.fillStyle = 'rgb(0, 0, 0)'
+        ctx.fillRect(0, 0, 300, 300)
+    }
+
+    clear()
+
+    window.predict = () => {
+        const input = tf.tidy(() => tf.image.resizeBilinear(
+            tf.browser.fromPixels(canvas), [28, 28], true
+        ).slice([0, 0, 0], [28, 28, 1]).toFloat().div(255).reshape([1, 28, 28, 1]))
+        const pred = model.predict(input).argMax(1)
+        document.querySelector('.result').innerHTML = `预测结果为${pred.dataSync()[0]}`
+    }
 }
