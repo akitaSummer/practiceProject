@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@tensorflow-models/speech-commands@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@tensorflow-models/speech-commands/-/speech-commands-0.4.2.tgz#30da01114aba9253ba0871eedc1fbe03c1306aca"
+  integrity sha512-XpfRUzVy0DtQkMvR/jqRWCFgcka9pgwEdfqtHTqnIBoueAUJiuq1edD+RNzbK01O3bAJ9FIL/VuiTZmxNx92NQ==
+
 "@tensorflow/tfjs-backend-cpu@2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-backend-cpu/-/tfjs-backend-cpu-2.7.0.tgz#f3a6c631279b0aab36c570e84343a014bc68da47"

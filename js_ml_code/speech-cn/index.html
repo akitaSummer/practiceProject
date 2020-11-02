@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .result>div {
+        float: left;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="result"></div>
+    <button onclick="collect(this)">上一张</button>
+    <button onclick="collect(this)">下一张</button>
+    <button onclick="collect(this)">背景噪音</button>
+    <button onclick="save()">保存</button>
+    <pre class="count"></pre>
+    <button onclick="train(this)">训练</button>
+    <br>
+    <br> 监听开关：
+    <input type="checkbox" onchange="toggle(this.checked)">
+</body>
+<script src="script.js"></script>
+
+</html>

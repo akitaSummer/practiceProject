@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "@tensorflow-models/speech-commands": "^0.4.2",
         "@tensorflow/tfjs": "^2.7.0",
         "@tensorflow/tfjs-vis": "^1.4.3"
     },
@@ -7,5 +8,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "browserslist": ["last 1 Chrome version"]
+    "browserslist": [
+        "last 1 Chrome version"
+    ]
 }
