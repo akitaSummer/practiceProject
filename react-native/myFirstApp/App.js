@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
 const App = (props): React$Node => {
   console.log(props)
   return (
@@ -53,6 +55,21 @@ const App = (props): React$Node => {
                 props.navigation.navigate('SectionListDemo')
               }}
             />
+            <View style={styles.body}>
+              <View style={styles.sectionContainer}>
+                <Text>Icons</Text>
+                <Ionicons
+                  name={'ios-analytics'}
+                  size={50}
+                  style={{color: 'red'}}
+                />
+                <Ionicons
+                  name={'ios-apps'}
+                  size={50}
+                  style={{color: 'blue'}}
+                />
+              </View>
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>

@@ -38,11 +38,11 @@ const SectionListDemo = (): React$Node => {
     )
   }
 
-  const _renderSectionHeader = (section) => {
+  const _renderSectionHeader = ({section}) => {
     return (
       <View style={styles.sectionHeader}>
         <Text style={styles.text}>
-          {section.section.title}
+          {section.title}
         </Text>
       </View>
     )
