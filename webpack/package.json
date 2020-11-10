@@ -51,7 +51,7 @@
     "middleware": "node server.js"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mini-css-extract-plugin": "^0.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
