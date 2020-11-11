@@ -16,27 +16,21 @@ const styles = StyleSheet.create({
   }
 })
 
-const Page2 = (props): React$Node => {
+const Login = (props): React$Node => {
 
   const { navigation } = props
 
   return (
     <View style={{ flex: 1, backgroundColor: 'gray', padding: 40 }}>
-      <Text style={styles.text}>welcome page2</Text>
+      <Text style={styles.text}>Login</Text>
       <Button
-        title={'go back'}
+        title={'sign in'}
         onPress={() => {
-          navigation.goBack()
-        }}
-      />
-      <Button
-        title={'go to page1'}
-        onPress={() => {
-          navigation.navigate('Page1')
+          navigation.navigate('App')
         }}
       />
     </View>
   )
 }
 
-export default Page2
+export default Login

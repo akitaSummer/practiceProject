@@ -41,6 +41,24 @@ const HomePage = (props): React$Node => {
           navigation.navigate('Page3')
         }}
       />
+      <Button
+        title={'顶部导航器'}
+        onPress={() => {
+          navigation.navigate('MaterialTopTabNavigator')
+        }}
+      />
+      <Button
+        title={'底部导航器'}
+        onPress={() => {
+          navigation.navigate('BottomTabNavigator')
+        }}
+      />
+      <Button
+        title={'DrawerNav'}
+        onPress={() => {
+          navigation.navigate('DrawerNav')
+        }}
+      />
     </View>
   )
 }

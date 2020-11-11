@@ -28,7 +28,6 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const App = (props): React$Node => {
-  console.log(props)
   return (
     <>
       <StatusBar barStyle="dark-content" />
