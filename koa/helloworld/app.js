@@ -42,6 +42,10 @@ try {
 }
 // 也可以使用const jwt = require('koa-jwt') router.get('/api', jwt({ secret: 'shared-secret' }, (ctx, next) => {}))
 
+const conditional = require('koa-conditional-get')
+const etag = require('koa-etag')
+const otp = require('./otp')('asdfjkl')
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 const upload = require('./routes/upload')
@@ -57,9 +61,19 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
+    // etag通常与conditional-get一块使用
+app.use(conditional())
+app.use(etag())
 
 app.use(views(__dirname + '/views', {
     extension: 'pug'
+}))
+
+app.use(otp.encode((ctx, next) => {
+    ctx.body = {
+        token: ctx.otp_token,
+        valid: ctx.otp_valid
+    }
 }))
 
 // logger
@@ -93,6 +107,7 @@ app.use(async(ctx, next) => {
     })
     await next()
     const ms = new Date() - start
+        // ctx.response.etag = etag(entity, options)
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 

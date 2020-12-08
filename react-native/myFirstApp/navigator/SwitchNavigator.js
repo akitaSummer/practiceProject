@@ -1,7 +1,7 @@
 import { createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import { AppStackNavigator } from './AppNavigtors'
+import { AppStackNavigator } from './AppNavigators'
 import Login from "../pages/Login";
 
 const AuthStack = createStackNavigator(

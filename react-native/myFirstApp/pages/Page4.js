@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const page4 = (props): React$Node => {
+const page4 = (props) => {
 
   const { navigation } = props
 

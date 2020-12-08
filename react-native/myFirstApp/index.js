@@ -6,7 +6,7 @@ import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
 import 'react-native-gesture-handler'
 import { createAppContainer } from 'react-navigation'
-import { AppStackNavigator } from "./navigator/AppNavigtors";
+import { AppStackNavigator } from "./navigator/AppNavigators";
 import SwitchNavigator from './navigator/SwitchNavigator'
 // import { createStackNavigator } from 'react-navigation-stack'
 // import App from './App';
