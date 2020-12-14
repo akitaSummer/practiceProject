@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_flutter_app/animated_widget_page.dart';
 import 'package:my_first_flutter_app/less_group_page.dart';
 import 'package:my_first_flutter_app/plugin_use.dart';
 import 'package:my_first_flutter_app/statefull_group_page.dart';
@@ -8,6 +9,7 @@ import 'package:my_first_flutter_app/launch_page.dart';
 import 'package:my_first_flutter_app/flutter_widget_lifecycle.dart';
 import 'package:my_first_flutter_app/app_lifecycle.dart';
 import 'package:my_first_flutter_app/photo_app_page.dart';
+import 'package:my_first_flutter_app/animation_page.dart';
 import 'flutter_layout_page.dart';
 
 void main() {
@@ -70,6 +72,8 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'widget_lifecycle': (BuildContext context) => WidgetLifecycle(),
         'app_lifecycle': (BuildContext context) => AppLifecycle(),
         'photo_app': (BuildContext context) => PhotoApp(),
+        'animation': (BuildContext context) => AnimationPage(),
+        'animated_widge': (BuildContext context) => AnimatedWidgetPage(),
       },
     );
   }
@@ -107,8 +111,10 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('ResourcePage', ResourcePage(), 'resource'),
           _item('LaunchPage', LaunchPage(), 'launch'),
           _item('WidgetLifecycle', WidgetLifecycle(), 'widget_lifecycle'),
-          _item('app_lifecycle', AppLifecycle(), 'app_lifecycle'),
-          _item('photo_app', PhotoApp(), 'photo_app'),
+          _item('appLifecycle', AppLifecycle(), 'app_lifecycle'),
+          _item('photoApp', PhotoApp(), 'photo_app'),
+          _item('animationPage', AnimationPage(), 'animation'),
+          _item('animatedWidge', AnimatedWidgetPage(), 'animated_widge'),
         ],
       ),
     );
