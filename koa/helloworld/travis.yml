@@ -1,0 +1,20 @@
+sudo: fasle
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+env:
+  - CXX=g++4.8
+language: node_js
+node_js:
+  - 6
+  - 5
+  - 4
+script:
+  - npm test
+services:
+  - mongodb
+before_script:
+  - mongo Mongoose-base-user-plugin --eval 'db.addUser("travis", "test")'
