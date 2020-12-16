@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 
-class AnimatedWidgetPage extends StatefulWidget {
+class AnimatedBuilderPage extends StatefulWidget {
   @override
-  _AnimatedWidgetPageState createState() => _AnimatedWidgetPageState();
+  _AnimatedBuilderPageState createState() => _AnimatedBuilderPageState();
 }
 
-class _AnimatedWidgetPageState extends State<AnimatedWidgetPage> with SingleTickerProviderStateMixin {
+class _AnimatedBuilderPageState extends State<AnimatedBuilderPage> with SingleTickerProviderStateMixin {
 
   Animation<double> animation;
   AnimationController controller;
@@ -50,7 +50,7 @@ class _AnimatedWidgetPageState extends State<AnimatedWidgetPage> with SingleTick
                     controller.forward();
                   }
               ),
-              AnimatedLogo(animation: animation,)
+              GrowTransition(animation: animation, child: LogWidget())
             ],
           )
       ),

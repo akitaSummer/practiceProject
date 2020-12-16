@@ -10,6 +10,9 @@ import 'package:my_first_flutter_app/flutter_widget_lifecycle.dart';
 import 'package:my_first_flutter_app/app_lifecycle.dart';
 import 'package:my_first_flutter_app/photo_app_page.dart';
 import 'package:my_first_flutter_app/animation_page.dart';
+import 'package:my_first_flutter_app/animated_builder_page.dart';
+import 'package:my_first_flutter_app/transitions.dart';
+import 'package:my_first_flutter_app/radial_expansion.dart';
 import 'flutter_layout_page.dart';
 
 void main() {
@@ -73,7 +76,10 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'app_lifecycle': (BuildContext context) => AppLifecycle(),
         'photo_app': (BuildContext context) => PhotoApp(),
         'animation': (BuildContext context) => AnimationPage(),
-        'animated_widge': (BuildContext context) => AnimatedWidgetPage(),
+        'animated_widget': (BuildContext context) => AnimatedWidgetPage(),
+        'animated_builder': (BuildContext context) => AnimatedBuilderPage(),
+        'hero_transition': (BuildContext context) => HeroAnimation(),
+        'hero_radial_transition': (BuildContext context) => HeroAnimation(),
       },
     );
   }
@@ -114,7 +120,10 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('appLifecycle', AppLifecycle(), 'app_lifecycle'),
           _item('photoApp', PhotoApp(), 'photo_app'),
           _item('animationPage', AnimationPage(), 'animation'),
-          _item('animatedWidge', AnimatedWidgetPage(), 'animated_widge'),
+          _item('animatedWidget', AnimatedWidgetPage(), 'animated_widget'),
+          _item('animatedBuilder', AnimatedWidgetPage(), 'animated_builder'),
+          _item('heroTransition', HeroAnimation(), 'hero_transition'),
+          _item('heroRadialTransition', RadialExpansionDemo(), 'hero_radial_transition'),
         ],
       ),
     );
