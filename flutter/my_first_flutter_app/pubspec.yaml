@@ -34,6 +34,7 @@ dependencies:
   path_provider: ^1.6.24
   transparent_image: ^0.1.0
   cached_network_image: ^2.4.1
+  shared_preferences: ^0.5.12+4
 dev_dependencies:
   flutter_test:
     sdk: flutter

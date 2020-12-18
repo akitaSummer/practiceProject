@@ -13,6 +13,8 @@ import 'package:my_first_flutter_app/animation_page.dart';
 import 'package:my_first_flutter_app/animated_builder_page.dart';
 import 'package:my_first_flutter_app/transitions.dart';
 import 'package:my_first_flutter_app/radial_expansion.dart';
+import 'package:my_first_flutter_app/future_builder_page.dart';
+import 'package:my_first_flutter_app/share_preferences_page.dart';
 import 'flutter_layout_page.dart';
 
 void main() {
@@ -79,7 +81,9 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'animated_widget': (BuildContext context) => AnimatedWidgetPage(),
         'animated_builder': (BuildContext context) => AnimatedBuilderPage(),
         'hero_transition': (BuildContext context) => HeroAnimation(),
-        'hero_radial_transition': (BuildContext context) => HeroAnimation(),
+        'hero_radial_transition': (BuildContext context) => RadialExpansionDemo(),
+        'future_builder': (BuildContext context) => FutureBuilderPage(),
+        'share_preferences': (BuildContext context) => SharePreferencesPage(),
       },
     );
   }
@@ -117,13 +121,15 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('ResourcePage', ResourcePage(), 'resource'),
           _item('LaunchPage', LaunchPage(), 'launch'),
           _item('WidgetLifecycle', WidgetLifecycle(), 'widget_lifecycle'),
-          _item('appLifecycle', AppLifecycle(), 'app_lifecycle'),
-          _item('photoApp', PhotoApp(), 'photo_app'),
-          _item('animationPage', AnimationPage(), 'animation'),
-          _item('animatedWidget', AnimatedWidgetPage(), 'animated_widget'),
-          _item('animatedBuilder', AnimatedWidgetPage(), 'animated_builder'),
-          _item('heroTransition', HeroAnimation(), 'hero_transition'),
-          _item('heroRadialTransition', RadialExpansionDemo(), 'hero_radial_transition'),
+          _item('AppLifecycle', AppLifecycle(), 'app_lifecycle'),
+          _item('PhotoApp', PhotoApp(), 'photo_app'),
+          _item('AnimationPage', AnimationPage(), 'animation'),
+          _item('AnimatedWidget', AnimatedWidgetPage(), 'animated_widget'),
+          _item('AnimatedBuilder', AnimatedWidgetPage(), 'animated_builder'),
+          _item('HeroTransition', HeroAnimation(), 'hero_transition'),
+          _item('HeroRadialTransition', RadialExpansionDemo(), 'hero_radial_transition'),
+          _item('FutureBuilder', FutureBuilderPage(), 'future_builder'),
+          _item('SharePreferences', SharePreferencesPage(), 'share_preferences'),
         ],
       ),
     );
