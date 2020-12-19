@@ -15,6 +15,12 @@ import 'package:my_first_flutter_app/transitions.dart';
 import 'package:my_first_flutter_app/radial_expansion.dart';
 import 'package:my_first_flutter_app/future_builder_page.dart';
 import 'package:my_first_flutter_app/share_preferences_page.dart';
+import 'package:my_first_flutter_app/list_view.dart';
+import 'package:my_first_flutter_app/radial_list_view.dart';
+import 'package:my_first_flutter_app/expansion_tile.dart';
+import 'package:my_first_flutter_app/grid_view.dart';
+import 'package:my_first_flutter_app/scroll_controller.dart';
+import 'package:my_first_flutter_app/refresh_indicator.dart';
 import 'flutter_layout_page.dart';
 
 void main() {
@@ -84,6 +90,12 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'hero_radial_transition': (BuildContext context) => RadialExpansionDemo(),
         'future_builder': (BuildContext context) => FutureBuilderPage(),
         'share_preferences': (BuildContext context) => SharePreferencesPage(),
+        'list_view': (BuildContext context) => ListViewPage(),
+        'radial_list_view': (BuildContext context) => RadialListViewPage(),
+        'expansion_tile': (BuildContext context) => ExpansionTilePage(),
+        'grid_view': (BuildContext context) => GridViewPage(),
+        'grid_view': (BuildContext context) => RefreshIndicatorPage(),
+        'scroll_controller': (BuildContext context) => ScrollControllerPage(),
       },
     );
   }
@@ -130,6 +142,12 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('HeroRadialTransition', RadialExpansionDemo(), 'hero_radial_transition'),
           _item('FutureBuilder', FutureBuilderPage(), 'future_builder'),
           _item('SharePreferences', SharePreferencesPage(), 'share_preferences'),
+          _item('ListView', ListViewPage(), 'list_view'),
+          _item('RadialListView', RadialListViewPage(), 'radial_list_view'),
+          _item('ExpansionTile', ExpansionTilePage(), 'expansion_tile'),
+          _item('GridView', GridViewPage(), 'grid_view'),
+          _item('RefreshIndicator', RefreshIndicatorPage(), 'refresh_indicator'),
+          _item('ScrollController', ScrollControllerPage(), 'scroll_controller'),
         ],
       ),
     );
