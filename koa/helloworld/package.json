@@ -26,7 +26,9 @@
         "koa-views": "^6.2.0",
         "mongoose": "^5.11.4",
         "notp": "^2.0.3",
-        "pug": "^2.0.3"
+        "pug": "^2.0.3",
+        "koa-session": "^6.1.0",
+        "koa-session-mongoose": "^3.0.1"
     },
     "devDependencies": {
         "nodemon": "^1.19.1"

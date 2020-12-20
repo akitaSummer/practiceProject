@@ -15,7 +15,7 @@ class _RefreshIndicatorPageState extends State<RefreshIndicatorPage> {
       appBar: AppBar(
         title: Text('RefreshIndicatorPage'),
         leading: BackButton(),
-      ),
+      ),   
       body: RefreshIndicator(
         onRefresh: _handleRefresh,
         child: ListView(
