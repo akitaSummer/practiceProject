@@ -1,22 +1,57 @@
 package com.example.flutter_hybrid_android;
 
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import io.flutter.embedding.android.FlutterActivity;
+
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentTransaction;
+import io.flutter.embedding.android.FlutterFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG_FLUTTER_FRAGMENT = "flutter_fragment";
+
+    private FlutterFragment flutterFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                FragmentTransaction tx = getSupportFragmentManager()
-                        .beginTransaction();
-                tx.replace(R.id.somContainer, Flutter.createFragment(""));
+            public void onClick(View view) {
+//                String inputParams = paramInput.getText().toString().trim();
+//                FlutterAppActivity.start(MainActivity.this, inputParams);
+
+//                startActivity(
+//                    FlutterActivity
+//                        .withNewEngine()
+//                        .initialRoute("route1")
+//                        .build(MainActivity.this)
+//                );
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                flutterFragment = (FlutterFragment) fragmentManager
+                        .findFragmentByTag(TAG_FLUTTER_FRAGMENT);
+
+                if (flutterFragment == null) {
+                    flutterFragment = FlutterFragment.withNewEngine().initialRoute("route1").build();
+
+                    fragmentManager
+                            .beginTransaction()
+                            .add(
+                                    R.id.somContainer,
+                                    flutterFragment,
+                                    TAG_FLUTTER_FRAGMENT
+                            )
+                            .commit();
+                }
             }
         });
     }
