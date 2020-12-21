@@ -1,17 +1,32 @@
 {
-  "name": "nextdome",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "next": "^10.0.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  }
+    "name": "nextdome",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "next -p 5000",
+        "build": "next build",
+        "start": "next start -p 80",
+        "dev_e": "cross-env NODE_ENV=dev node server.js",
+        "start_e": "cross-env NODE_ENV=production node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@zeit/next-less": "^1.0.1",
+        "connect": "^3.7.0",
+        "cross-env": "^7.0.3",
+        "express": "^4.17.1",
+        "less": "^4.0.0",
+        "next": "^10.0.3",
+        "node-fetch": "^2.6.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-redux": "^7.1.0",
+        "redux": "^3.6.0",
+        "redux-devtools-extension": "^2.13.2",
+        "sass": "^1.30.0"
+    }
 }
