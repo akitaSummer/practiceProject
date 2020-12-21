@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 // import less from './style.less'
 
-const News = () => {
+const News: FC<{}> = () => {
     return (
         // <div className={less.size}>
         <div>

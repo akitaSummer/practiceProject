@@ -1,11 +1,12 @@
-import React, { useCallback } from 'react'
+import React, { FC, useCallback } from 'react'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
+import { StoreState } from '@/store'
 
-import { add } from '../store/actions'
-import Layout from '../components/Layout'
-import RedLink from '../components/RedLink'
+import { add } from '@/store/actions'
+import Layout from '@/components/Layout'
+import RedLink from '@/components/RedLink'
 
 /**
  * Link 标签路由
@@ -50,9 +51,9 @@ Router.events.on('routeChangeStart', (url) => {
 })
 
 
-const About = () => {
+const About: FC<{}> = () => {
 
-    const count = useSelector((state) => state.count)
+    const count = useSelector<StoreState, number>((state) => state.count)
 
     const dispatch = useDispatch()
 

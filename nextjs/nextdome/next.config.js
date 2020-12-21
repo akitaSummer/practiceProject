@@ -3,3 +3,11 @@
 // module.exports = withLess({
 //     cssModules: true
 // })
+
+module.exports = {
+    webpack: (config, options) => {
+        config.resolve.alias['@'] = __dirname
+
+        return config
+    }
+}

@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import Link from 'next/link'
-import Router, { useRouter, withRouter } from 'next/router'
+import Router, { useRouter, withRouter, NextRouter } from 'next/router'
 import Head from 'next/head'
 import css from './index.module.css'
 
-const Index = (props) => {
+interface Iprops {
+    router: NextRouter
+}
+
+const Index: FC<Iprops> = (props) => {
 
     const router = useRouter()
 

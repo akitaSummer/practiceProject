@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useRouter } from 'next/router'
 
-const id = () => {
+const id: FC<{}> = () => {
 
     const router = useRouter()
 

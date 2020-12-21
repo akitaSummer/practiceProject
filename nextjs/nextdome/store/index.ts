@@ -3,4 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import reducer from './reducer'
 
-export default createStore(reducer, composeWithDevTools(applyMiddleware()))
+export type StoreState = {
+    count: number
+}
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware()))
+
+export default store
