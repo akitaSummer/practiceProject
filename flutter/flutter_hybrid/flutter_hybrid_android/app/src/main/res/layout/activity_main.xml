@@ -12,6 +12,12 @@
     android:layout_height="wrap_content"
     android:text="Test" />
 
+  <EditText
+    android:id="@+id/paramInput"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="初次加载RN传递的数据" />
+
   <FrameLayout
     android:id="@+id/somContainer"
     android:layout_height="wrap_content"

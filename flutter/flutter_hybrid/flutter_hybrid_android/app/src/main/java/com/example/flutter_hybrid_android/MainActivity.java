@@ -1,6 +1,7 @@
 package com.example.flutter_hybrid_android;
 
 import android.content.Intent;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import io.flutter.embedding.android.FlutterActivity;
@@ -17,10 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
     private FlutterFragment flutterFragment;
 
+    private UIPresenter uiPresenter;
+    private BasicMessageChannelPlugin basicMessageChannelPlugin;
+    private EventChannelPlugin eventChannelPlugin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final EditText paramInput = findViewById(R.id.paramInput);
 
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 //                        .initialRoute("route1")
 //                        .build(MainActivity.this)
 //                );
+                String inputParams = paramInput.getText().toString().trim();
+//                FlutterAppActivity.start(MainActivity.this, inputParams);
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -52,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             )
                             .commit();
                 }
+
             }
         });
     }
