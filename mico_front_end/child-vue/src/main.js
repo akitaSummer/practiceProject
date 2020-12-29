@@ -34,7 +34,7 @@ if (window.singleSpaNavigate) {
     __webpack_public_path__ = 'http://localhost:10001'
 }
 
-// 子应用开发时
+// 开发子应用时
 createApp(App).use(router).mount(window.singleSpaNavigate ? '#vue' : '#app')
 
 export const bootstrap = vueLifeCycle.bootstrap

@@ -2,11 +2,16 @@ import React, { FC, useCallback } from 'react'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { StoreState } from '@/store'
+import dynamic from 'next/dynamic'
+import { GetStaticProps } from 'next'
 
+import { StoreState } from '@/store'
 import { add } from '@/store/actions'
 import Layout from '@/components/Layout'
 import RedLink from '@/components/RedLink'
+
+const DynamicComponent = dynamic(import('@/components/DynamicComponent'))
+
 
 /**
  * Link 标签路由
@@ -75,6 +80,9 @@ const About: FC<{}> = () => {
             <Link href='/' passHref>
                 <RedLink/> 
             </Link>
+            {
+                count > 5 ? <DynamicComponent/> : null
+            }
         </Layout>
     )
 }

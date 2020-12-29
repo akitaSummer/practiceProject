@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>hello world</p>
+        <div id="shadow"></div>
+    </div>
+</body>
+<script>
+    const shadowDom = shadow.attachShadow({
+        mode: 'closed'
+    })
+    const pElem = document.createElement('p')
+    pElem.innerHTML = 'hello shadowDom'
+    const styleElem = document.createElement('style')
+    styleElem.textContent = `
+        p { color: red }
+    `
+    shadowDom.appendChild(pElem)
+    shadowDom.appendChild(styleElem)
+        // react vue 项目中弹框组件常位于body上，可能会出现样式问题
+</script>
+
+</html>

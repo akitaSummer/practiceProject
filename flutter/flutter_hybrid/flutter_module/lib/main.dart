@@ -37,8 +37,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // EventChannel: 用于数据流（event streams）的通信，持续通信，收到消息后无法回复此次消息，通过长用于Native向Dart的通信，如：手机电量变化，网络连接变化，陀螺仪，传感器等
   static const EventChannel _eventChannelPlugin = EventChannel('EventChannelPlugin');
+  // MethodChannel：用于传递方法调用（method invocation）一次性通信：如Flutter调用Native拍照
   static const MethodChannel _methodChannelPlugin = const MethodChannel('MethodChannelPlugin');
+  // BasicMessageChannel：用于传递字符串和半结构化的信息，持续通信，收到消息后可以回复此次消息，如：Native将遍历到的文件信息陆续传递到Dart，在比如：Flutter将从服务端陆陆续获取到信息交个Native加工，Native处理完返回等
   static const BasicMessageChannel<String> _basicMessageChannel = const BasicMessageChannel('BasicMessageChannel', StringCodec());
   String showMessage = '';
   StreamSubscription _streamSubscription;

@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from 'react'
+import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import Router, { useRouter, withRouter, NextRouter } from 'next/router'
 import Head from 'next/head'
@@ -65,8 +66,15 @@ const Index: FC<Iprops> = (props) => {
             <Link href='/cmp/[...id]' as='/cmp/123/456'>
                 <a>cmp ID</a>
             </Link>
+            <br/>
         </div>
     )
 }
 
 export default withRouter(Index)
+
+export const getStaticProps: GetStaticProps = async () => {
+    return {
+        props: {}
+    }
+}
