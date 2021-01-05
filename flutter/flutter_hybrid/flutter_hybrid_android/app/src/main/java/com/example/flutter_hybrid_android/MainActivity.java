@@ -1,15 +1,10 @@
 package com.example.flutter_hybrid_android;
 
-import android.content.Intent;
 import android.widget.EditText;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
-import io.flutter.embedding.android.FlutterActivity;
 
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentTransaction;
 import io.flutter.embedding.android.FlutterFragment;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterEngineCache;
