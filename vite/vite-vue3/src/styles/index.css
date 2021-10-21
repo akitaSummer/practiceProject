@@ -1,0 +1,10 @@
+/* @import url('@styles/others.css'); */
+
+:root {
+    --main-bg-color: brown;
+}
+
+.root {
+    @console.error hello root;
+    color: var(--main-bg-color);
+}
