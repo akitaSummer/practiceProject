@@ -1,10 +1,27 @@
 {
-  "name": "rollup-test",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "@rollup/plugin-json": "^4.1.0",
-    "rollup": "^2.58.0"
-  }
+    "name": "rollup-test",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@rollup/plugin-alias": "^3.1.8",
+        "@rollup/plugin-commonjs": "^21.0.1",
+        "@rollup/plugin-image": "^2.1.1",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.6",
+        "@rollup/plugin-replace": "^3.0.0",
+        "@rollup/plugin-strip": "^2.1.0",
+        "react": "^17.0.2",
+        "rollup": "^2.58.0",
+        "rollup-plugin-terser": "^7.0.2"
+    },
+    "scripts": {
+        "test": "echo \"Error: no tests specified\"",
+        "build": "rollup -c rollup.config.js"
+    },
+    "devDependencies": {
+        "@rollup/plugin-typescript": "^8.3.0",
+        "tslib": "^2.3.1",
+        "typescript": "^4.4.4"
+    }
 }
