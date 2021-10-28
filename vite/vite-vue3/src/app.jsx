@@ -25,3 +25,9 @@ export default defineComponent({
     }
   },
 })
+
+if (import.meta.hot) {
+  import.meta.hot.on('test', (val) => {
+    console.log(val)
+  })
+}
