@@ -7,12 +7,14 @@
         "serve": "vite preview"
     },
     "dependencies": {
+        "@rollup/pluginutils": "^4.1.1",
         "less": "^4.1.2",
         "typescript": "^4.4.4",
         "vue": "^3.0.5",
         "vue-tsc": "^0.28.7"
     },
     "devDependencies": {
+        "@mdx-js/mdx": "^1.6.22",
         "@postcss-plugins/console": "^0.2.5",
         "@vitejs/plugin-vue": "^1.2.3",
         "@vitejs/plugin-vue-jsx": "^1.2.0",
